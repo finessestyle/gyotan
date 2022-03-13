@@ -33,6 +33,12 @@
     padding-left: 25px;
     text-align: left;
   }
+
+  .post-user-image img {
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+  }
   
   /* posts/show ================================ */
   .posts-show form {
@@ -46,7 +52,7 @@
     overflow: hidden;
   }
   
-  .posts-show-item img {
+  .post-user-name img {
     width: 60px;
     height: 60px;
     border-radius: 40%;
@@ -60,6 +66,13 @@
     font-size: 24px;
     margin-left: 15px;
   }
+
+  .post-user-image img {
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+  }
+ 
   
   .posts-show-item p {
     font-size: 24px;

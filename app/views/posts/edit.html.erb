@@ -1,7 +1,7 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">編集する</h1>
-    <%= form_tag("/posts/#{@post.id}/update") do %>
+    <%= form_tag("/posts/#{@post.id}/update", {multipart: true}) do %>
       <div class="form">
         <div class="form-body">
           <% @post.errors.full_messages.each do |message| %>
@@ -10,6 +10,7 @@
             </div>
           <% end %>
           <textarea name="content"><%= @post.content %></textarea>
+          <input name="image" type="file" value="<%= @post.image %>">
           <input type="submit" value="保存">
         </div>
       </div>
