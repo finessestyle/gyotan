@@ -99,6 +99,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mini_magick (4.11.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
     msgpack (1.4.5)
@@ -202,6 +203,7 @@ DEPENDENCIES
   duktape
   jbuilder (~> 2.5)
   jquery-rails
+  mini_magick
   pg
   puma (~> 3.11)
   rails (~> 5.2.6, >= 5.2.6.2)

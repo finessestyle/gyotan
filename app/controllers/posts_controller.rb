@@ -34,6 +34,7 @@ class PostsController < ApplicationController
       redirect_to("/posts/index")
     else
       render("posts/new")
+      render("home/top")
     end
   end
   
