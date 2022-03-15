@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   before_action :forbid_login_user, {only: [:top]}
-
+  
   def top
+    @posts = Post.all.order(created_at: :desc)
     @post = Post.new(
       content: params[:content],
       image: params[:image]
