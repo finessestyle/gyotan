@@ -7,18 +7,12 @@
     <div class="contents-title">
       <h4>最新釣果速報</h4>
     </div>
-    <p>
-      <div class="post-user-image">
-        <img src="<%= "/post_images/#{@post.id}.jpg" %>">
-        <img src="<%= "/post_images/#{@post.id}.jpg" %>">
-        <img src="<%= "/post_images/#{@post.id}.jpg" %>">
-        <img src="<%= "/post_images/#{@post.id}.jpg" %>">
-        <img src="<%= "/post_images/#{@post.id}.jpg" %>">
-        <img src="<%= "/post_images/#{@post.id}.jpg" %>">
-        <img src="<%= "/post_images/#{@post.id}.jpg" %>">
-        <img src="<%= "/post_images/#{@post.id}.jpg" %>">
-        <img src="<%= "/post_images/#{@post.id}.jpg" %>">
-      </div>
-    </p>
+    <% @posts.each do |post| %>
+      <p>
+        <div class="post-user-image">
+          <img src="<%= "/post_images/#{post.id}.jpg" %>">
+        </div>
+      </p>
+    <% end %>
   </div>
 </div>
