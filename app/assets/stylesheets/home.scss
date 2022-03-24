@@ -49,7 +49,6 @@ body {
   width: 100%;
   height: auto;
   min-height: 100%;
-
 }
 
 .container {
@@ -154,14 +153,16 @@ header {
   padding-bottom: 50px;
 }
 
-.post-user-image img {
-  width: 500px;
+.post-image img {
+  width: 25%;
   height: 300px;
-  margin: 0 auto;
+  float: left;
+  padding-top: 5px;
+  padding-right: 7px;
 }
 
 /* footer ================================ */
-header {
+footer {
   height: 50px;
   position: absolute;
   z-index: 1;
@@ -171,29 +172,41 @@ header {
 
 /* area ================================ */
 .area-main {
-  padding: 100px 6% 0;
+  padding: 70px 6% 0;
   color: white;
 }
 
 .area-main h1 {
+  font-weight: bold;
   font-size: 60px;
-  font-weight: 500;
   line-height: 1.4;
   color: #57575f;
   padding-bottom: 10px;
 }
 
-iframe {
+.area-map iframe {
   width: 1400px;
   height: 1050px;
-  padding-bottom: 50px;
+  float: right;
+  border: 1px solid #57575f;
+}
+
+.area-info {
   float: left;
 }
 
-ul {
+.area-info ul {
   float: right;
 }
 
+.area-info li {
+  border: 1px solid #57575f;
+  border-bottom: none;
+}
+
+.area-info li:last-child{
+  border-bottom: 1px solid #57575f;
+}
 
 /* フォーム================================ */
 .form {
