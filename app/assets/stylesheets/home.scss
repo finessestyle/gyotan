@@ -161,6 +161,12 @@ header {
   padding-right: 7px;
 }
 
+@media(max-width: 1000px){
+  .post-image img {
+    width: 50%;
+  }
+}
+
 /* footer ================================ */
 footer {
   height: 50px;
@@ -174,6 +180,7 @@ footer {
 .area-main {
   padding: 70px 6% 0;
   color: white;
+  border-bottom: 1px solid #dee7ec;
 }
 
 .area-main h1 {
@@ -186,26 +193,23 @@ footer {
 
 .area-map iframe {
   width: 1400px;
-  height: 1050px;
+  height: 1044px;
   float: right;
-  border: 1px solid #57575f;
+  border: 1px solid #dee7ec;
 }
 
 .area-info {
   float: left;
 }
 
-.area-info ul {
-  float: right;
-}
-
 .area-info li {
-  border: 1px solid #57575f;
+  padding: 0 8px;
+  border: 1px solid #dee7ec;
   border-bottom: none;
 }
 
 .area-info li:last-child{
-  border-bottom: 1px solid #57575f;
+  border-bottom: 1px solid #dee7ec;
 }
 
 /* フォーム================================ */
