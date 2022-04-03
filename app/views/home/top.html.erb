@@ -1,15 +1,16 @@
 <div class="top-main">
   <div class="top-message">
-    <h1>GYOTANへようこそ</h1>
-    <h1>あなたの詳しい釣果情報で、もっとバスが釣れる!!</h1>
+    <h1>琵琶湖バス釣り釣果共有サイト</h1>
+    <h1>GYOTANへようこそ!!</h1>
+    <h2>詳しい釣果情報を共有して、もっとバスが釣れるようになろう!!</h2>
   </div>
   <div class="contents">
     <div class="contents-title">
-      <h4>最新釣果画像</h4>
+      <h5><<最新釣果情報>></h5>
     </div>
     <% @posts.each do |post| %>
       <p>
-        <div class="post-image">
+        <div class="contents-image">
           <img src="<%= "/post_images/#{post.id}.jpg" %>">
         </div>
       </p>
