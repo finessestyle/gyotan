@@ -15,7 +15,8 @@
 }
 
 .post-user-name a {
-  font-weight: 1000;
+  font-weight: bold;
+  line-height: 50px;
 }
 
 .post-left {
@@ -30,13 +31,19 @@
   text-align: left;
 }
 
-/* posts/show ================================ */
-.posts-show form {
-  display: inline;
+.post-title {
+  margin-top: 60px;
+  padding-left: 10px;
 }
 
+.post-user-image img {
+  width: 80%;
+}
+
+/* posts/show ================================ */
 .posts-show-item {
   padding: 30px;
+  margin: 0 auto;
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
   overflow: hidden;
@@ -49,6 +56,13 @@
   box-shadow: 0 2px 6px #c1ced7;
   vertical-align: middle;
   object-fit: cover;
+}
+
+.post-title {
+  font-size: 30px;
+  border-bottom: 1px solid #c1ced7;
+  margin-bottom: 10px;
+  width: 500px;
 }
 
 .posts-show-item .post-user-name a {
@@ -64,7 +78,7 @@
 }
 
 .posts-show-item p {
-  font-size: 24px;
+  font-size: 20px;
   margin: 20px 0;
 }
 
@@ -97,6 +111,20 @@
 }
 
 /* posts/new ================================ */
+.post-new input {
+  font-size: 20px;
+  padding: 10px;
+  min-height: 140px;
+  border: 1px solid rgb(216, 218, 223);
+  resize: none;
+}
+
+.posts-new input::-webkit-input-placeholder {
+  font-size: 20px;
+  opacity: 0.5;
+}
+
+
 .posts-new textarea {
   font-size: 20px;
   padding: 10px;
@@ -106,6 +134,6 @@
 }
 
 .posts-new textarea::-webkit-input-placeholder {
-  font-size: 24px;
+  font-size: 20px;
   opacity: 0.5;
 }

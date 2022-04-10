@@ -5,6 +5,10 @@
         <img src="<%= "/user_images/#{@user.image_name}" %>">
         <%= link_to(@user.name, "/users/#{@user.id}") %>
       </div>
+
+      <p class="post-title">
+        <%= @post.title %>
+      </p>
       
       <p>
         <div class="post-user-image">

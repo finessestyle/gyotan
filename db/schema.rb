@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_30_130839) do
+ActiveRecord::Schema.define(version: 2022_04_10_081103) do
 
   create_table "blogs", force: :cascade do |t|
     t.text "content"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 2022_03_30_130839) do
 
   create_table "posts", force: :cascade do |t|
     t.text "content"
+    t.string "image"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.string "image"
     t.string "up_image"
   end
 
