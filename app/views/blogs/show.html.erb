@@ -1,0 +1,32 @@
+<div class="main blog-show">
+  <div class="container">
+    <div class="blog-show-item">
+
+      <p class="blog-title">
+        <%= @blog.title %>
+      </p>
+      
+      <p>
+        <div class="blog-image">
+          <img src="<%= "/blog_images/#{@blog.image}" %>">
+        </div>
+      </p>
+
+      <p>
+        <%= @blog.content %>
+      </p>
+
+      <div class="blog-time">
+        <%= @blog.created_at %>
+      </div>
+
+      <% if @blog.blog_id == @current_blog.id %>
+        <div class="post-menus">
+          <%= link_to("編集", "/blogs/#{@blog.id}/edit") %>
+          <%= link_to("削除", "/blogs/#{@blog.id}/destroy", {method: "blog"}) %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

@@ -22,7 +22,14 @@ Rails.application.routes.draw do
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
 
-  get "/" => "home#top"
-  get "area" => "home#area"
+  get "blogs/index" => "blogs#index"
+  get "blogs/new" => "blogs#new"
+  get "blogs/:id" => "blogs#show"
+  post "blogs/create" => "blogs#create"
+  get "blogs/:id/edit" => "posts#edit"
+  post "blogs/:id/update" => "posts#update"
+  post "blogs/:id/destroy" => "posts#destroy"
 
+  get "/" => "home#top"
+  
 end

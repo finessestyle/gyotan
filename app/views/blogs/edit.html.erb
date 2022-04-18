@@ -1,0 +1,19 @@
+<div class="main blogs-new">
+  <div class="container">
+    <h1 class="form-heading">編集する</h1>
+    <%= form_tag("/blogs/#{@blog.id}/update", {multipart: true}) do %>
+      <div class="form">
+        <div class="form-body">
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          <textarea name="content"><%= @blog.content %></textarea>
+          <input name="image" type="file" value="<%= @blog.image %>">
+          <input type="submit" value="保存">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

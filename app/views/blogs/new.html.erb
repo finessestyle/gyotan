@@ -1,0 +1,24 @@
+<div class="main blogs-new">
+  <div class="container">
+    <h1 class="form-heading">投稿する</h1>
+    <%= form_tag("/blogs/create", {multipart: true}) do %>
+      <div class="form">
+        <div class="form-body">
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+           
+          <h2>タイトル</h2>
+          <input name="title"><%= @blog.title %>
+          <h2>画像</h2>
+          <input name="image" type="file" value="<%= @blog.image %>">
+          <h2>内容</h2>
+          <textarea name="content"><%= @blog.content %></textarea>
+          <input type="submit" value="投稿">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

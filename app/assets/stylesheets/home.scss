@@ -39,12 +39,13 @@ form input[type="submit"] {
 body {
   color: #2d3133;
   background-color: white;
-  margin: 0;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 .main {
   position: absolute;
+  margin: 0 auto;
   top: 64px;
   width: 100%;
   height: auto;
@@ -80,15 +81,7 @@ header {
 
 .header-logo a{
   color: rgb(23, 167, 233);
-  font-size: 23px;
-}
-
-.header-logo a:hover {
-  color: rgb(23, 167, 233);
-  font-size: 25px;
-  line-height: 25px;
-  font-weight: bolder;
-  font-family: Comic Sans MS;
+  font-size: 30px;
 }
 
 .header-menus {
@@ -102,15 +95,7 @@ header {
   line-height: 50px;
   font-size: 13px;
   color: rgb(23, 167, 233);
-  padding-left: 15px;
-}
-
-.header-menus li:hover {
-  float: left;
-  line-height: 50px;
-  font-size: 25px;
-  color: rgb(23, 167, 233);
-  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .header-menus a {
@@ -165,9 +150,30 @@ header {
 }
 
 @media(max-width:670px) {
-  .top-message {
+  .top-main {
     font-size: 15px;  
     height: 300px; 
+  }
+}
+
+iframe {
+  color: white;
+  font-size: 25px;
+  width: 100%;
+  height: 500px;
+}
+
+@media(max-width:1000px) {
+  iframe {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@media(max-width:670px) {
+  iframe {
+    width: 100%;
+    height: 300px;
   }
 }
 
@@ -176,6 +182,8 @@ header {
 }
 
 .contents-title {
+  height: 30px;
+  line-height: 15px;
   font-size: 60px;
   padding: 50px;
 }
@@ -192,6 +200,10 @@ header {
     font-size: 40px;    
     padding: 30px;
   }
+}
+
+.contents-image {
+  width: 100%;
 }
 
 .contents-image img {
@@ -216,49 +228,23 @@ header {
   }
 }
 
-/* area ================================ */
-.area-main {
-  padding: 50px 0 100px;
-  width: 1000px;
-  margin: 0 auto;
-  color: white;
-}
-
-.area-map iframe {
-  width: 100%;
+iframe {
+  width: 50%;
   height: 500px;
-  border: 1px solid #dee7ec;
 }
 
-.area-info-left {
-  float: left;
-  width: 50%;
+@media(max-width: 1000px) {
+  iframme {
+    width: 100%; 
+    height:300px;  
+  }
 }
 
-.area-info-left li {
-  padding-left: 10px;
-  border: 1px solid #dee7ec;
-  border-bottom: none;
-  border-right: none;
-}
-
-.area-info-left li:last-child{
-  border-bottom: 1px solid #dee7ec;
-}
-
-.area-info-right {
-  width: 50%;
-  float: left;
-}
-
-.area-info-right li {
-  padding-left: 10px;
-  border: 1px solid #dee7ec;
-  border-bottom: none;
-}
-
-.area-info-right li:last-child{
-  border-bottom: 1px solid #dee7ec;
+@media(max-width: 670px) {
+  iframe {
+    width: 100%;
+    height:300px;   
+  }
 }
 
 /* form ================================ */

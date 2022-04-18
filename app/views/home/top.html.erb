@@ -1,14 +1,14 @@
-<<<<<<< HEAD
 <div class="top-main">
   <div class="top-message">
-    <h1>琵琶湖バス釣り釣果共有サイト</h1>
-    <h1>GYOTANへようこそ!!</h1>
-    <h2>詳しい釣果情報を共有して、もっとバスが釣れるようになろう!!</h2>
+      <h1>琵琶湖バス釣り釣果共有サイト</h1>
+      <h1>GYOTANへようこそ!!</h1>
+      <h2>詳しい釣果情報を共有して、もっとバスが釣れるようになろう!!</h2>
   </div>
   <div class="contents">
     <div class="contents-title">
-      <h5><<最新釣果情報>></h5>
+      <h5>【最新釣果情報】</h5>
     </div>
+    
     <% @posts.each do |post| %>
       <p>
         <div class="contents-image">
@@ -16,26 +16,6 @@
         </div>
       </p>
     <% end %>
+    <iframe src="https://maps.gsi.go.jp/?hc=hic#12/35.397026/136.136055/&base=std&ls=std&disp=1&vs=c0g1j0h0k0l0u0t0z0r0s0m0f0"></iframe>
   </div>
 </div>
-=======
-<div class="top-main">
-  <div class="top-message">
-    <h1>琵琶湖バス釣り釣果共有サイト</h1>
-    <h1>GYOTANへようこそ!!</h1>
-    <h2>詳しい釣果情報を共有して、もっとバスが釣れるようになろう!!</h2>
-  </div>
-  <div class="contents">
-    <div class="contents-title">
-      <h5><<最新釣果情報>></h5>
-    </div>
-    <% @posts.each do |post| %>
-      <p>
-        <div class="contents-image">
-          <img src="<%= "/post_images/#{post.id}.jpg" %>">
-        </div>
-      </p>
-    <% end %>
-  </div>
-</div>
->>>>>>> ee6f62994504b4e880f0bd88b99525dcbe287c23
