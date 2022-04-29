@@ -16,6 +16,20 @@
           <input name="image" type="file" value="<%= @post.image %>">
           <h2>釣果内容</h2>
           <textarea name="content"><%= @post.content %></textarea>
+          <div class="size">
+            <div class="length">
+              <h2>サイズ</h2>
+              <div class="length">
+                <input name="length"><%= @post.length %><span> cm </span>
+              </div>
+            </div>
+            <div class="weight">
+              <h2>重さ</h2>
+              <div class="weight">
+                <input name="weight"><%= @post.weight %><span> g </span>
+              </div>
+            </div>
+          </div>   
           <input type="submit" value="投稿">
         </div>
       </div>

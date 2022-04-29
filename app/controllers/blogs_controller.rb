@@ -7,9 +7,12 @@ class BlogsController < ApplicationController
   end
     
   def show
-    @blog = Blog.find_by(id: params[:id])
-    @user = @post.user
-    @likes_count = Like.where(post_id: @post.id).count
+    @blog = Blog.find_by(
+      id: params[:id],
+      title: params[:title],
+      image: params[:image],
+      content: params[:content]
+    )
   end
 
   def new
@@ -65,6 +68,10 @@ class BlogsController < ApplicationController
     @blog.destroy
     flash[:notice] = "投稿を削除しました"
     redirect_to("/blogs/index")
+  end
+
+  def if_not_admin 
+    redirect_to root_path unless crrent_user.admin?
   end
     
 end

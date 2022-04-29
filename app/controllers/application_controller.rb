@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_current_user
+  before_action :admin_scan, only: [:管理者のみが実行可能なアクション]
     
   def set_current_user
     @current_user = User.find_by(id: session[:user_id])
@@ -18,5 +19,5 @@ class ApplicationController < ActionController::Base
       redirect_to("/posts/index")
     end
   end
-  
+
 end

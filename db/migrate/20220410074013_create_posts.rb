@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :image
       t.string :title
       t.string :up_image
+      t.smallint :length
 
       t.timestamps
     end

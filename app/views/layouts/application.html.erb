@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758"crossorigin="anonymous"></script>
   </head>
-
   <body>
     <header>
       <div class="header-info">
@@ -23,11 +22,12 @@
         <ul class="header-menus">
           <% if @current_user %>
             <li>
-              <%= link_to("ブログ's","blogs/index") %>
+              <%= link_to("ブログ's","/blogs/index") %>
             </li>
             <li>
               <%= link_to("ブログ投稿", "/blogs/new") %>
             </li>
+
             <li>
               <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
             </li>
@@ -54,13 +54,20 @@
         </ul>
       </div>
     </header>
+
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
       </div>
     <% end %>
+
     <%= yield %>
+
     <footer>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-4-1/js/5-4-1.js"></script>
+
   </body>
 </html>

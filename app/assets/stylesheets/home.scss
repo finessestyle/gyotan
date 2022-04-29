@@ -79,14 +79,14 @@ header {
   font-family: Comic Sans MS;
 }
 
-.header-logo a{
+.header-logo a {
   color: rgb(23, 167, 233);
   font-size: 30px;
 }
 
 .header-menus {
   float: right;
-  padding-right: 20px;
+  padding-right: 10px;
   font-weight: bolder;
 }
 
@@ -136,52 +136,67 @@ header {
 .top-message {
   color: white;
   font-size: 25px;
-  background-image: url("/1.jpg");
-  background-size: cover;
-  height: 500px;
-  padding-top: 30px;
+  background-color: rgb(23, 167, 233);
+  width: 100%;
+  height: 80px;
+  padding-top: 20px;
 }
 
 @media(max-width:1000px) {
   .top-message {
     font-size: 20px;    
-    height: 400px;
+    height: 80px;
   }
 }
 
 @media(max-width:670px) {
-  .top-main {
+  .top-message {
     font-size: 15px;  
-    height: 300px; 
+    height: 80px; 
   }
 }
 
 iframe {
-  color: white;
-  font-size: 25px;
-  width: 100%;
+  width: 1000px;
   height: 500px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px #c1ced7;
+  margin-top: 30px;
 }
 
-@media(max-width:1000px) {
+@media(max-width: 1000px) {
   iframe {
-    width: 100%;
-    height: 300px;
+    width: 100%; 
+    height:500px;  
   }
 }
 
-@media(max-width:670px) {
+@media(max-width: 670px) {
   iframe {
     width: 100%;
-    height: 300px;
+    height:300px;   
   }
 }
 
 .contents {
  margin: 0 auto;
+ width: 1000px;
+}
+
+@media(max-width:1000px) {
+  .contents {
+    width: 100%;    
+  }
+}
+
+@media(max-width:670px) {
+  .contents {
+    width: 100%;
+  }
 }
 
 .contents-title {
+  color:rgb(23, 167, 233);
   height: 30px;
   line-height: 15px;
   font-size: 60px;
@@ -204,13 +219,15 @@ iframe {
 
 .contents-image {
   width: 100%;
+  height: auto;
 }
 
 .contents-image img {
   float: left;
   width: 25%;
-  height: 300px;
+  height: 180px;
   padding: 3px 3px;
+  border-radius: 10px;
   box-shadow: 0 2px 6px #c1ced7;
 }
 
@@ -228,24 +245,6 @@ iframe {
   }
 }
 
-iframe {
-  width: 50%;
-  height: 500px;
-}
-
-@media(max-width: 1000px) {
-  iframme {
-    width: 100%; 
-    height:300px;  
-  }
-}
-
-@media(max-width: 670px) {
-  iframe {
-    width: 100%;
-    height:300px;   
-  }
-}
 
 /* form ================================ */
 .form {
@@ -253,6 +252,7 @@ iframe {
   margin: 0 auto;
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
+  border-radius: 10px;
 }
 
 .form-heading {
@@ -266,18 +266,38 @@ iframe {
   padding: 30px;
 }
 
+
 .form-error {
   color: #ff4d75;
 }
 
 .form input {
   width: 100%;
-  border: 1px solid #d8dadf;
   padding: 10px;
   color: #57575f;
   font-size: 16px;
   letter-spacing: 2px;
-  border-radius: 2px;
+  border: 1px solid #d8dadf;
+}
+
+.size {
+  float: left;
+}
+.length {
+  float: left;
+  padding-right: 13px;
+}
+
+.weight {
+  float: left;
+}
+
+.length input {
+  width: 85%;
+}
+
+.weight input {
+  width: 85%;
 }
 
 .form textarea {
@@ -285,6 +305,7 @@ iframe {
   min-height: 110px;
   font-size: 16px;
   letter-spacing: 2px;
+  border: 1px solid #d8dadf;
 }
 
 .form input[type="submit"] {
@@ -293,13 +314,14 @@ iframe {
   cursor: pointer;
   font-weight: 300;
   width: 120px;
-  border-radius: 2px;
-  margin-top: 8px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px #c1ced7;
+  margin-top: 13px;
   margin-bottom: 0;
   float: right;
 }
 
-.form-body:after {
+.form-body:after { 
   content: '';
   display: table;
   clear: both;
@@ -318,3 +340,50 @@ iframe {
   border-radius: 0 0 2px 2px;
   font-size: 14px;
 }
+
+/*tabの形状*/
+.tab {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tab li a {
+  display: block;
+  background: white;
+  color: rgb(23, 167, 233);
+  margin:0 2px;
+  padding:10px 20px;
+}
+
+/*liにactiveクラスがついた時の形状*/
+.tab li.active a {
+  background: white;
+}
+
+/*エリアの表示非表示と形状*/
+.area {
+  display: none;/*はじめは非表示*/
+  opacity: 0;/*透過0*/
+  background: white;
+  width: 1000px;
+}
+
+/*areaにis-activeというクラスがついた時の形状*/
+.area.is-active {
+  display: block;/*表示*/
+  animation-name: displayAnime;/*ふわっと表示させるためのアニメーション*/
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes displayAnime {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* area ================================ */

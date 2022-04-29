@@ -4,7 +4,7 @@
     <%= form_tag("/blogs/create", {multipart: true}) do %>
       <div class="form">
         <div class="form-body">
-          <% @post.errors.full_messages.each do |message| %>
+          <% @blog.errors.full_messages.each do |message| %>
             <div class="form-error">
               <%= message %>
             </div>
