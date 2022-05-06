@@ -181,6 +181,7 @@ iframe {
 .contents {
  margin: 0 auto;
  width: 1000px;
+ 
 }
 
 @media(max-width:1000px) {
@@ -285,7 +286,6 @@ iframe {
 }
 .length {
   float: left;
-  padding-right: 13px;
 }
 
 .weight {
@@ -293,11 +293,11 @@ iframe {
 }
 
 .length input {
-  width: 85%;
+  width: 80%;
 }
 
 .weight input {
-  width: 85%;
+  width: 80%;
 }
 
 .form textarea {
@@ -340,50 +340,3 @@ iframe {
   border-radius: 0 0 2px 2px;
   font-size: 14px;
 }
-
-/*tabの形状*/
-.tab {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.tab li a {
-  display: block;
-  background: white;
-  color: rgb(23, 167, 233);
-  margin:0 2px;
-  padding:10px 20px;
-}
-
-/*liにactiveクラスがついた時の形状*/
-.tab li.active a {
-  background: white;
-}
-
-/*エリアの表示非表示と形状*/
-.area {
-  display: none;/*はじめは非表示*/
-  opacity: 0;/*透過0*/
-  background: white;
-  width: 1000px;
-}
-
-/*areaにis-activeというクラスがついた時の形状*/
-.area.is-active {
-  display: block;/*表示*/
-  animation-name: displayAnime;/*ふわっと表示させるためのアニメーション*/
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes displayAnime {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-
-/* area ================================ */

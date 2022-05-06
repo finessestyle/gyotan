@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
 
-  get "blogs/index" => "blogs#index"
+  get "blogs" => "blogs#index"
   get "blogs/new" => "blogs#new"
   get "blogs/:id" => "blogs#show"
   post "blogs/create" => "blogs#create"
@@ -31,5 +31,6 @@ Rails.application.routes.draw do
   post "blogs/:id/destroy" => "posts#destroy"
 
   get "/" => "home#top"
+  get "seasonal" => "seasonal#seasonal"
   
 end

@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user
-  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+  before_action :authenticate_user, {only:[:new, :edit, :update, :destroy]}
+  
 
   def index
     @blogs = Blog.all.order(created_at: :desc)

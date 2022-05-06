@@ -16,7 +16,9 @@
         <div class="post-user-image">
           <img src="<%= "/post_images/#{post.image}" %>">
         </div>  
-        <%= link_to(post.content, "/posts/#{post.id}") %>
+        <div class="post-content">
+          <%= link_to(post.content, "/posts/#{post.id}") %>
+        </div>
       </div>
     <% end %>
   </div>
