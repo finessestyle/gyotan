@@ -1,5 +1,4 @@
 Rails.application.routes.draw do  
-  resources :articles
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
@@ -29,8 +28,9 @@ Rails.application.routes.draw do
   get "blogs/:id/edit" => "posts#edit"
   post "blogs/:id/update" => "posts#update"
   post "blogs/:id/destroy" => "posts#destroy"
+ 
+  get "seasonal" => "seasonal#seasonal"
 
   get "/" => "home#top"
-  get "seasonal" => "seasonal#seasonal"
   
 end
