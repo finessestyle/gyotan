@@ -4,4 +4,8 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+<<<<<<< HEAD
 #   Character.create(name: 'Luke', movie: movies.first)
+=======
+#   Character.create(name: 'Luke', movie: movies.first)
+>>>>>>> 8758e1e85409015e549927f6970e7835cc8a1abc
