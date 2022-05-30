@@ -19,14 +19,19 @@
       <p>
         <%= @post.content %>
       </p>
-
-      <p>
-        <%= @post.length %>
-      </p>
-
-      <p>
-        <%= @post.weight %>
-      </p>
+      
+      <div class="fish-size">
+        <p>サイズ</p>
+        <P>
+          <%= @post.length %>
+        </P>
+        <p>cm</p>
+        <p>重さ</p>
+        <p>
+          <%= @post.weight %>
+        </p>
+        <p>g</p>
+      </div>
 
       <div class="post-time">
         <%= @post.created_at %>

@@ -45,10 +45,6 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     arel (9.0.0)
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.11.1)
@@ -66,7 +62,6 @@ GEM
       xpath (~> 3.2)
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
-    connection_pool (2.2.5)
     crass (1.0.6)
     duktape (2.6.0.0)
     erubi (1.10.0)
@@ -136,12 +131,6 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    react-rails (2.6.2)
-      babel-transpiler (>= 0.7.0)
-      connection_pool
-      execjs
-      railties (>= 3.2)
-      tilt
     regexp_parser (2.4.0)
     rexml (3.2.5)
     rubyzip (2.3.2)
@@ -211,7 +200,6 @@ DEPENDENCIES
   pg
   puma (~> 3.11)
   rails (~> 5.2.6, >= 5.2.6.2)
-  react-rails
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

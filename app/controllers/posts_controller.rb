@@ -21,7 +21,9 @@ class PostsController < ApplicationController
       title: params[:title],
       content: params[:content],
       user_id: @current_user.id,  
-      image: params[:image]
+      image: params[:image],
+      length: params[:length],
+      weight: params[:weight]
     )
 
     if params[:image]
@@ -46,6 +48,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
+    @post.length = params[:length]
+    @post.weight = params[:weight]
 
     if params[:image]
       @post.image = "#{@post.id}.jpg"
