@@ -13,5 +13,5 @@ class HomeController < ApplicationController
       File.binwrite("public/post_images/#{@post.image}", image.read)
     end
   end
-
+  
 end

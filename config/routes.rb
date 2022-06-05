@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   get "blogs/:id/edit" => "posts#edit"
   post "blogs/:id/update" => "posts#update"
   post "blogs/:id/destroy" => "posts#destroy"
- 
-  get "/" => "home#top"
-  get "seasonal" => "seasonal#seasonal"
 
+  get "seasonal" => "seasonal#seasonal"  
+  get "/" => "home#top"
+  
 end

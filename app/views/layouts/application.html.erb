@@ -6,8 +6,6 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   
   <body>
@@ -44,15 +42,18 @@
               <%= link_to("ログアウト", "/logout", {method: "post"}) %>
             </li>
           <% else %>
-            <li>
-              <%= link_to("シーズン情報", "/seasonal") %>
-            </li>
-            <li>
-              <%= link_to("新規登録", "/signup") %>
-            </li>
-            <li>
-              <%= link_to("ログイン","/login") %>
-            </li>  
+            <span class="nav_toggle">
+              <i></i>
+              <i></i>
+              <i></i>
+            </span>
+            <nav class="nav">
+              <ul class="nav_menu_ul">
+                <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal") %></li>
+                <li class="nav_menu_li"><%= link_to("新規登録", "/signup") %></li>
+                <li class="nav_menu_li"><%= link_to("ログイン","/login") %></li>
+              </ul>
+            </nav> 
           <% end %>
         </ul>
       </div>
@@ -65,8 +66,5 @@
     <% end %>
 
     <%= yield %>
-
-    <footer>
-    </footer>
   </body>
 </html>

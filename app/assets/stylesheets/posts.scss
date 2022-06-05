@@ -6,6 +6,11 @@
   box-shadow: 0 2px 6px #c1ced7;
 }
 
+.posts-index-item a {
+  font-size: 15px;
+  color: black;
+}
+
 .post-left img {
   width: 50px;
   height: 50px;
@@ -40,6 +45,10 @@
 .post-content {
   text-align: left;
   padding-left: 10px;
+}
+
+.post-size {
+  display: flex;
 }
 
 /* posts/show ================================ */
