@@ -20,6 +20,8 @@
         <%= @blog.created_at %>
       </div>
 
+      <%= @message.content %>
+
       <% if @blog.blog_id == @current_blog.id %>
         <div class="post-menus">
           <%= link_to("編集", "/blogs/#{@blog.id}/edit") %>

@@ -1,5 +1,3 @@
 $(window).on("load", function(){
-  $(".flash").fadeOut(1600);
+  $(".flash").fadeOut(1800);
 });
-
-

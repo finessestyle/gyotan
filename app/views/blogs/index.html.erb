@@ -25,25 +25,17 @@
       </div>
     </div>
     <div class="main-contents">
-    <% @blogs.each do |blog| %>
-      <div class="blogs-index-item">
-        <div class="blog-title">
-          <%= link_to(blog.title, "/blogs/#{blog.id}") %>
-        </div>
+      <% @blogs.each do |blog| %>
+        <div class="blogs-index-item">
+          <div class="blog-title">
+            <%= link_to(blog.title, "/blogs/#{blog.id}") %>
+          </div>
         <div class="blog-image">
           <img src="<%= "/blog_images/#{blog.image}" %>">
         </div>  
-        <%= link_to(blog.content, "/blogss/#{blog.id}") %>
-      </div>
-    <% end %>
-      <div class="contents-title">
-        <h2></h2>
-      </div>
-      <div class="blogs-image">
-        <img src="">
-      </div>
-      <div class="contents-main">
-      </div>
-    </div>  
+          <%= link_to(blog.content, "/blogss/#{blog.id}") %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

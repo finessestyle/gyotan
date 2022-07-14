@@ -29,7 +29,11 @@ Rails.application.routes.draw do
   post "blogs/:id/update" => "posts#update"
   post "blogs/:id/destroy" => "posts#destroy"
 
-  get "seasonal" => "seasonal#seasonal"  
+  get "seasonal/spring" => "seasonal#spring"
+  get "seasonal/summer" => "seasonal#summer"
+  get "seasonal/autumn" => "seasonal#autumn"
+  get "seasonal/winter" => "seasonal#winter"
+  
   get "/" => "home#top"
   
 end

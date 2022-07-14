@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>魚探[GYOTAN]-琵琶湖釣果共有サイト-</title>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758" crossorigin="anonymous"></script>
+    <meta name="google-site-verification" content="n9W1N2g_XIsdFJIYO6BbQNE7-X2_k6yYxzcQztChim8" /> 
   </head>
   
   <body>
@@ -49,7 +52,7 @@
             </span>
             <nav class="nav">
               <ul class="nav_menu_ul">
-                <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal") %></li>
+                <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal/spring") %></li>
                 <li class="nav_menu_li"><%= link_to("新規登録", "/signup") %></li>
                 <li class="nav_menu_li"><%= link_to("ログイン","/login") %></li>
               </ul>
@@ -66,5 +69,7 @@
     <% end %>
 
     <%= yield %>
+    <script src="js/home.js"></script>
+    <script src="js/seasonal.js"></script>
   </body>
 </html>
