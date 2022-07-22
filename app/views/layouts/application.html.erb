@@ -7,13 +7,8 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-<<<<<<< HEAD
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758" crossorigin="anonymous"></script>
     <meta name="google-site-verification" content="n9W1N2g_XIsdFJIYO6BbQNE7-X2_k6yYxzcQztChim8" /> 
-=======
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758"
-     crossorigin="anonymous"></script>
->>>>>>> refs/remotes/origin/main
   </head>
   
   <body>
@@ -50,18 +45,15 @@
               <%= link_to("ログアウト", "/logout", {method: "post"}) %>
             </li>
           <% else %>
-            <span class="nav_toggle">
-              <i></i>
-              <i></i>
-              <i></i>
-            </span>
-            <nav class="nav">
-              <ul class="nav_menu_ul">
-                <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal/spring") %></li>
-                <li class="nav_menu_li"><%= link_to("新規登録", "/signup") %></li>
-                <li class="nav_menu_li"><%= link_to("ログイン","/login") %></li>
-              </ul>
-            </nav> 
+            <li>
+              <%= link_to("シーズン情報", "/seasonal/spring") %>
+            </li>
+            <li>  
+              <%= link_to("新規登録", "/signup") %>
+            </li>
+            <li>
+              <%= link_to("ログイン","/login") %>
+            </li>
           <% end %>
         </ul>
       </div>

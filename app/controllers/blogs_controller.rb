@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user
-  before_action :authenticate_user, {only:[:new, :edit, :update, :destroy]}
+  before_action :ensure_correct_user, {only:[:edit, :update, :destroy]}
   
   def index
     @blogs = Blog.all.order(created_at: :desc)
@@ -30,7 +30,7 @@ class BlogsController < ApplicationController
 
     if @blog.save
       flash[:notice] = "投稿しました"
-      redirect_to("/blogs/index")
+      redirect_to("/blogs")
     else
       render("blogs/new")
       render("home/top")

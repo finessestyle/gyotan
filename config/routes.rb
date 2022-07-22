@@ -25,9 +25,9 @@ Rails.application.routes.draw do
   get "blogs/new" => "blogs#new"
   get "blogs/:id" => "blogs#show"
   post "blogs/create" => "blogs#create"
-  get "blogs/:id/edit" => "posts#edit"
-  post "blogs/:id/update" => "posts#update"
-  post "blogs/:id/destroy" => "posts#destroy"
+  get "blogs/:id/edit" => "blogss#edit"
+  post "blogs/:id/update" => "blogs#update"
+  post "blogs/:id/destroy" => "blogs#destroy"
 
   get "seasonal/spring" => "seasonal#spring"
   get "seasonal/summer" => "seasonal#summer"

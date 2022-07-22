@@ -7,10 +7,11 @@
       <div class="contents-up">
         <h2>注目記事</h2>
         <div class="new-blogs">
-          <p><a></a></p>
-          <p><a></a></p>
-          <p><a></a></p>
-          <p><a></a></p>
+          <ul>
+            <% @blogs.each do |blog| %>
+              <li><%= link_to(blog.title, "/blogs/#{blog.id}") %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
       <div class="contents-down">
@@ -30,10 +31,10 @@
           <div class="blog-title">
             <%= link_to(blog.title, "/blogs/#{blog.id}") %>
           </div>
-        <div class="blog-image">
-          <img src="<%= "/blog_images/#{blog.image}" %>">
-        </div>  
-          <%= link_to(blog.content, "/blogss/#{blog.id}") %>
+          <div class="blog-image">
+            <img src="<%= "/blog_images/#{blog.image}" %>">
+          </div>  
+          <%= link_to(blog.content, "/blogs/#{blog.id}") %>
         </div>
       <% end %>
     </div>
