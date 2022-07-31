@@ -3,11 +3,12 @@
 
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>魚探[Gyotan]-琵琶湖釣果共有サイト-</title>
+    <title>魚探[GYOTAN]-琵琶湖釣果共有サイト-</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758" crossorigin="anonymous"></script> 
   </head>
   
   <body>
@@ -15,9 +16,9 @@
       <div class="header-info">
         <div class="header-logo">
           <% if @current_user %>
-            <%= link_to(" Gyotan ", "/posts/index") %>
+            <%= link_to(" GYOTAN ", "/posts/index") %>
           <% else %>
-            <%= link_to(" Gyotan ", "/") %>
+            <%= link_to(" GYOTAN ", "/") %>
           <% end%>
         </div>
         <ul class="header-menus">
@@ -68,10 +69,7 @@
     <% end %>
 
     <%= yield %>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758" crossorigin="anonymous"></script>
-    <script src="js/home.js"></script>
-    <script src="js/maps.js"></script>
-    <script src=https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
+
   </body>
   
 </html>
