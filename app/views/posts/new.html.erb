@@ -12,24 +12,32 @@
            
           <h2>タイトル</h2>
           <input name="title"><%= @post.title %>
+
           <h2>釣果画像</h2>
           <input name="image" type="file" value="<%= @post.image %>">
+
           <h2>釣果内容</h2>
           <textarea name="content"><%= @post.content %></textarea>
-          <div class="size">
+
+          <div class="fish-info">
+            <h2>サイズ</h2>
             <div class="length">
-              <h2>サイズ</h2>
-              <div class="length">
-                <input name="length"><%= @post.length %><span> cm </span>
-              </div>
+              <input name="length"><%= @post.length %><span> cm </span>
             </div>
+            <h2>重さ</h2>
             <div class="weight">
-              <h2>重さ</h2>
-              <div class="weight">
-                <input name="weight"><%= @post.weight %><span> g </span>
-              </div>
+              <input name="weight"><%= @post.weight %><span> g </span>
             </div>
+            <h2>ルアー</h2>
+            <div class="lure">
+              <input name="lure"><%= @post.lure %>
+          </div>
+
+          <div class="map">
+            <h2>釣れた場所</h2>
+          </div>
           <input type="submit" value="投稿">
+
         </div>
       </div>
     <% end %>

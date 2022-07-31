@@ -10,6 +10,10 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :up_image
       t.integer :length
       t.integer :weight
+      t.string :address
+      t.float :latitude
+      t.float :longitude
+      t.string :lure
 
       t.timestamps
     end

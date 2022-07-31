@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_22_115023) do
+ActiveRecord::Schema.define(version: 2022_07_31_001523) do
 
   create_table "blogs", force: :cascade do |t|
     t.text "content"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_05_22_115023) do
     t.string "title"
     t.string "image"
     t.integer "user_id"
+    t.string "sub_title"
   end
 
   create_table "data", force: :cascade do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 2022_05_22_115023) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.integer "lure"
   end
 
   create_table "users", force: :cascade do |t|

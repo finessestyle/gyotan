@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>魚探[GYOTAN]-琵琶湖釣果共有サイト-</title>
+    <title>魚探[Gyotan]-琵琶湖釣果共有サイト-</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758" crossorigin="anonymous"></script>
-    <meta name="google-site-verification" content="n9W1N2g_XIsdFJIYO6BbQNE7-X2_k6yYxzcQztChim8" /> 
   </head>
   
   <body>
@@ -16,27 +15,24 @@
       <div class="header-info">
         <div class="header-logo">
           <% if @current_user %>
-            <%= link_to(" GYOTAN ", "/posts/index") %>
+            <%= link_to(" Gyotan ", "/posts/index") %>
           <% else %>
-            <%= link_to(" GYOTAN ", "/") %>
+            <%= link_to(" Gyotan ", "/") %>
           <% end%>
         </div>
         <ul class="header-menus">
           <% if @current_user %>
             <li>
-              <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
-            </li>
-            <li>
-              <%= link_to("投稿一覧", "/posts/index") %>
+              <%= link_to("アカウント情報", "/users/#{@current_user.id}") %>
             </li>
             <li>
               <%= link_to("新規投稿", "/posts/new") %>
             </li>
             <li>
-              <%= link_to("ユーザー一覧", "/users/index") %>
+              <%= link_to("みんなの釣果", "/posts/index") %>
             </li>
             <li>
-              <%= link_to("ブログ's","/blogs") %>
+              <%= link_to("ユーザー一覧", "/users/index") %>
             </li>
             <li>
               <%= link_to("ブログ投稿", "/blogs/new") %>
@@ -46,7 +42,13 @@
             </li>
           <% else %>
             <li>
+              <%= link_to("みんなの釣果", "/posts/index") %>
+            </li>
+            <li>
               <%= link_to("シーズン情報", "/seasonal/spring") %>
+            </li>
+            <li>
+              <%= link_to("ブログ's","/blogs") %>
             </li>
             <li>  
               <%= link_to("新規登録", "/signup") %>
@@ -66,7 +68,10 @@
     <% end %>
 
     <%= yield %>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758" crossorigin="anonymous"></script>
     <script src="js/home.js"></script>
-    <script src="js/seasonal.js"></script>
+    <script src="js/maps.js"></script>
+    <script src=https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
   </body>
+  
 </html>

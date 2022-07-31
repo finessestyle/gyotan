@@ -1,5 +1,4 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_user
   before_action :ensure_correct_user, {only:[:edit, :update, :destroy]}
   
   def index
@@ -17,6 +16,7 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(
       title: params[:title],
+      sub_title: params[:sub_title],
       image: params[:image],
       content: params[:content],
       user_id: @current_user.id
@@ -33,7 +33,6 @@ class BlogsController < ApplicationController
       redirect_to("/blogs")
     else
       render("blogs/new")
-      render("home/top")
     end
   end
   
@@ -43,12 +42,15 @@ class BlogsController < ApplicationController
   
   def update
     @blog = Blog.find_by(id: params[:id])
+    @blog.title = params[:title],
+    @blog.sub_title = params[:sub_title],
+    @blog.image = params[:image],
     @blog.content = params[:content]
 
     if params[:image]
       @blog.image = "#{@blog.id}.jpg"
       image = params[:image]
-      File.binwrite("public/blog_images/#{@blog.image}", image.read)
+      File.binwrite("blog_images/#{@blog.image}", image.read)
     end
 
     if @blog.save

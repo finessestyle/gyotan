@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     if params[:image]
       @post.image = "#{@post.id}.jpg"
       image = params[:image]
-      File.binwrite("public/post_images/#{@post.image}", image.read)
+      File.binwrite("/post_images/#{@post.image}", image.read)
     end
   end
   
