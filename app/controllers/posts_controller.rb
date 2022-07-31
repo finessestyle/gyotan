@@ -46,6 +46,7 @@ class PostsController < ApplicationController
   
   def update
     @post = Post.find_by(id: params[:id])
+    @post.title = params[:title]
     @post.content = params[:content]
     @post.length = params[:length]
     @post.weight = params[:weight]
