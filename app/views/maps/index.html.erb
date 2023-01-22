@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="container">
+    <h1 class="form-heading">マップ情報一覧</h1>
+    <% @maps.each do |map| %>
+      <div class="maps-index-item">
+        <div class="user-post-left">
+          <%= image_tag("/map_images/#{map.image}") %>
+        </div>
+        <div class="user-post-right">
+          <div class="post-user-name">
+            <%= link_to(map.title, "/maps/#{map.id}") %>
+          </div>
+          <div class="user-post-datetime">
+            <span>投稿日：</span>
+            <%= link_to(map.created_at.strftime("%Y-%m-%d"), "/maps/#{map.id}") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

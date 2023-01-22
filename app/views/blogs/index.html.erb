@@ -1,0 +1,22 @@
+<div class="main">
+  <div class="container">
+    <h1 class="form-heading">ブログ一覧</h1>
+    <% @blogs.each do |blog| %>
+      <div class="blogs-index-item">
+        <div class="user-post-left">
+          <%= image_tag("/blog_images/#{blog.image}") %>
+        </div>
+        <div class="user-post-right">
+          <div class="post-user-name">
+            <%= link_to(blog.title, "/blogs/#{blog.id}") %>
+          </div>
+          <div class="user-post-datetime">
+            <span>投稿日：</span>
+            <%= link_to(blog.created_at.strftime("%Y-%m-%d"), "/blogs/#{blog.id}") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate @users %>
+  </div>
+</div>

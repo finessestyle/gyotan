@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>魚探[GYOTAN]-琵琶湖釣果共有アプリ-</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= include_gon %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  
+  <body>
+    <header>
+      <div class="header-info">
+        <div class="header-logo">
+          <% if @current_user %>
+            <%= link_to(" GYOTAN ", "/posts/index") %>
+          <% else %>
+            <%= link_to(" GYOTAN ", "/") %>
+          <% end%>
+        </div>
+        <ul class="header-menus">
+          <% if @current_user %>
+            <span class="nav_toggle">
+              <i></i>
+              <i></i>
+              <i></i>
+            </span>
+            <nav class="nav">
+              <ul class="nav_menu_ul">
+                <li class="nav_menu_li"><%= link_to("アカウント情報", "/users/#{@current_user.id}") %></li>
+                <li class="nav_menu_li"><%= link_to("新規投稿", "/posts/new") %></li>
+                <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
+                <li class="nav_menu_li"><%= link_to("ユーザー一覧", "/users/index") %></li>
+                <li class="nav_menu_li"><%= link_to("フォロー一覧", "/relationships/followings") %></li>
+                <% if @current_user.admin? %>
+                  <li class="nav_menu_li"><%= link_to("ブログ投稿", "/blogs/new") %></li>
+                  <li class="nav_menu_li"><%= link_to("マップ投稿", "/maps/new") %></li>
+                  <li class="nav_menu_li"><%= link_to("動画投稿", "/videos/new") %></li>
+
+                <% end %>
+                <li class="nav_menu_li"><%= link_to("ブログ's","/blogs") %></li>
+                <li class="nav_menu_li"><%= link_to("釣り場情報","/maps") %></li>
+                <li class="nav_menu_li"><%= link_to("釣果動画","/videos") %></li>
+                <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal/spring") %></li>
+                <li class="nav_menu_li"><%= link_to("ログアウト", "/logout", {method: "post"}) %></li>
+              </ul>
+            </nav>
+          <% else %>
+            <span class="nav_toggle">
+              <i></i>
+              <i></i>
+              <i></i>
+            </span>
+            <nav class="nav">
+              <ul class="nav_menu_ul">
+                <li class="nav_menu_li"><%= link_to("Gyotanとは", "/about") %></li>
+                <li class="nav_menu_li"><%= link_to("新規登録", "/signup") %></li>
+                <li class="nav_menu_li"><%= link_to("ログイン","/login") %></li>
+              </ul>
+            </nav>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    
+    <%= yield %>
+    
+    <!-- <footer>
+      <div class="footer-info">
+        <div class="footer-list">
+          <ul>
+            <li><a>お問い合わせ</a></li>
+            <li><a>アプリについて</a></li>
+            <li><a>作成者</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer> -->
+    
+    <!--jqueryの読み込み-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--Google Maps APIの読み込み-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMsepPczbmm4sb6Fwmp8SjRaDspafFqlc&callback=initMap&v=weekly"defer></script>
+    <!--Googleアドセンスの読み込み-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758" crossorigin="anonymous"></script>
+    <!--Google Search Consoleの読み込み-->
+    <meta name="google-site-verification" content="n9W1N2g_XIsdFJIYO6BbQNE7-X2_k6yYxzcQztChim8" /> 
+    <!--Slickの読み込み-->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    </body>
+</html>

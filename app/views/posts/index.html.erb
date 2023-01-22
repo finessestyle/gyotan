@@ -1,0 +1,22 @@
+<div class="main">
+  <div class="container">
+    <h1 class="form-heading">釣果一覧</h1>
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+        <div class="user-post-left">
+          <%= image_tag("/post_images/#{post.image}") %>
+        </div>
+        <div class="user-post-right">
+          <div class="post-user-name">
+            <%= link_to(post.title,"/posts/#{post.id}") %>
+          </div>
+          <div class="user-post-datetime">
+            <span>投稿日：</span>
+            <%= link_to(post.created_at.strftime("%Y-%m-%d %H:%M"), "/posts/#{post.id}") %>
+          </div>       
+        </div>
+      </div>
+    <% end %>
+    <a href="//af.moshimo.com/af/c/click?a_id=3770611&p_id=3051&pc_id=7040&pl_id=49119&guid=ON" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="//image.moshimo.com/af-img/2443/000000049119.jpg" width="600" height="314" style="border:none;"></a><img src="//i.moshimo.com/af/i/impression?a_id=3770611&p_id=3051&pc_id=7040&pl_id=49119" width="1" height="1" style="border:none;">
+  </div>
+</div>

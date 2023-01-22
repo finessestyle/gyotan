@@ -1,0 +1,108 @@
+<div class="main">
+  <div class="container">
+    <h1 class="form-heading">釣果詳細</h1>
+    <div class="posts-index-item">
+      <div class="post-left">
+        <%= image_tag("/user_images/#{@post.user.image_name}") %>
+      </div>
+      <div class="post-right">
+        <div class="post-user-name">
+          <%= link_to(@user.name, "/users/#{@user.id}") %>
+        </div>
+      </div>  
+
+      <div class="post-user-image">
+        <%= image_tag("/post_images/#{@post.image}") %>
+      </div>
+
+      <div class="post-datetime">
+        <% image = EXIFR::JPEG.new("public/post_images/#{@post.image}") %>
+        <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
+        <% if image.date_time === nil %>
+          <%= @post.date_time..strftime("%Y-%m-%d %H:%M") %>
+        <% end %>
+      </div>
+      <div class="post-weather">
+        <span>天気：</span><%= @post.weather %>
+      </div>
+      <div class="post-fish-area">
+        <span>釣果エリア：</span><%= @post.fish_area %>
+      </div>
+      <div class="map">
+        <div id="map">
+        </div>
+      </div>
+      <div type="text/javascript">
+        <script>
+          let circleBlue;
+          let nRadiusHalfKm = 100;
+
+          function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
+              zoom: 16
+            });
+            circleBlue = new google.maps.Circle({
+              strokeColor: "#3333FF",
+              strokeOpacity: 1.0,
+              strokeWeight: 2,
+              fillColor: "#3333FF",
+              fillOpacity: 0.35,
+              map: map,
+              draggable: false,
+              center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
+              radius: nRadiusHalfKm
+            });
+          }
+        </script>
+      </div>
+      <div class="post-info">
+        <div class="post-content">
+          <p>～釣果状況～</p>
+          <%= @post.content %>
+        </div>
+        <div class="post-fish-info">
+          <div class="post-length">
+            <p>長さ :</p>
+            <%= @post.length %><span> cm</span>
+          </div>
+          <div class="post-weight">
+            <p>重さ :</p>
+            <%= @post.weight %><span> g</span>
+          </div>
+          <div class="post-lure">
+            <p>ルアー種類 : </p>
+            <%= @post.lure %>
+          </div>
+          <div class="post-lure-color">
+            <p>ルアーカラー :</p>
+            <%= @post.lure_color %>
+          </div>
+          <div class="post-catch-fish">
+            <p>釣果数 :</p>
+            <%= @post.catch_fish %><span> 匹</span>
+          </div>
+        </div>
+      </div>
+
+      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+          <span class="fa fa-heart liked-btn"></span>
+        <% end %>
+      <% else %>
+        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+          <span class="fa fa-heart unliked-btn"></span>
+        <% end %>
+      <% end %>
+        <%= @likes_count %>
+      
+      <% if @post.user_id == @current_user.id %>
+        <div class="post-menus">
+          <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+          <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
