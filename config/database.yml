@@ -3,7 +3,6 @@ default: &default
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: redpen101
   socket: /var/lib/mysql/mysql.sock
   host: localhost
 
@@ -18,3 +17,5 @@ test:
 production:
   <<: *default
   database: gyotan_production
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock

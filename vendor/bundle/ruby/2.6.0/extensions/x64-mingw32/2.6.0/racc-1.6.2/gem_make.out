@@ -1,0 +1,18 @@
+current directory: C:/Users/toshiaki/gyotan/vendor/bundle/ruby/2.6.0/gems/racc-1.6.2/ext/racc/cparse
+C:/Ruby26-x64/bin/ruby.exe -I C:/Ruby26-x64/lib/ruby/2.6.0 -r ./siteconf20230123-10116-chs5u8.rb extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: C:/Users/toshiaki/gyotan/vendor/bundle/ruby/2.6.0/gems/racc-1.6.2/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: C:/Users/toshiaki/gyotan/vendor/bundle/ruby/2.6.0/gems/racc-1.6.2/ext/racc/cparse
+make "DESTDIR="
+generating cparse-x64-mingw32.def
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: C:/Users/toshiaki/gyotan/vendor/bundle/ruby/2.6.0/gems/racc-1.6.2/ext/racc/cparse
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cparse.so ./.gem.20230123-10116-1xb29rb/racc

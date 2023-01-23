@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   get 'relationships/followings'
   get 'relationships/followers'
-  get 'videos/index'
+
   post "likes/:post_id/create", to: "likes#create"
   post "likes/:post_id/destroy", to: "likes#destroy"
 
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   post "login", to: "users#login"
   post "logout", to: "users#logout"
   get "login", to: "users#login_form"
-  post "users/:id/likes", to: "users#likes"
+  get "users/:id/likes", to: "users#likes"
 
   get "posts/index", to: "posts#index"
   get "posts/new", to: "posts#new"
@@ -66,5 +66,4 @@ Rails.application.routes.draw do
   get "seasonal/winter", to: "seasonal#winter"
   
   get "/", to: "home#top"
-  get "about", to: "home#about"
 end
