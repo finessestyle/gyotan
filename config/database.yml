@@ -18,5 +18,3 @@ test:
 production:
   <<: *default
   database: gyotan_production
-  username: gyotan
-  password: <%= ENV['GYOTAN_DATABASE_PASSWORD'] %>
