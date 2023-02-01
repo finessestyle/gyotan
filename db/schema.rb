@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_22_104436) do
+ActiveRecord::Schema.define(version: 2023_01_30_125837) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 2023_01_22_104436) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "image_name"
+    t.string "image"
     t.string "password_digest"
     t.string "profile"
     t.boolean "admin", default: false

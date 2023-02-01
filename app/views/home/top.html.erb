@@ -17,11 +17,11 @@
       <% @posts.each do |post| %>
         <div class="top-index-item">
           <div class="top-left">
-            <%= image_tag("/user_images/#{post.user.image_name}") %>
+            <%= image_tag("/user_images/#{post.user.image}") %>
           </div>
           <div class="top-right">
             <div class="top-user-name">
-              <%= link_to(post.user.name, "/users/#{post.user.image_name}") %><span> さん</span>
+              <%= link_to(post.user.name, "/users/#{post.user.image}") %><span> さん</span>
             </div>
           </div>  
           <div class="top-user-image">

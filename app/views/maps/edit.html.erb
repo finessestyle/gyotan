@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="form-heading">編集する</h1>
 
-    <%= form_with url: "/maps/:id/update", local: true do |form| %>
+    <%= form_with url: "/maps/#{@map.id}/update", local: true do |form| %>
       <div class="form">
         <div class="form-body">
         

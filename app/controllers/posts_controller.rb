@@ -18,16 +18,16 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new( 
-    title: params[:title],
-    weather: params[:weather],
-    content: params[:content],
-    fish_area: params[:fish_area],
-    length: params[:length],
-    weight: params[:weight],
-    lure: params[:lure],
-    lure_color: params[:lure_color],
-    catch_fish: params[:catch_fish],
-    user_id: @current_user.id
+      title: params[:title],
+      weather: params[:weather],
+      content: params[:content],
+      fish_area: params[:fish_area],
+      length: params[:length],
+      weight: params[:weight],
+      lure: params[:lure],
+      lure_color: params[:lure_color],
+      catch_fish: params[:catch_fish],
+      user_id: @current_user.id
     )
 
     if @post.save

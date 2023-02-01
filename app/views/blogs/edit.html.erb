@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="form-heading">編集する</h1>
 
-    <%= form_with url: "/blogs/:id/update", local: true do |form| %>
+    <%= form_with url: "/blogs/#{@blog.id}/update", local: true do |form| %>
       <div class="form">
         <div class="form-body">
         
