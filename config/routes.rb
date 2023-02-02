@@ -3,12 +3,6 @@ Rails.application.routes.draw do
   post "likes/:post_id/create", to: "likes#create"
   post "likes/:post_id/destroy", to: "likes#destroy"
 
-  resources :users do
-    resource :relationships, only: [:create, :destroy]
-    get 'followings' => 'relationships#followings', as: 'followings'
-    get 'followers' => 'relationships#followers', as: 'followers'
-  end
-
   get "users/:id/update", to: "users#update"
   post "users/:id/update", to: "users#update"
   get "users/:id/edit", to: "users#edit"
@@ -48,20 +42,10 @@ Rails.application.routes.draw do
   patch "maps/:id/update", to: "maps#update"
   post "maps/:id/destroy", to: "maps#destroy"
 
-  get "videos", to:  "videos#index"
-  get "videos/new", to: "videos#new"
-  get "videos/:id", to: "videos#show"
-  post "videos/create", to: "videos#create"
-  get "videos/:id/edit", to: "videos#edit"
-  post "videos/:id/update", to: "videos#update"
-  patch "videos/:id/update", to: "videos#update"
-  post "videos/:id/destroy", to: "videos#destroy"
-
   get "seasonal/spring", to: "seasonal#spring"
   get "seasonal/summer", to: "seasonal#summer"
   get "seasonal/autumn", to: "seasonal#autumn"
   get "seasonal/winter", to: "seasonal#winter"
   
   get "/", to: "home#top"
-  get "about", to: "home#about"
 end

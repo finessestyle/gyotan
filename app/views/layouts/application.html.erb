@@ -32,19 +32,16 @@
             <nav class="nav">
               <ul class="nav_menu_ul">
                 <li class="nav_menu_li"><%= link_to("アカウント情報", "/users/#{@current_user.id}") %></li>
-                <li class="nav_menu_li"><%= link_to("新規投稿", "/posts/new") %></li>
+                <li class="nav_menu_li"><%= link_to("釣果投稿", "/posts/new") %></li>
                 <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
                 <li class="nav_menu_li"><%= link_to("ユーザー一覧", "/users/index") %></li>
-                <li class="nav_menu_li"><%= link_to("フォロー一覧", "/relationships/followings") %></li>
                 <% if @current_user.admin? %>
                   <li class="nav_menu_li"><%= link_to("ブログ投稿", "/blogs/new") %></li>
                   <li class="nav_menu_li"><%= link_to("マップ投稿", "/maps/new") %></li>
-                  <li class="nav_menu_li"><%= link_to("動画投稿", "/videos/new") %></li>
 
                 <% end %>
                 <li class="nav_menu_li"><%= link_to("ブログ's","/blogs") %></li>
                 <li class="nav_menu_li"><%= link_to("釣り場情報","/maps") %></li>
-                <li class="nav_menu_li"><%= link_to("釣果動画","/videos") %></li>
                 <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal/spring") %></li>
                 <li class="nav_menu_li"><%= link_to("ログアウト", "/logout", {method: "post"}) %></li>
               </ul>

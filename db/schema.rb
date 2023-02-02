@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_30_125837) do
+ActiveRecord::Schema.define(version: 2023_02_02_141839) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -102,13 +102,6 @@ ActiveRecord::Schema.define(version: 2023_01_30_125837) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -116,17 +109,6 @@ ActiveRecord::Schema.define(version: 2023_01_30_125837) do
     t.string "password_digest"
     t.string "profile"
     t.boolean "admin", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "videos", force: :cascade do |t|
-    t.string "title"
-    t.string "sub_title"
-    t.string "video"
-    t.text "content"
-    t.integer "user_id"
-    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

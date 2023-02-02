@@ -13,6 +13,4 @@ class HomeController < ApplicationController
     gon.api = Rails.application.credentials.open_weather_api_key
   end
 
-  def about
-  end
 end
