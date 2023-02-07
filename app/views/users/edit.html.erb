@@ -15,7 +15,7 @@
           <p>メールアドレス</p>
           <%= form.email_field :email, value: @user.email %>
           <p>プロフィール画像</p>
-          <%= form.file_field :image_name, value: @user.image %>
+          <%= form.file_field :image, value: @user.image %>
           <p>プロフィール</p>
           <%= form.text_field :profile, value: @user.profile %>
           <%= form.submit "登録" %>
