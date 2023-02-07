@@ -5,7 +5,7 @@
         <h1>GYOTAN</h1>
         <h2>琵琶湖バス釣り釣果情報共有アプリ</p>
         <p>あなたの釣果情報がみんなの魚探に変わる！?</p>
-      </div>
+  </div>
     </div>  
     <div class="weather">
       <div id="weather"></div>
@@ -29,14 +29,12 @@
               <%= image_tag("/post_images/#{post.image}") %>
             </div>
           </div>
+
           <div class="top-datetime">
-            <% image = EXIFR::JPEG.new("public/post_images/#{post.image}") %>
-            <% if image.date_time === nil %>
-              <span>投稿日時：</span>
-              <%= post.date_time.strftime("%Y-%m-%d %H:%M") %>
-            <% else %>
-              <span>釣果日時：</span>
+            <% if image = EXIFR::JPEG.new("public/post_images/#{post.image}") %>
               <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
+            <% else %>
+              <%= @post.date_time..strftime("%Y-%m-%d %H:%M") %>
             <% end %>
           </div>
 

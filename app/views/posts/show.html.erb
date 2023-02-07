@@ -16,12 +16,13 @@
       </div>
 
       <div class="post-datetime">
-        <% image = EXIFR::JPEG.new("public/post_images/#{@post.image}") %>
-        <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
-        <% if image.date_time === nil %>
+        <% if image = EXIFR::JPEG.new("public/post_images/#{@post.image}") %>
+          <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
+        <% else %>
           <%= @post.date_time..strftime("%Y-%m-%d %H:%M") %>
         <% end %>
       </div>
+
       <div class="post-weather">
         <span>天気：</span><%= @post.weather %>
       </div>
