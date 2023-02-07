@@ -58,10 +58,14 @@ header {
   font-size: 30px;
 }
 
-.header-logo a:hover {
-  color: rgb(23, 167, 233);
-  font-size: 33px;
-  transition: all 0.3s;
+// .header-logo a:hover {
+//   color: rgb(23, 167, 233);
+//   font-size: 33px;
+//   transition: all 0.3s;
+// }
+
+.header-logo span {
+  font-size: 15px;
 }
 
 .header-menus {
