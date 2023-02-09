@@ -68,6 +68,13 @@ header {
   font-size: 15px;
 }
 
+@media(max-width:670px) {
+  .header-logo span {
+    font-size: 0px;
+  }
+}
+
+
 .header-menus {
   float: right;
   padding-right: 10px;
