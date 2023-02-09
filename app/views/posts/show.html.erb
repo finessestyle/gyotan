@@ -16,10 +16,11 @@
       </div>
 
       <div class="post-datetime">
-        <% if image = EXIFR::JPEG.new("public/post_images/#{@post.image}") %>
+        <% image = EXIFR::JPEG.new("public/post_images/#{@post.image}") %>
+        <% if image.date_time === true %>
           <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
         <% else %>
-          <%= @post.date_time..strftime("%Y-%m-%d %H:%M") %>
+          <%= @post.date_time.strftime("%Y-%m-%d %H:%M") %>
         <% end %>
       </div>
 
@@ -41,8 +42,12 @@
           function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
               center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
+                if(lat: === false, lng: === false){
+                  lat: 35.271096893072986, lng; 136.069156364426}
+                },
               zoom: 16
             });
+
             circleBlue = new google.maps.Circle({
               strokeColor: "#3333FF",
               strokeOpacity: 1.0,
@@ -55,6 +60,7 @@
               radius: nRadiusHalfKm
             });
           }
+
         </script>
       </div>
       <div class="post-info">

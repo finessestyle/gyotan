@@ -10,6 +10,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Google Search Consoleの読み込み-->
+    <meta name="google-site-verification" content="n9W1N2g_XIsdFJIYO6BbQNE7-X2_k6yYxzcQztChim8" /> 
   </head>
   
   <body>
@@ -17,9 +19,9 @@
       <div class="header-info">
         <div class="header-logo">
           <% if @current_user %>
-            <%= link_to(" Gyotan ", "/posts/index") %><span>琵琶湖バス釣り釣果共有アプリ-Gyotan-</span>
+            <%= link_to(" Gyotan ", "/posts/index") %><span>-琵琶湖バス釣り釣果共有サイト-</span>
           <% else %>
-            <%= link_to(" Gyotan  ", "/") %><span>琵琶湖バス釣り釣果共有アプリ-Gyotan-</span>
+            <%= link_to(" Gyotan  ", "/") %><span>-琵琶湖バス釣り釣果共有サイト-</span>
           <% end%>
         </div>
         <ul class="header-menus">
@@ -89,8 +91,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMsepPczbmm4sb6Fwmp8SjRaDspafFqlc&callback=initMap&v=weekly"defer></script>
     <!--Googleアドセンスの読み込み-->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758" crossorigin="anonymous"></script>
-    <!--Google Search Consoleの読み込み-->
-    <meta name="google-site-verification" content="n9W1N2g_XIsdFJIYO6BbQNE7-X2_k6yYxzcQztChim8" /> 
     <!--Slickの読み込み-->
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     </body>
