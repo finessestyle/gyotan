@@ -4,7 +4,6 @@ class HomeController < ApplicationController
 
   def top
     @posts = Post.all.order(created_at: :desc) 
-    # @blogs = Blog.all.order(created_at: :desc)
   end
   
   def show
