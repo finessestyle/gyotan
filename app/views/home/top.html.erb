@@ -5,7 +5,7 @@
         <h1>Gyotan</h1>
         <h2>琵琶湖バス釣り釣果情報共有サイト</p>
         <p>あなたの釣果情報がみんなの魚探に変わる！?</p>
-  </div>
+      </div>
     </div>  
     <div class="weather">
       <div id="weather"></div>
@@ -31,11 +31,8 @@
           </div>
 
           <div class="top-datetime">
-            <% if image = EXIFR::JPEG.new("public/post_images/#{post.image}") %>
-              <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
-            <% else %>
-              <%= @post.date_time..strftime("%Y-%m-%d %H:%M") %>
-            <% end %>
+            <% image = EXIFR::JPEG.new("public/post_images/#{post.image}") %>
+            <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
           </div>
 
           <div class="top-weather">
