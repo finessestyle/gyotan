@@ -7,9 +7,7 @@
         <p>あなたの釣果情報がみんなの魚探に変わる！?</p>
       </div>
     </div>  
-    <div class="weather">
-      <div id="weather"></div>
-    </div>
+
     <div class="contents-title">
       <h3>-最新釣果情報-</h3>
     </div>
@@ -33,10 +31,6 @@
           <div class="top-datetime">
             <% image = EXIFR::JPEG.new("public/post_images/#{post.image}") %>
             <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
-          </div>
-
-          <div class="top-weather">
-            <span>天気：</span><%= post.weather %>
           </div>
 
           <div class="top-fish-area">

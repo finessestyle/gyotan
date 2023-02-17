@@ -46,7 +46,7 @@ class MapsController < ApplicationController
     if params[:image]
       @map.image = "#{@map.id}.jpg"
       image = params[:image]
-      File.binwrite("map_images/#{@map.image}", image.read)
+      File.binwrite("public/map_images/#{@map.image}", image.read)
     end
 
     if @map.save

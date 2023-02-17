@@ -50,7 +50,7 @@ class BlogsController < ApplicationController
     if params[:image]
       @blog.image = "#{@blog.id}.jpg"
       image = params[:image]
-      File.binwrite("blog_images/#{@blog.image}", image.read)
+      File.binwrite("public/blog_images/#{@blog.image}", image.read)
     end
 
     if @blog.save
