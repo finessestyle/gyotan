@@ -33,9 +33,14 @@
             <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
           </div>
 
+          <div class="top-weather">
+            <span>天気：</span><%= post.weather %>
+          </div>
+
           <div class="top-fish-area">
             <span>釣果エリア：</span><%= post.fish_area %>
           </div>
+
           <div class="top-info">
             <div class="top-content">
               <p>～釣果状況～</p>
