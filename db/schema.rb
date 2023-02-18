@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_02_141839) do
+ActiveRecord::Schema.define(version: 2023_02_18_004542) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 2023_02_02_141839) do
     t.string "image"
     t.string "image_two"
     t.string "image_three"
-    t.datetime "date_time"
     t.string "weather"
     t.string "address"
     t.float "latitude"

@@ -17,7 +17,12 @@
 
       <div class="post-datetime">
         <% image = EXIFR::JPEG.new("public/post_images/#{@post.image}") %>
+        <span>釣果日時：</span>
         <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
+        <% if image.date_time == nil %>
+          <span>投稿日時：</span>
+          <%= post.creater_at.strftime("%Y-%m-%d %H:%M") %>
+        <% end %>
       </div>
 
       <div class="post-weather">
