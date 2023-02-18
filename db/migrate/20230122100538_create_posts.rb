@@ -6,7 +6,6 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :image
       t.string :image_two
       t.string :image_three
-      t.datetime :date_time
       t.string :weather
       t.string :address
       t.float :latitude
