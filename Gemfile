@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.10'
+ruby '2.7.7'
 
 gem 'rails', '~> 6.1.7'
 gem 'puma', '~> 5.6.5'
@@ -23,7 +23,7 @@ gem 'geocoder'
 gem 'exifr'
 gem 'gon'
 gem 'dotenv-rails'
-gem 'mysql2'
+gem 'google_drive'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
