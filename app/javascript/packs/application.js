@@ -12,4 +12,5 @@ ActiveStorage.start()
 
 import "../src/flash"
 import "../src/hamburger"
-import "../src/slick"
+import "../src/test"
+import "../src/page"

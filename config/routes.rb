@@ -42,10 +42,7 @@ Rails.application.routes.draw do
   patch "maps/:id/update", to: "maps#update"
   post "maps/:id/destroy", to: "maps#destroy"
 
-  get "seasonal/spring", to: "seasonal#spring"
-  get "seasonal/summer", to: "seasonal#summer"
-  get "seasonal/autumn", to: "seasonal#autumn"
-  get "seasonal/winter", to: "seasonal#winter"
+  get "seasonal", to: "seasonal#seasonal"
   
   get "/", to: "home#top"
   get "home/show", to: "home#show"

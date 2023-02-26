@@ -6,20 +6,6 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all.order(created_at: :desc) #or :asc
-
-    credentials = Google::Auth::UserRefreshCredentials.new(
-    client_id: "677012086743-br3mubt5md9u61329bd1413qij41hahk.apps.googleusercontent.com",
-    client_secret: "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",
-    scope: [
-      "https://www.googleapis.com/auth/drive",
-      "https://spreadsheets.google.com/feeds/",
-    ],
-    redirect_uri: "http://localhost:3000")
-    puts "ここにアクセスしてください---" + credentials.authorization_uri.to_s
-    credentials.code = params[:code]
-    credentials.fetch_access_token!
-    puts "REFRESH TOEKNゲットする---" + credentials.refresh_token.to_s
-    @session = GoogleDrive.login_with_oauth(credentials.access_token)
   end
 
   def show

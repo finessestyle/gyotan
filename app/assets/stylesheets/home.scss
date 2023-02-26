@@ -220,7 +220,7 @@ body {
   background-color: white;
   width: 100%;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 70vh;
   position: relative;
 }
 
@@ -234,6 +234,7 @@ body {
   max-width: 600px;
   margin: 0 auto;
   height: auto;
+  min-height: 100vh;
 }
 
 .contents {
@@ -257,26 +258,81 @@ body {
 }
 
 /* footer ================================ */
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
+footer{
   border-top: 1px solid #c1ced7;
+  background: white;
+  position: relative;
+  z-index: 2;
+  .push {
+    height: 10px;
+  }
 }
 
-.footer-info {
-  padding-top: 10px;
+small{
+  color: black;
+  display: block;
+  text-align: center;
 }
 
-.footer-list {
-  float: right;
+/*リンクの形状*/
+#page-top a{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  background:#942D2F;
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase; 
+  text-decoration: none;
+  font-size: 1.00rem;
+  transition:all 0.3s;
 }
 
-.footer-list li {
-  padding-right: 20px;
+#page-top a:hover{
+  background: #777;
 }
 
-.footer-list a {
-  font-size: bold;
+/*リンクを右下に固定*/
+#page-top {
+  position: fixed;
+  right: 10px;
+  z-index: 2;
+    /*はじめは非表示*/
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+/*　上に上がる動き　*/
+
+#page-top.UpMove{
+  animation: UpAnime 0.5s forwards;
+}
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+/*　下に下がる動き　*/
+
+#page-top.DownMove{
+  animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+  from {
+    opacity: 1;
+  transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(100px);
+  }
 }
