@@ -13,10 +13,8 @@ test:
   database: gyotan_test
 
 production:
-  adapter: mysql
+  adapter: postgresql
   encoding: utf8
   database: gyotan_production
-  username: root
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  socket: /var/lib/mysql/mysql.sock
