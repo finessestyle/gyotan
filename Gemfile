@@ -24,6 +24,7 @@ gem 'exifr'
 gem 'gon'
 gem 'dotenv-rails'
 gem 'google_drive'
+gem 'mysql2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -41,8 +42,4 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   gem 'webdrivers'
-end
-
-group :production do
-  gem 'mysql2','-> 0.5.5'
 end
