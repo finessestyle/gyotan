@@ -45,5 +45,4 @@ Rails.application.routes.draw do
   get "seasonal", to: "seasonal#seasonal"
   
   get "/", to: "home#top"
-  get "home/show", to: "home#show"
 end
