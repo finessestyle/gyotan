@@ -18,6 +18,6 @@ production:
   database: gyotan_production
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: gyotan
-  password: <%= ENV['gyotan_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   timeout: 5000
   socket: /var/lib/mysql/mysql.sock 
