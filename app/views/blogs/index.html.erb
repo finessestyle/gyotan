@@ -4,7 +4,7 @@
     <% @blogs.each do |blog| %>
       <div class="blogs-index-item">
         <div class="user-post-left">
-          <%= image_tag("/blog_images/#{blog.image}") %>
+          <%= image_tag blog.image.url%>
         </div>
         <div class="user-post-right">
           <div class="post-user-name">

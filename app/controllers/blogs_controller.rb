@@ -17,20 +17,9 @@ class BlogsController < ApplicationController
   end
   
   def create
-    @blog = Blog.new(
-      title: params[:title],
-      content: params[:content],
-      user_id: @current_user.id
-    )
+    @blog = Blog.new(blog_params)
     
     if @blog.save
-      if params[:image]
-        @blog.image = "#{@blog.id}.jpg"
-        image = params[:image]
-        File.binwrite("public/blog_images/#{@blog.image}", image.read)
-        @blog.save
-      end
-      @blog.save
       flash[:notice] = "投稿しました"
       redirect_to("/blogs")
     else
@@ -44,15 +33,8 @@ class BlogsController < ApplicationController
   
   def update
     @blog = Blog.find_by(id: params[:id])
-    @blog.title = params[:title]
-    @blog.content = params[:content]
+    @blog.update(post_params)
   
-    if params[:image]
-      @blog.image = "#{@blog.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/blog_images/#{@blog.image}", image.read)
-    end
-
     if @blog.save
       flash[:notice] = "投稿を編集しました"
       redirect_to("/blogs/index")
@@ -68,11 +50,18 @@ class BlogsController < ApplicationController
     redirect_to("/blogs/index")
   end
 
-# def ensure_correct_user
-#   @blog = Blog.find_by(id: params[:id])
-#     if @blog.user_id != @current_user.id
-#     flash[:notice] = "権限がありません"
-#     redirect_to("/blogs/index")
-#   end
-# end
+  # def ensure_correct_user
+  #   @blog = Blog.find_by(id: params[:id])
+  #     if @blog.user_id != @current_user.id
+  #     flash[:notice] = "権限がありません"
+  #     redirect_to("/blogs/index")
+  #   end
+  # end
+
+  private
+      # Only allow a list of trusted parameters through.
+      def blog_params
+        params.require(:blog).permit(:title, :content, :image).merge(:user_id => @current_user.id)
+      end
+
 end

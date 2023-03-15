@@ -14,19 +14,9 @@ class MapsController < ApplicationController
   end
   
   def create
-    @map = Map.new(
-      title: params[:title],
-      content: params[:content],
-    )
+    @map = Map.new(map_params)
     
     if @map.save
-      if params[:image]
-        @map.image = "#{@map.id}.jpg"
-        image = params[:image]
-        File.binwrite("public/map_images/#{@map.image}", image.read)
-        @map.save
-      end
-      @map.save
       flash[:notice] = "投稿しました"
       redirect_to("/maps")
     else
@@ -40,15 +30,8 @@ class MapsController < ApplicationController
   
   def update
     @map = Map.find_by(id: params[:id])
-    @map.title = params[:title]
-    @map.content = params[:content]
-  
-    if params[:image]
-      @map.image = "#{@map.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/map_images/#{@map.image}", image.read)
-    end
-
+    @map.update(map_params)
+    
     if @map.save
       flash[:notice] = "投稿を編集しました"
       redirect_to("/maps/index")
@@ -63,4 +46,11 @@ class MapsController < ApplicationController
     flash[:notice] = "投稿を削除しました"
     redirect_to("/maps/index")
   end
+
+  private
+    # Only allow a list of trusted parameters through.
+    def map_params
+      params.require(:map).permit(:title, :content, :image).merge(:user_id => @current_user.id)
+    end
+
 end

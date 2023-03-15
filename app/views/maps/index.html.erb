@@ -4,7 +4,7 @@
     <% @maps.each do |map| %>
       <div class="maps-index-item">
         <div class="user-post-left">
-          <%= image_tag("/map_images/#{map.image}") %>
+          <%= image_tag map.image.url %>
         </div>
         <div class="user-post-right">
           <div class="post-user-name">
