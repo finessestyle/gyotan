@@ -19,13 +19,8 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(
-      name: params[:name],
-      email: params[:email],
-      image: "default_user.jpg",
-      password: params[:password],
-      profile: params[:profile]
-    )
+    @user = User.new(user_params)
+
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
@@ -41,16 +36,8 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find_by(id: params[:id])
-    @user.name = params[:name]
-    @user.email = params[:email]
-    @user.profile = params[:profile]
+    @user.update(user_params)
 
-    if params[:image]
-      @user.image = "#{@user.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/user_images/#{@user.image}", image.read)
-    end
-    
     if @user.save
       flash[:notice] = "ユーザー情報を編集しました"
       redirect_to("/users/#{@user.id}")
@@ -93,4 +80,10 @@ class UsersController < ApplicationController
       redirect_to("/posts/index")
     end
   end
+
+  private
+    # Only allow a list of trusted parameters through.
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :profile, :admin, :image)
+    end
 end

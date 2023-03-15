@@ -46,9 +46,9 @@
 
 .tab li a{
   display: block;
-  border-radius: 10px 10px 0 0;
+  border-radius: 5px 5px 0 0;
   background: #f3f5f6;
-  margin:0 2px;
+  margin:0 1px;
   padding:10px 10px;
 }
 
@@ -86,6 +86,7 @@
   background: #fff;
   width: 1000px;
   margin: 0 auto;
+  margin-bottom: 50px;
   border: 1px solid #dee7ec;
   box-shadow: 0 2px 6px #c1ced7;
   border-radius: 0 0 10px 10px;

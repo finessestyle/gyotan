@@ -19,28 +19,9 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new( 
-      title: params[:title],
-      weather: params[:weather],
-      content: params[:content],
-      fish_area: params[:fish_area],
-      length: params[:length],
-      weight: params[:weight],
-      lure: params[:lure],
-      lure_color: params[:lure_color],
-      catch_fish: params[:catch_fish],
-      user_id: @current_user.id
-    )
+    @post = Post.new(post_params)
 
     if @post.save
-      if params[:image]
-        @post.image = "#{@post.id}.jpg"
-        image = params[:image]
-        File.binwrite("public/post_images/#{@post.image}", image.read)
-        @post.save
-      end
-
-      @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to("/posts/index")
     else
@@ -54,21 +35,7 @@ class PostsController < ApplicationController
   
   def update
     @post = Post.find_by(id: params[:id])
-    @post.title = params[:title]
-    @post.content = params[:content]
-    @post.weather = params[:weather]
-    @post.fish_area = params[:fish_area]
-    @post.length = params[:length]
-    @post.weight = params[:weight]
-    @post.catch_fish = params[:catch_fish]
-    @post.lure = params[:lure]
-    @post.lure_color = params[:lure_color]
-
-    if params[:image]
-      @post.image = "#{@post.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/post_images/#{@post.image}", image.read)
-    end
+    @post.update(post_params)
 
     if @post.save
       flash[:notice] = "投稿を編集しました"
@@ -92,5 +59,11 @@ class PostsController < ApplicationController
       redirect_to("/posts/index")
     end
   end
+
+  private
+    # Only allow a list of trusted parameters through.
+    def post_params
+      params.require(:post).permit(:title, :content, :weather, :fish_area, :length, :weight, :catch_fish, :lure, :lure_color, :image).merge(:user_id => @current_user.id)
+    end
   
 end

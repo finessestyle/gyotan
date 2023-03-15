@@ -3,7 +3,7 @@
     <h1 class="form-heading">釣果詳細</h1>
     <div class="posts-index-item">
       <div class="post-left">
-        <%= image_tag("/user_images/#{@post.user.image}") %>
+        <%= image_tag @user.image.url %>
       </div>
       <div class="post-right">
         <div class="post-user-name">
@@ -12,11 +12,11 @@
       </div>  
 
       <div class="post-user-image">
-        <%= image_tag("/post_images/#{@post.image}") %>
+        <%= image_tag @post.image.url %>
       </div>
 
       <div class="post-datetime">
-        <% image = EXIFR::JPEG.new("public/post_images/#{@post.image}") %>
+        <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{@post.image.url}") %>
         <span>釣果日時：</span>
         <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
         <% if image.date_time == nil %>

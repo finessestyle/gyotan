@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get "users/:id/update", to: "users#update"
   post "users/:id/update", to: "users#update"
+  patch "users/:id/update", to: "users#update"
   get "users/:id/edit", to: "users#edit"
   post "users/create", to: "users#create"
   get "signup", to: "users#new"
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   get "posts/:id/edit", to: "posts#edit"
   get "posts/:id/update", to: "posts#update"
   post "posts/:id/update", to: "posts#update"
+  patch "posts/:id/update", to: "posts#update"
   post "posts/:id/destroy", to: "posts#destroy"
 
   get "blogs", to:  "blogs#index"

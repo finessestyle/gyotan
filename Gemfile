@@ -26,6 +26,7 @@ gem 'gon'
 gem 'dotenv-rails'
 gem 'google_drive'
 gem 'mysql2'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

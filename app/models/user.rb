@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
+
+  mount_uploader :image, ImageUploader
   
     # フォローしたときの処理
   def follow(user_id)
@@ -19,7 +21,7 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-  
+
   def posts
     return Post.where(user_id: self.id)
   end

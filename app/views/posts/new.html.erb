@@ -1,35 +1,32 @@
 <div class="main">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    
-    <%= form_with url: "/posts/create", local: true do |form| %>
-      <div class="form">
-        <div class="form-body">
+    <div class="form">
+      <div class="form-body">
+        <% @post.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
 
-          <% @post.errors.full_messages.each do |message| %>
-            <div class="form-error">
-              <%= message %>
-            </div>
-          <% end %>
-           
-          <h3>タイトル</h3>
+        <%= form_with model: Post.new, url: "/posts/create", local: true do |form| %>   
+          <p>タイトル</p>
           <%= form.text_field :title %>
 
-          <h3>釣果画像</h3>
+          <p>釣果画像</p>
           <%= form.file_field :image %>
           
-          <h3>天気</h3>
+          <p>天気</p>
           <%= form.select :weather,
             [
               ["晴れ"],["曇り"],["雨"],["雪"]
             ] ,
           prompt: "天気を選択してください" %>
 
-          <h3>釣果内容</h3> <span>※詳しく状況を記入して下さい</span>
+          <p>釣果内容</p> <span>※詳しく状況を記入して下さい</span>
           <%= form.text_area :content %>
 
-          <h3>釣果エリア</h3>
-          
+          <p>釣果エリア</p>
           <%= form.select :fish_area,
             [
               ["北湖北岸エリア"],["北湖東岸エリア"],["北湖西岸エリア"],["南湖東岸エリア"],["南湖西岸エリア"]
@@ -105,20 +102,20 @@
             }
           </script>
 
-          <h3>サイズ</h3><span>※30cm以上</span>
+          <p>サイズ</p><span>※30cm以上</span>
           <%= form.number_field :length, min: 30, max: 75, step: "0.5" %>
 
-          <h3>重さ</h3><span>※500g以上</span>
+          <p>重さ</p><span>※500g以上</span>
           <%= form.number_field :weight, min: 500, max: 10000, step: "5" %>
 
-          <h3>ルアー種類</h3>
+          <p>ルアー種類</p>
           <%= form.select :lure, 
             [
               ["ハードルアー"],["ソフトルアー"]
             ] ,
           prompt: "ルアーの種類を選択してください" %>
 
-          <h3>ハードルアー</h3>
+          <p>ハードルアー</p>
           <%= form.select :lure,
             [
             ["クランクベイト"],["ディープクランク"],["シャッド"],["バイブレーション"],["ミノー"],["スピナーベイト"],["バズベイト"],["ビッグベイト"],["I字系"],
@@ -126,7 +123,7 @@
             ] ,
             prompt: "ルアーを選択してください" %>
 
-          <h3>ソフトルアー</h3>
+          <p>ソフトルアー</p>
           <%= form.select :lure,
             [
             ["スモラバ"],["ネコリグ"],["ミドスト"],["ノーシンカーリグ"],["ジグヘッドワッキー"],["ダウンショットリグ"],["虫系"],
@@ -134,7 +131,7 @@
             ] ,
             prompt: "ルアーを選択してください" %>
 
-          <h3>ルアーカラー</h3>
+          <p>ルアーカラー</p>
           <%= form.select :lure_color,
           [
             ["ベイト系"],["ゴールド系"],["シルバー系"],["レッド系"],["チャート系"],["パープル系"],["ゴースト系"],["ピンク系"],
@@ -144,11 +141,12 @@
           ] ,
           prompt: "ルアーカラーを選択してください" %>
         
-          <h3>釣果数</h3>
+          <p>釣果数</p>
           <%= form.number_field :catch_fish, min: 1, max: 50, step: "1" %>
           <%= form.submit "釣果投稿" %>
-        </div>
-      </div>
-    <% end %>
+        <% end %>
+
+      </div>  
+    </div>
   </div>
 </div>

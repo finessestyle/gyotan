@@ -4,7 +4,7 @@
     <h1 class="form-heading">アカウント情報</h1>
 
     <div class="user">
-      <%= image_tag("/user_images/#{@user.image}") %>
+      <%= image_tag @user.image.url %>
       <h2><%= @user.name %></h2>
       <% if @user.id == @current_user.id %>
         <p><%= @user.email %></p>
@@ -18,7 +18,7 @@
     <% @user.posts.each do |post| %>
       <div class="posts-index-item">
         <div class="user-post-left">
-          <%= image_tag( "/post_images/#{post.image}" ) %>
+          <%= image_tag post.image.url %>
         </div>
         <div class="user-post-right">
           <div class="post-user-name">
