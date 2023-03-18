@@ -1,17 +1,15 @@
 <div class="main">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    
-    <%= form_with url: "/blogs/create", local: true do |form| %>
-      <div class="form">
-        <div class="form-body">
-
-          <% @blog.errors.full_messages.each do |message| %>
-            <div class="form-error">
-              <%= message %>
-            </div>
-          <% end %>
-          
+    <div class="form">
+      <div class="form-body">
+        <% @blog.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+        
+        <%= form_with model: Blog.new, url: "/blogs/create", local: true do |form| %>
           <h3>タイトル</h3>
           <%= form.text_field :title %>
           <!--
@@ -30,9 +28,8 @@
           <h3>内容</h3>
           <%= form.rich_text_area :content %>
           <%= form.submit "投稿" %>
-        </div>
+        <% end %>
       </div>
-    <% end %>
-
+    </div>
   </div>
 </div>

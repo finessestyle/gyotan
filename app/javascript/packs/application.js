@@ -14,3 +14,5 @@ import "../src/flash"
 import "../src/hamburger"
 import "../src/test"
 import "../src/page"
+require("trix")
+require("@rails/actiontext")
