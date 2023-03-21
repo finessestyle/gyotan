@@ -4,6 +4,7 @@ class CreateLikes < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.integer :post_id
       t.integer :blog_id
+      t.integer :map_id
 
       t.timestamps
     end

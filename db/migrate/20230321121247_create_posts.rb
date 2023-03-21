@@ -5,15 +5,15 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :image
       t.string :weather
-      t.string :address
       t.float :latitude
       t.float :longitude
+      t.datetime :datetime
       t.text :content
+      t.float :length
       t.integer :weight
       t.string :lure
-      t.integer :catch_fish
       t.string :lure_color
-      t.float :length
+      t.integer :catch_fish
       t.string :fish_area
 
       t.timestamps

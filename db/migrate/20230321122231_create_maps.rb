@@ -7,7 +7,7 @@ class CreateMaps < ActiveRecord::Migration[6.1]
       t.text :content
       t.integer :user_id
       t.string :category
-
+      
       t.timestamps
     end
   end
