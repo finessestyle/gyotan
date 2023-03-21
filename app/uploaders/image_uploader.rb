@@ -20,9 +20,9 @@ class ImageUploader < CarrierWave::Uploader::Base
       exif = EXIFR::JPEG::new(self.file.file)
       @latitude = exif.gps.latitude
       @longitude = exif.gps.longitude
-      @datetime = exif.date_time
+      @datetime = exif.datetime
     rescue
-      
+
     end
   end
 
