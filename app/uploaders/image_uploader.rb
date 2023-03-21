@@ -1,4 +1,5 @@
 class ImageUploader < CarrierWave::Uploader::Base
+  attr_accessor :latitude, :longitude, :datetime
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -10,6 +11,19 @@ class ImageUploader < CarrierWave::Uploader::Base
     storage :fog # 本番環境のみ
   else
     storage :file # 本番環境以外
+  end
+
+  process :get_exif_info
+  def get_exif_info
+    begin
+    require 'exifr/jpeg'
+      exif = EXIFR::JPEG::new(self.file.file)
+      @latitude = exif.gps.latitude
+      @longitude = exif.gps.longitude
+      @datetime = exif.date_time
+    rescue
+      
+    end
   end
 
   # Override the directory where uploaded files will be stored.

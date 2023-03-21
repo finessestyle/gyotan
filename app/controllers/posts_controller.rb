@@ -20,6 +20,9 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
+    @post.latitude = @post.image.latitude
+    @post.longitude = @post.image.longitude
+    @post.datetime = @post.image.datetime
 
     if @post.save
       flash[:notice] = "投稿を作成しました"
