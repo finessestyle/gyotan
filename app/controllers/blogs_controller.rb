@@ -33,7 +33,7 @@ class BlogsController < ApplicationController
   
   def update
     @blog = Blog.find_by(id: params[:id])
-    @blog.update(post_params)
+    @blog.update(blog_params)
   
     if @blog.save
       flash[:notice] = "投稿を編集しました"
@@ -59,9 +59,9 @@ class BlogsController < ApplicationController
   # end
 
   private
-      # Only allow a list of trusted parameters through.
-      def blog_params
-        params.require(:blog).permit(:title, :content, :image).merge(:user_id => @current_user.id)
-      end
+    # Only allow a list of trusted parameters through.
+    def blog_params
+      params.require(:blog).permit(:title, :content, :image).merge(:user_id => @current_user.id)
+    end
 
 end
