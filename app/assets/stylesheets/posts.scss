@@ -262,3 +262,15 @@
     height: 250px;
   }
 }
+
+.hard-lure {
+  display: none;
+}
+
+.soft-lure {
+  display: none;
+}
+
+input[type="select"]:selected + {
+  display: block;
+}

@@ -16,7 +16,7 @@
       </div>
 
       <div class="post-datetime">
-        <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{@post.image.url}") %>
+        <% image = EXIFR::JPEG.new(open(post.image.url)) %>
         <span>釣果日時：</span>
         <%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
         <% if image.date_time == nil %>
