@@ -1,38 +1,26 @@
 <div class="main">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    
-    <%= form_with url: "/maps/create", local: true do |form| %>
-      <div class="form">
-        <div class="form-body">
-
-          <% @map.errors.full_messages.each do |message| %>
-            <div class="form-error">
-              <%= message %>
-            </div>
-          <% end %>
-          
+    <div class="form">
+      <div class="form-body">
+        <% @map.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+        
+        <%= form_with model: map.new, url: "/maps/create", local: true do |form| %>
           <h3>タイトル</h3>
           <%= form.text_field :title %>
-          <!--
-          <h2>サブタイトル</h2>
-          <%= form.text_field :sub_title, name: "sub_title" %>
-          <h2>カテゴリー</h2>
-          <%= form.select :category,
-          [
-          ["バス釣り入門編"],["フィネス入門編"],["タックル編"],["フィネスルアー編"],
-          ] ,
-          prompt: "カテゴリーを選択してください", name: "category" %>
-          -->
+          
           <h3>トップ画像</h3>
           <%= form.file_field :image %>
 
           <h3>内容</h3>
           <%= form.rich_text_area :content %>
           <%= form.submit "投稿" %>
-        </div>
+        <% end %>
       </div>
-    <% end %>
-
+    </div>
   </div>
 </div>
