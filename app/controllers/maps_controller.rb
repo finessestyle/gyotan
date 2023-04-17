@@ -7,6 +7,7 @@ class MapsController < ApplicationController
 
   def show
     @map = Map.find_by(id: params[:id])
+    @user = @map.user
   end
 
   def new
