@@ -9,7 +9,7 @@
           </div>
         <% end %>
         
-        <%= form_with model: map.new, url: "/maps/create", local: true do |form| %>
+        <%= form_with model: @map, url: "/maps/create", local: true do |form| %>
           <h3>タイトル</h3>
           <%= form.text_field :title %>
           
