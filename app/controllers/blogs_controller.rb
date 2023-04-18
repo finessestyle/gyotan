@@ -2,12 +2,13 @@ class BlogsController < ApplicationController
   before_action :authenticate_user
   
   def index
-    @blogs = Blog.all.order(created_at: :desc)
+    @blogs = Blog.all
     @users = User.page(params[:page]).per(10)
   end
     
   def show
     @blog = Blog.find_by(id: params[:id])
+    impressionist(@blog, nil, unique: [:ip_address])
     @user = @blog.user
     @likes_count = Like.where(blog_id: @blog.id).count
   end

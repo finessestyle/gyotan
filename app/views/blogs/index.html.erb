@@ -13,10 +13,11 @@
           <div class="user-post-datetime">
             <span>投稿日：</span>
             <%= link_to(blog.created_at.strftime("%Y-%m-%d"), "/blogs/#{blog.id}") %>
+            <span>PV数：</span>
+            <%= blog.impressions_count %>
           </div>
         </div>
       </div>
     <% end %>
-    <%= paginate @users %>
   </div>
 </div>

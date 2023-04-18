@@ -27,6 +27,7 @@ gem 'dotenv-rails'
 gem 'google_drive'
 gem 'mysql2'
 gem 'fog-aws'
+gem 'impressionist'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
