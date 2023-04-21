@@ -17,6 +17,12 @@
   overflow: hidden;
 }
 
+@media(max-width:670px) {
+  .blogs-show-item {
+    padding: 0 3px;
+  }
+}
+
 .blog-time {
   color: #8899a6;
   margin-bottom: 10px;
