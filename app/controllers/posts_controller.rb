@@ -20,10 +20,22 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(post_params)
-    @post.latitude = @post.image.latitude
-    @post.longitude = @post.image.longitude
-    @post.datetime = @post.image.datetime
+    @post = Post.new(
+      title: params[:title],
+      content: params[:content],
+      weather: params[:weather],
+      fish_area: params[:fish_area],
+      length: params[:length],
+      weight: params[:weight],
+      catch_fish: params[:catch_fish],
+      lure: params[:lure],
+      lure_color: params[:lure_color],
+      image: params[:image],
+      latitude: params[:latitude],
+      longitude: params[:longitude],
+      datatime: params[:datetime],
+      user_id: @current_user.id
+    )
 
     if @post.save
       flash[:notice] = "投稿を作成しました"
@@ -65,7 +77,6 @@ class PostsController < ApplicationController
   end
 
   private
-    # Only allow a list of trusted parameters through.
     def post_params
       params.permit(:title, :content, :weather, :fish_area, :length, :weight, :catch_fish, :lure, :lure_color, :image).merge(:user_id => @current_user.id)
     end
