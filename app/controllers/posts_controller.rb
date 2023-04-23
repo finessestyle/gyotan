@@ -33,7 +33,6 @@ class PostsController < ApplicationController
       image: params[:image],
       latitude: params[:latitude],
       longitude: params[:longitude],
-      datatime: params[:datetime],
       user_id: @current_user.id
     )
 
