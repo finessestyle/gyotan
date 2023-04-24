@@ -60,7 +60,6 @@ class BlogsController < ApplicationController
   # end
 
   private
-    # Only allow a list of trusted parameters through.
     def blog_params
       params.permit(:title, :content, :image).merge(:user_id => @current_user.id)
     end
