@@ -11,7 +11,7 @@
 
         <%= form_with model: Post.new, url: "/posts/create", local: true do |form| %>   
           <p>タイトル</p>
-          <%= form.text_field :title %>
+          <%= form.text_field :title, maxlength: 20 %>
 
           <p>釣果画像</p>
           <%= form.file_field :image %>
@@ -24,7 +24,7 @@
           prompt: "天気を選択してください" %>
 
           <p>釣果内容</p> <span>※詳しく状況を記入して下さい</span>
-          <%= form.text_area :content %>
+          <%= form.text_area :content, maxlength: 60 %>
 
           <p>釣果エリア</p>
           <%= form.select :fish_area,
