@@ -1,7 +1,5 @@
 class Map < ApplicationRecord
-  validates :title, {presence: true, length: {maximum: 32}}
   validates :user_id, {presence: true} 
-  validates :content, {presence: true}
   has_rich_text :content
 
   mount_uploader :image, ImageUploader

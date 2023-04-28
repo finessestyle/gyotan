@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   validates :name, {presence: true}
   validates :email, {presence: true, uniqueness: true}
+  validates :image, {presence: true}
   has_secure_password
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy

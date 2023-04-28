@@ -52,6 +52,12 @@
   padding:10px 10px;
 }
 
+@media(max-width: 670px) {
+  .tab li a{
+    font-size: 13px;
+  }
+}
+
 /*liにactiveクラスがついた時の形状*/
 .tab li.active a{
   background:#fff;

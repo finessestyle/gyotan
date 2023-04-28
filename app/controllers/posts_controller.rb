@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all.order(created_at: :desc) #or :asc
-    @posts = Post.where(user_id: current_user.id).where.not(image: nil)
   end
 
   def show

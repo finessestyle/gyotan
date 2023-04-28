@@ -13,7 +13,7 @@
           <div class="user-post-datetime">
             <span>投稿日：</span>
             <%= link_to(post.created_at.strftime("%Y-%m-%d %H:%M"), "/posts/#{post.id}") %>
-            <span>PV数：</span>
+            <span>PV数:</span>
             <%= post.impressions_count %>
           </div>       
         </div>
