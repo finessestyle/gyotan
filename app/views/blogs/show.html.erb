@@ -3,7 +3,7 @@
     <h1 class="form-heading">ブログ詳細</h1>
     <div class="blog-show-item">
     
-      <% if @blog.user_id == @current_user.id %>
+      <% if @blog.user_id == @ensure_correct_user.id %>
         <div class="post-menus">
           <%= link_to("編集", "/blogs/#{@blog.id}/edit") %>
           <%= link_to("削除", "/blogs/#{@blog.id}/destroy", {method: "post"}) %>
