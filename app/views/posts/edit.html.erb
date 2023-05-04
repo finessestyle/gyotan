@@ -13,7 +13,7 @@
           <% end %>
 
           <h3>タイトル</h3>
-          <%= form.text_field :title, value: @post.title %>
+          <%= form.text_field :title, maxlength: 70, value: @post.title %>
 
           <h3>釣果画像</h3>
           <%= form.file_field :image, value: @post.image %>
@@ -26,7 +26,7 @@
           prompt: "天気を選択してください", value: @post.weather %>
 
           <h3>釣果内容</h3><span>※詳しく状況を記入して下さい</span>
-          <%= form.text_area :content, value: @post.content %>
+          <%= form.text_area :content, maxlength: 70, value: @post.content %>
 
           <h3>釣果エリア</h3>
           <%= form.select :fish_area,

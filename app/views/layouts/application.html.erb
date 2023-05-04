@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title>魚探[GYOTAN]-琵琶湖釣果共有アプリ-</title>
+    <title>Gyotan-琵琶湖釣果共有サイト-</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta charset="utf-8">
     <%= csrf_meta_tags %>
@@ -59,6 +59,8 @@
             </span>
             <nav class="nav">
               <ul class="nav_menu_ul">
+                <li class="nav_menu_li"><%= link_to("ブログ's", "/blogs") %></li>
+                <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal") %></li>
                 <li class="nav_menu_li"><%= link_to("新規登録", "/signup") %></li>
                 <li class="nav_menu_li"><%= link_to("ログイン","/login") %></li>
               </ul>
