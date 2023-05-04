@@ -28,8 +28,7 @@
           </div>
 
           <div class="top-datetime">
-            <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{post.image.url}") %>
-            # <% image = EXIFR::JPEG.new(open(post.image.url)) %>
+            <% image = EXIFR::JPEG.new(open(post.image.url)) %>
             <span>釣果日時：</span><%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
           </div>
 
