@@ -38,12 +38,12 @@
       <div type="text/javascript">
         <script>
           let circleBlue;
-          let nRadiusHalfKm = 100;
+          let nRadiusHalfKm = 160;
 
           function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
               center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
-              zoom: 16
+              zoom: 15
             });
 
             circleBlue = new google.maps.Circle({

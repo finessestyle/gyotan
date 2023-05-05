@@ -43,10 +43,12 @@
                 <% if @current_user.admin? %>
                   <li class="nav_menu_li"><%= link_to("ブログ投稿", "/blogs/new") %></li>
                 <% end %>
+                <!--
                 <li class="nav_menu_li"><%= link_to("釣り場情報","/maps") %></li>
                 <% if @current_user.admin? %>
                   <li class="nav_menu_li"><%= link_to("釣り場投稿", "/maps/new") %></li>
                 <% end %>
+                -->
                 <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal") %></li>
                 <li class="nav_menu_li"><%= link_to("ログアウト", "/logout", {method: "post"}) %></li>
               </ul>
@@ -59,8 +61,6 @@
             </span>
             <nav class="nav">
               <ul class="nav_menu_ul">
-                <li class="nav_menu_li"><%= link_to("ブログ's", "/blogs") %></li>
-                <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal") %></li>
                 <li class="nav_menu_li"><%= link_to("新規登録", "/signup") %></li>
                 <li class="nav_menu_li"><%= link_to("ログイン","/login") %></li>
               </ul>
