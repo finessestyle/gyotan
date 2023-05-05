@@ -11,7 +11,7 @@
 every 1.day, at: '8:00 am' do
   rails 'sitemap:refresh'
 end
-#
+#sitemap.xml.gz
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
 #   runner "MyModel.some_method"
