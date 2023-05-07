@@ -333,6 +333,11 @@
   height: auto;
   padding-top: 10px;
 }
+
+.blog-title {
+  margin: 0 auto;
+  width: 100%;
+}
   
 .top-blogs-item {
   padding: 20px 20px;
@@ -341,18 +346,6 @@
   box-shadow: 0 2px 6px #c1ced7;
   border-radius: 5px 5px;
   margin-bottom: 20px;
-}
-
-.blog-title {
-  margin: 0 auto;
-  width: 100%;
-}
-
-@media(max-width:670px) {
-  .blog-title {
-    margin: 0 auto;
-    width: 100%;
-  }
 }
 
 @media(max-width:670px) {

@@ -5,24 +5,10 @@
   overflow: auto;
   box-shadow: 0 2px 6px #c1ced7;
   border-radius: 5px 5px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 /* blogs/show ================================ */
-.blogs-show-item {
-  padding: 30px;
-  margin: 0 auto;
-  background-color: white;
-  box-shadow: 0 2px 6px #c1ced7;
-  overflow: hidden;
-}
-
-@media(max-width:670px) {
-  .blogs-show-item {
-    padding: 0 3px;
-  }
-}
-
 .blog-time {
   color: #8899a6;
   margin-bottom: 10px;

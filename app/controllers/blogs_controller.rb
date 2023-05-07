@@ -1,5 +1,4 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_user
   
   def index
     @blogs = Blog.all
@@ -12,6 +11,8 @@ class BlogsController < ApplicationController
     @user = @blog.user
     @likes_count = Like.where(blog_id: @blog.id).count
   end
+  
+  before_action :authenticate_user
 
   def new
     @blog = Blog.new

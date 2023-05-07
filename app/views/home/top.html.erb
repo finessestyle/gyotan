@@ -29,7 +29,11 @@
           </div>
 
           <div class="top-datetime">
-            <% image = EXIFR::JPEG.new(open(post.image.url)) %>
+            <% if Rails.env.development? %>
+              <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{post.image.url}") %>
+              <% else %>
+              <% image = EXIFR::JPEG.new(open(post.image.url)) %>
+            <% end %>
             <span>釣果日時：</span><%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
           </div>
 
@@ -75,6 +79,21 @@
           </div>
         </div>  
       <% end %>
-    </div>    
+    </div>
+    <div class="contents-title">
+      <h3>-最新ブログ情報-</h3>
+    </div>
+    <div class="top-blogs-item">
+      <div class="top-blogs">
+        <% @blogs.each do |blog| %>
+          <div class="blog-title">
+            <%= link_to(blog.title, "/blogs/#{blog.id}") %>
+          </div>
+          <div class="blog-content">
+            <%= blog.content %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
