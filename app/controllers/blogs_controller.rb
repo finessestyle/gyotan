@@ -1,8 +1,9 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user
+  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
   
   def index
     @blogs = Blog.all
-    @users = User.page(params[:page]).per(10)
   end
     
   def show
@@ -11,8 +12,6 @@ class BlogsController < ApplicationController
     @user = @blog.user
     @likes_count = Like.where(blog_id: @blog.id).count
   end
-  
-  before_action :authenticate_user
 
   def new
     @blog = Blog.new
@@ -52,13 +51,13 @@ class BlogsController < ApplicationController
     redirect_to("/blogs/index")
   end
 
-  # def ensure_correct_user
-  #   @blog = Blog.find_by(id: params[:id])
-  #     if @blog.user_id != @current_user.id
-  #     flash[:notice] = "権限がありません"
-  #     redirect_to("/blogs/index")
-  #   end
-  # end
+  def ensure_correct_user
+    @blog = Blog.find_by(id: params[:id])
+    if @blog.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/blogs/index")
+    end
+  end
 
   private
     def blog_params

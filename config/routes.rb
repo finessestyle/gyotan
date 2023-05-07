@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get "blogs/:id", to: "blogs#show"
   post "blogs/create", to: "blogs#create"
   get "blogs/:id/edit", to: "blogs#edit"
+  get "blogs/:id/update", to: "blogs#update"
   post "blogs/:id/update", to: "blogs#update"
   patch "blogs/:id/update", to: "blogs#update"
   post "blogs/:id/destroy", to: "blogs#destroy"
