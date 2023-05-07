@@ -7,7 +7,7 @@
       </div>
       <div class="post-right">
         <div class="post-user-name">
-          <%= link_to(@user.name, "/users/#{@user.id}") %>
+          <%= link_to(@user.name, "/users/#{@user.id}") %><span> さん</sapan>
         </div>
       </div>  
 
@@ -35,36 +35,38 @@
       <div class="post-fish-area">
         <span>釣果エリア：</span><%= @post.fish_area %>
       </div>
-      <div class="map">
-        <div id="map">
+      <% if session[:user_id] %>
+        <div class="map">
+          <div id="map">
+          </div>
         </div>
-      </div>
-      <div type="text/javascript">
-        <script>
-          let circleBlue;
-          let nRadiusHalfKm = 160;
+        <div type="text/javascript">
+          <script>
+            let circleBlue;
+            let nRadiusHalfKm = 160;
 
-          function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
-              zoom: 15
-            });
+            function initMap() {
+              map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
+                zoom: 15
+              });
 
-            circleBlue = new google.maps.Circle({
-              strokeColor: "#3333FF",
-              strokeOpacity: 1.0,
-              strokeWeight: 2,
-              fillColor: "#3333FF",
-              fillOpacity: 0.35,
-              map: map,
-              draggable: false,
-              center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
-              radius: nRadiusHalfKm
-            });
-          }
+              circleBlue = new google.maps.Circle({
+                strokeColor: "#3333FF",
+                strokeOpacity: 1.0,
+                strokeWeight: 2,
+                fillColor: "#3333FF",
+                fillOpacity: 0.35,
+                map: map,
+                draggable: false,
+                center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
+                radius: nRadiusHalfKm
+              });
+            }
 
-        </script>
-      </div>
+          </script>
+        </div>
+      <% end %>
       <div class="post-info">
         <div class="post-content">
           <p>～釣果状況～</p>
@@ -93,25 +95,26 @@
           </div>
         </div>
       </div>
-
-      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
-          <span class="fa fa-heart liked-btn"></span>
-        <% end %>
-      <% else %>
-        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
-          <span class="fa fa-heart unliked-btn"></span>
-        <% end %>
-      <% end %>
-        <%= @likes_count %>
       
-      <% if @post.user_id == @current_user.id %>
-        <div class="post-menus">
-          <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-          <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
-        </div>
+      <% if session[:user_id] %>
+        <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+          <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+            <span class="fa fa-heart liked-btn"></span>
+          <% end %>
+        <% else %>
+          <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+            <span class="fa fa-heart unliked-btn"></span>
+          <% end %>
+        <% end %>
+          <%= @likes_count %>
+        
+        <% if @post.user_id == @current_user.id %>
+          <div class="post-menus">
+            <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+            <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+          </div>
+        <% end %>
       <% end %>
-
     </div>
   </div>
 </div>
