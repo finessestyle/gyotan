@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 2023_04_18_143337) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "impressions_count", default: 0
+    t.json "images"
   end
 
   create_table "users", force: :cascade do |t|

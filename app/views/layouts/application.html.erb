@@ -18,59 +18,59 @@
   
   <body>
     <header>
-      <div class="header-info">
-        <div class="header-logo">
-          <% if @current_user %>
-            <%= link_to(" Gyotan ", "/posts/index") %><span>-琵琶湖バス釣り釣果共有サイト-</span>
-          <% else %>
-            <%= link_to(" Gyotan  ", "/") %><span>-琵琶湖バス釣り釣果共有サイト-</span>
-          <% end%>
-        </div>
-        <ul class="header-menus">
-          <% if @current_user %>
-            <span class="nav_toggle">
-              <i></i>
-              <i></i>
-              <i></i>
-            </span>
-            <nav class="nav">
-              <ul class="nav_menu_ul">
-                <li class="nav_menu_li"><%= link_to("アカウント情報", "/users/#{@current_user.id}") %></li>
-                <li class="nav_menu_li"><%= link_to("釣果投稿", "/posts/new") %></li>
-                <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
-                <li class="nav_menu_li"><%= link_to("ユーザー一覧", "/users/index") %></li>
-                <li class="nav_menu_li"><%= link_to("ブログ's","/blogs") %></li>
-                <% if @current_user.admin? %>
-                  <li class="nav_menu_li"><%= link_to("ブログ投稿", "/blogs/new") %></li>
-                <% end %>
-                <!--
-                <li class="nav_menu_li"><%= link_to("釣り場情報","/maps") %></li>
-                <% if @current_user.admin? %>
-                  <li class="nav_menu_li"><%= link_to("釣り場投稿", "/maps/new") %></li>
-                <% end %>
-                -->
-                <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal") %></li>
-                <li class="nav_menu_li"><%= link_to("ログアウト", "/logout", {method: "post"}) %></li>
-              </ul>
-            </nav>
-          <% else %>
-            <span class="nav_toggle">
-              <i></i>
-              <i></i>
-              <i></i>
-            </span>
-            <nav class="nav">
-              <ul class="nav_menu_ul">
-                <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
-                <li class="nav_menu_li"><%= link_to("ブログ's","/blogs") %></li>
-                <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal") %></li>
-                <li class="nav_menu_li"><%= link_to("新規登録", "/signup") %></li>
-                <li class="nav_menu_li"><%= link_to("ログイン","/login") %></li>
-              </ul>
-            </nav>
-          <% end %>
-        </ul>
+      <div class="header-logo">
+        <% if @current_user %>
+          <%= link_to(" Gyotan ", "/posts/index") %><span>-琵琶湖バス釣り釣果共有サイト-</span>
+        <% else %>
+          <%= link_to(" Gyotan  ", "/") %><span>-琵琶湖バス釣り釣果共有サイト-</span>
+        <% end%>
       </div>
+      <ul class="header-menus">
+        <% if @current_user %>
+          <span class="nav_toggle">
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+          <nav class="nav">
+            <ul class="nav_menu_ul">
+              <li class="nav_menu_li"><%= link_to("アカウント情報", "/users/#{@current_user.id}") %></li>
+              <li class="nav_menu_li"><%= link_to("釣果投稿", "/posts/new") %></li>
+              <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
+              <li class="nav_menu_li"><%= link_to("ユーザー一覧", "/users/index") %></li>
+              <li class="nav_menu_li"><%= link_to("ブログ's","/blogs") %></li>
+              <% if @current_user.admin? %>
+                <li class="nav_menu_li"><%= link_to("ブログ投稿", "/blogs/new") %></li>
+              <% end %>
+              <!--
+              <li class="nav_menu_li"><%= link_to("釣り場情報","/maps") %></li>
+              <% if @current_user.admin? %>
+                <li class="nav_menu_li"><%= link_to("釣り場投稿", "/maps/new") %></li>
+              <% end %>
+              -->
+              <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal") %></li>
+              <li class="nav_menu_li"><a href="https://px.a8.net/svt/ejp?a8mat=3BBVW1+AJ954I+4H4K+5YRHE" rel="nofollow">釣り動画</a></li>
+              <li class="nav_menu_li"><%= link_to("ログアウト", "/logout", {method: "post"}) %></li>
+            </ul>
+          </nav>
+        <% else %>
+          <span class="nav_toggle">
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+          <nav class="nav">
+            <ul class="nav_menu_ul">
+              <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
+              <li class="nav_menu_li"><%= link_to("ブログ's","/blogs") %></li>
+              <li class="nav_menu_li"><%= link_to("シーズン情報", "/seasonal") %></li>
+              <li class="nav_menu_li"><a href="https://px.a8.net/svt/ejp?a8mat=3BBVW1+AJ954I+4H4K+5YRHE" rel="nofollow">釣り動画</a></li>
+              <li class="nav_menu_li"><%= link_to("新規登録", "/signup") %></li>
+              <li class="nav_menu_li"><%= link_to("ログイン","/login") %></li>
+            </ul>
+          </nav>
+        <% end %>
+      </ul>
     </header>
 
     <% if flash[:notice] %>
@@ -93,6 +93,6 @@
     <!--Googleアドセンスの読み込み-->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758"crossorigin="anonymous"></script>
     <!--Slickの読み込み-->
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    </body>
 </html>
