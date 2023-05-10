@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title>Gyotan-琵琶湖釣果共有サイト-</title>
+    <%= display_meta_tags(default_meta_tags) %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= include_gon %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel=”apple-touch-icon” href=”1.jpg” sizes=”180*180″>
-    <link rel=”icon” type=”image/x-icon” href=”./favicon.ico”>
     <!--Google Search Consoleの読み込み-->
     <meta name="google-site-verification" content="jxlhLqjT7chxHAq1rjUMu1eYmH2tBQ9YqFBK7mSAbYA" />
   </head>
