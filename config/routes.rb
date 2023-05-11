@@ -36,7 +36,8 @@ Rails.application.routes.draw do
   patch "blogs/:id/update", to: "blogs#update"
   post "blogs/:id/destroy", to: "blogs#destroy"
 
-  get "maps", to:  "maps#index"
+  get "maps", to:  "maps#top"
+  get "maps/index", to: "maps#index"
   get "maps/new", to: "maps#new"
   get "maps/:id", to: "maps#show"
   post "maps/create", to: "maps#create"
@@ -44,8 +45,6 @@ Rails.application.routes.draw do
   post "maps/:id/update", to: "maps#update"
   patch "maps/:id/update", to: "maps#update"
   post "maps/:id/destroy", to: "maps#destroy"
-
-  get "seasonal", to: "seasonal#seasonal"
   
   get "/", to: "home#top"
 end

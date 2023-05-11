@@ -29,14 +29,8 @@ SitemapGenerator::Sitemap.create do
     add '/blogs/:id', :changefreq => 'daily', :priority => 0.7
     add '/blogs/:id/edit', :changefreq => 'daily', :priority => 0.7
     add '/blogs/:id/update', :changefreq => 'daily', :priority => 0.7
-    add '/users/index', :changefreq => 'daily', :priority => 0.7
     add '/login', :changefreq => 'daily', :priority => 0.7
-    add '/users/:id/update', :changefreq => 'daily', :priority => 0.7
-    add '/users/:id/edit', :changefreq => 'daily', :priority => 0.7
     add '/signup', :changefreq => 'daily', :priority => 0.7
-    add '/users/:id', :changefreq => 'daily', :priority => 0.7
-    add '/seasonal', :changefreq => 'daily', :priority => 0.7
-    add '/posts/', :changefreq => 'daily', :priority => 0.7
     
   #
   # Add all articles:

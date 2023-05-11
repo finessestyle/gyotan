@@ -1,5 +1,8 @@
 class MapsController < ApplicationController
-  before_action :authenticate_user
+  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+
+  def top
+  end
 
   def index
     @maps = Map.all.order(created_at: :desc)
@@ -45,6 +48,14 @@ class MapsController < ApplicationController
     @map.destroy
     flash[:notice] = "投稿を削除しました"
     redirect_to("/maps/index")
+  end
+
+  def ensure_correct_user
+    @map = Map.find_by(id: params[:id])
+    if @map.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/blogs/index")
+    end
   end
 
   private
