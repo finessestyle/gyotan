@@ -45,6 +45,6 @@ Rails.application.routes.draw do
   post "maps/:id/update", to: "maps#update"
   patch "maps/:id/update", to: "maps#update"
   post "maps/:id/destroy", to: "maps#destroy"
-  
+
   get "/", to: "home#top"
 end

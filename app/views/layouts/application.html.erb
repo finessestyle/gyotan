@@ -44,7 +44,6 @@
               <% if @current_user.admin? %>
                 <li class="nav_menu_li"><%= link_to("釣り場投稿", "/maps/new") %></li>
               <% end %>
-              <li class="nav_menu_li"><a href="https://px.a8.net/svt/ejp?a8mat=3BBVW1+AJ954I+4H4K+5YRHE" rel="nofollow">釣り動画</a></li>
               <li class="nav_menu_li"><%= link_to("ログアウト", "/logout", {method: "post"}) %></li>
             </ul>
           </nav>
@@ -59,7 +58,6 @@
               <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
               <li class="nav_menu_li"><%= link_to("ブログ's","/blogs") %></li>
               <li class="nav_menu_li"><%= link_to("釣り場情報","/maps") %></li>
-              <li class="nav_menu_li"><a href="https://px.a8.net/svt/ejp?a8mat=3BBVW1+AJ954I+4H4K+5YRHE" rel="nofollow">釣り動画</a></li>
               <li class="nav_menu_li"><%= link_to("新規登録", "/signup") %></li>
               <li class="nav_menu_li"><%= link_to("ログイン","/login") %></li>
             </ul>
@@ -73,7 +71,7 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-    
+        
     <%= yield %>
 
     <footer id="footer">
