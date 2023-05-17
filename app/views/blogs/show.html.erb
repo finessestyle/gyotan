@@ -23,5 +23,13 @@
       </div>
 
     </div>
+    <p>
+      <% if @blog.previous %>
+        <%= link_to("<前のページ", "/blogs/#{@blog.id}.previous") %>
+      <% end %>
+      <% if @blog.next %>
+        <%= link_to("次のページ>", "/blogs/#{@blog.id}.next") %>
+      <% end %>
+    </p>
   </div>
 </div>

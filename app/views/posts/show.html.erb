@@ -95,7 +95,7 @@
           </div>
         </div>
       </div>
-      
+
       <% if session[:user_id] %>
         <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
           <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
@@ -115,14 +115,16 @@
           </div>
         <% end %>
       <% end %>
+
+      <p>
+        <% if @post.previous %>
+          <%= link_to("<前のページ", "/posts/#{@post.id}.previous") %>
+        <% end %>
+        <% if @post.next %>
+          <%= link_to("次のページ>", "/posts/#{@post.id}.next") %>
+        <% end %>
+      </p>
     </div>
-      <div class="wrapper">
-        <ul class="slider">
-          <li class="slider-item slider-item01"></li>
-          <li class="slider-item slider-item01"></li>
-          <li class="slider-item slider-item01"></li>
-        </ul>
-      </div>
   </div>
 </div>
 
