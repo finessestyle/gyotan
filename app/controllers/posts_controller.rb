@@ -9,12 +9,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     impressionist(@post, nil, unique: [:ip_address])
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
   end
-  
+
   def new
     @post = Post.new
   end
@@ -63,7 +63,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :content, :weather, :fish_area, :length, :weight, :catch_fish, :lure, :lure_color, :image).merge(:user_id => @current_user.id)
+      params.require(:post).permit(:title, :content, :weather, :fish_area, :length, :weight, :catch_fish, :lure, :lure_color, image),merge(:user_id => @current_user.id)
     end
-  
 end

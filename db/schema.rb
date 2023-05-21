@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_18_143337) do
+ActiveRecord::Schema.define(version: 2023_05_21_003431) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(version: 2023_04_18_143337) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
-    t.string "image"
     t.string "weather"
     t.float "latitude"
     t.float "longitude"
@@ -126,6 +125,7 @@ ActiveRecord::Schema.define(version: 2023_04_18_143337) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "impressions_count", default: 0
+    t.string "image"
     t.json "images"
   end
 

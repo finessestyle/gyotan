@@ -117,11 +117,11 @@
       <% end %>
 
       <p>
-        <% if @post.previous %>
-          <%= link_to("<前のページ", "/posts/#{@post.id}.previous") %>
+        <% if @post.previous.present? %>
+          <%= link_to("<前のページ","/posts/#{@post.present}") %>
         <% end %>
-        <% if @post.next %>
-          <%= link_to("次のページ>", "/posts/#{@post.id}.next") %>
+        <% if @post.next.present? %>
+          <%= link_to("次のページ>","/posts/#{@post.next}") %>
         <% end %>
       </p>
     </div>

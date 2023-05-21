@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   validates :user_id,{presence: true}
   
-  mount_uploader :image, ImageUploader
+  mount_uploader :images, ImageUploader
   is_impressionable counter_cache: true
 
   def user
@@ -15,5 +15,5 @@ class Post < ApplicationRecord
   def next 
     Post.where("id > ?", self.id).order("id ASC").first
   end
-  
+
 end
