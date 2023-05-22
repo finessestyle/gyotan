@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
     impressionist(@post, nil, unique: [:ip_address])
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
