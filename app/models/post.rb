@@ -8,12 +8,4 @@ class Post < ApplicationRecord
     return User.find_by(id: self.user_id)
   end
 
-  def previous
-    Post.where("id < ?", self.id).order("id DESC").first
-  end
-
-  def next 
-    Post.where("id > ?", self.id).order("id ASC").first
-  end
-
 end
