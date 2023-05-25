@@ -4,6 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   process resize_to_fit: [3000, 3000]
+  process :convert => 'jpg'
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
@@ -53,6 +54,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
+
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
