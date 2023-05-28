@@ -1,9 +1,6 @@
 class MapsController < ApplicationController
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
 
-  def top
-  end
-
   def index
     @maps = Map.all.order(created_at: :desc)
   end

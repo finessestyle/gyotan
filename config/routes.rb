@@ -1,5 +1,5 @@
 Rails.application.routes.draw do    
-  
+
   post "likes/:post_id/create", to: "likes#create"
   post "likes/:post_id/destroy", to: "likes#destroy"
 
@@ -47,4 +47,8 @@ Rails.application.routes.draw do
   post "maps/:id/destroy", to: "maps#destroy"
 
   get "/", to: "home#top"
+
+  get "term", to: "info#term"
+  get "privacy", to: "info#privacy"
+  get "cookie", to: "info#cookie"
 end
