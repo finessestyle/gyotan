@@ -48,7 +48,7 @@ Rails.application.routes.draw do
 
   get "/", to: "home#top"
 
-  get "term", to: "info#term"
-  get "privacy", to: "info#privacy"
-  get "cookie", to: "info#cookie"
+  get "term", to: "home#term"
+  get "privacy", to: "home#privacy"
+  get "cookie", to: "home#cookie"
 end
