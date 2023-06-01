@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
   mount_uploader :image, ImageUploader
-  
+
     # フォローしたときの処理
   def follow(user_id)
     relationships.create(followed_id: user_id)
@@ -33,5 +33,5 @@ class User < ApplicationRecord
   
   def likes
     return Like.where(user_id: self.id)
-  end
+  end  
 end

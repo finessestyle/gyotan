@@ -83,17 +83,17 @@
     <div class="contents-title">
       <h3>-最新ブログ情報-</h3>
     </div>
-    <div class="top-blogs-item">
-      <div class="top-blogs">
-        <% @blogs.each do |blog| %>
+    <div class="top-blogs">
+      <% @blogs.each do |blog| %>
+        <div class="top-blogs-item">
           <div class="blog-title">
             <%= link_to(blog.title, "/blogs/#{blog.id}") %>
           </div>
           <div class="blog-content">
             <%= blog.content %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
