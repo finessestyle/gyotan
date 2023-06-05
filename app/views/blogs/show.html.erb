@@ -5,6 +5,7 @@
       <% if session[:user_id] %>
         <% if @blog.user_id == @current_user.id %>
           <div class="post-menus">
+            <%= link_to("投稿", "/blogs/new") %>
             <%= link_to("編集", "/blogs/#{@blog.id}/edit") %>
             <%= link_to("削除", "/blogs/#{@blog.id}/destroy", {method: "post"}) %>
           </div>
@@ -22,6 +23,18 @@
         <%= @blog.content %>
       </div>
 
+    </div>
+    <div class="present">
+      <div class="previous"> 
+        <% if @blog.previous.present? %>
+          <%= link_to("<前の記事", "/blogs/#{@blog.previous.id}") %>
+        <% end %>
+      </div>
+      <div class="next">
+        <% if @blog.next.present? %>
+          <%= link_to("次の記事>", "/blogs/#{@blog.next.id}") %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
