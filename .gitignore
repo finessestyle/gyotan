@@ -35,7 +35,7 @@
 yarn-debug.log*
 .yarn-integrity
 
-/.env
-
 # Ignore sitemap file
 public/sitemap.xml.gz
+
+/.env

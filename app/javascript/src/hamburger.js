@@ -5,3 +5,4 @@ $(document).on('turbolinks:load',function() {
     $('.nav_toggle, .nav').toggleClass('show');
   });
 });
+

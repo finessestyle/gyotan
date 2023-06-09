@@ -3,19 +3,16 @@
     <h1 class="form-heading">釣果一覧</h1>
     <% @posts.each do |post| %>
       <div class="posts-index-item">
-        <div class="user-post-left">
+        <div class="posts-index-datetime">
+          <span>投稿日:</span>
+          <%= post.created_at.strftime("%Y-%m-%d %H:%M") %><br>
+          <%= link_to(post.user.name,"/users/#{post.user_id}") %><span>さんが釣果を投稿</span> 
+        </div>
+        <div class="post-user-image">
           <%= image_tag post.image.url %>
         </div>
-        <div class="user-post-right">
-          <div class="post-user-name">
-            <%= link_to(post.title,"/posts/#{post.id}") %>
-          </div>
-          <div class="user-post-datetime">
-            <span>投稿日：</span>
-            <%= link_to(post.created_at.strftime("%Y-%m-%d %H:%M"), "/posts/#{post.id}") %>
-            <span>PV数:</span>
-            <%= post.impressions_count %>
-          </div>       
+        <div class="posts-index-right">
+          <%= link_to("👉釣果詳細はこちら","/posts/#{post.id}") %>
         </div>
       </div>
     <% end %>

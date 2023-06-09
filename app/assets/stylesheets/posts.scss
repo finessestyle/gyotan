@@ -1,5 +1,6 @@
 /* posts/index ================================ */
 .posts-index-item {
+  display: block;
   padding: 20px 20px;
   background-color: white;
   overflow: auto;
@@ -15,8 +16,8 @@
   }
 }
 
-.user-post-datetime {
-  font-size: 14px;
+.posts-index-info {
+
 }
 
 /* posts/show ================================ */
@@ -46,7 +47,7 @@
 
 .post-user-name a {
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 50px;
 }
 

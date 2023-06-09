@@ -1,5 +1,8 @@
 Rails.application.routes.draw do    
 
+  get "contacts/new", to: "contacts#new"
+  post "contacts/create", to: "contacts#create"
+
   post "likes/:post_id/create", to: "likes#create"
   post "likes/:post_id/destroy", to: "likes#destroy"
 

@@ -78,10 +78,14 @@
     <footer id="footer">
       <p id="page-top"><a href="#">Page Top</a></p> 
       <small>&copy; Gyotan.jp</small>
-      <%= link_to("・利用規約", "/term") %></li>
-      <%= link_to("・プライバシーポリシー", "/privacy") %></li>
-      <%= link_to("・Cookie", "/cookie") %></li>
-      
+      <div class="footer-info"
+        <ul>
+          <li><%= link_to("利用規約", "/term") %></li>
+          <li><%= link_to("プライバシーポリシー", "/privacy") %></li>
+          <li><%= link_to("Cookie", "/cookie") %></li>
+          <li><%= link_to("お問い合わせ", "/contacts/new") %></li>
+        </ul>
+      </div>
     </footer>
 
     <!--jqueryの読み込み-->
