@@ -1,5 +1,6 @@
 class MapsController < ApplicationController
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+  require 'mini_magick'
 
   def index
     @maps = Map.all.order(created_at: :desc)

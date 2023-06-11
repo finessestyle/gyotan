@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   impressionist actions: [:index, :show]
   require 'exifr/jpeg'
   require "google_drive"
+  require 'mini_magick'
   
   def index
     @posts = Post.all.order(created_at: :desc) #or :asc

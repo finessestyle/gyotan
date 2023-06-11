@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
   #ログインiDとユーザーidが等しい時に出来る事
   before_action :ensure_correct_user, {only: [:edit, :update]}
+  require 'mini_magick'
 
   def index
     @users = User.all.order(created_at: :asc)

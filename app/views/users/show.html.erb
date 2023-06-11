@@ -17,19 +17,15 @@
     
     <% @user.posts.each do |post| %>
       <div class="posts-index-item">
-        <div class="user-post-left">
+        <div class="user-post-datetime">
+          <span>投稿日：</span>
+          <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+        </div>
+        <div class="post-user-image">
           <%= image_tag post.image.url %>
         </div>
-        <div class="user-post-right">
-          <div class="post-user-name">
-            <%= link_to(post.title,"/posts/#{post.id}") %>
-          </div>
-          <div class="user-post-datetime">
-            <span>投稿日：</span>
-            <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
-            <span>PV数：</span>
-            <%= post.impressions_count %>
-          </div>
+        <div class="posts-index-right">
+          <%= link_to("👉釣果詳細はこちら","/posts/#{post.id}") %>
         </div>
       </div>
     <% end %> 
