@@ -3,7 +3,7 @@
     <h1 class="form-heading">ブログ詳細</h1>
     <div class="blogs-index-item">
       <% if session[:user_id] %>
-        <% if @blog.user_id == @current_user.id %>
+        <% if @blog.user_id == @user %>
           <div class="post-menus">
             <%= link_to("投稿", "/blogs/new") %>
             <%= link_to("編集", "/blogs/#{@blog.id}/edit") %>
@@ -22,7 +22,7 @@
       <div class="blog-content">
         <%= @blog.content %>
       </div>
-
+      
     </div>
     <div class="present">
       <div class="previous"> 

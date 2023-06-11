@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2023_06_07_110605) do
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "impressions_count", default: 0
   end
 
   create_table "contacts", force: :cascade do |t|

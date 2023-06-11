@@ -8,9 +8,7 @@ class BlogsController < ApplicationController
     
   def show
     @blog = Blog.find_by(id: params[:id])
-    impressionist(@blog, nil, unique: [:ip_address])
-    @user = @blog.user
-    @likes_count = Like.where(blog_id: @blog.id).count
+    @user = @current_user
   end
 
   def new

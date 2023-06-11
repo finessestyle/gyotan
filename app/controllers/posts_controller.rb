@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user, {only: [:create]}
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+  impressionist actions: [:index, :show]
   require 'exifr/jpeg'
   require "google_drive"
   
