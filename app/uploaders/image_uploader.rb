@@ -56,7 +56,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
 
   def extension_allowlist
-    %w(jpg jpeg gif png HEIC HEIF heic heif)
+    %w(jpg jpeg gif png heic heif HEIC HEIF)
+  end
+
+  def filename
+    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
   end
 
   # Override the filename of the uploaded files:
