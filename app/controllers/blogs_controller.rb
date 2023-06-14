@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_user, {only: [:create]}
+  before_action :authenticate_user, {only: [:new, :create, :edit, :update, :destroy]}
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
   require 'mini_magick'
   
@@ -9,7 +9,6 @@ class BlogsController < ApplicationController
     
   def show
     @blog = Blog.find_by(id: params[:id])
-    @user = @current_user
   end
 
   def new
