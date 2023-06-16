@@ -20,7 +20,7 @@ class BlogsController < ApplicationController
     
     if @blog.save
       flash[:notice] = "投稿しました"
-      redirect_to("/blogs")
+      redirect_to("/blogs/index")
     else
       render("blogs/new")
     end

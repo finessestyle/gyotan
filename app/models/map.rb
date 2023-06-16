@@ -1,7 +1,6 @@
 class Map < ApplicationRecord
   validates :user_id, {presence: true} 
   has_rich_text :content
-
   mount_uploader :image, ImageUploader
         
   def user

@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="form-heading">編集する</h1>
 
-    <%= form_with url: "/maps/#{@map.id}/update", local: true do |form| %>
+    <%= form_with model: @map, url: "/maps/#{@map.id}/update", local: true do |form| %>
       <div class="form">
         <div class="form-body">
         
@@ -13,19 +13,16 @@
           <% end %>
 
           <h3>タイトル</h3>
-          <%= form.text_field :title, value: @map.title, value: @map.title %>
+          <%= form.text_field :title, value: @map.title %>
           
-          <!--
-          <h2>サブタイトル</h2>
-          <%= form.text_field :sub_title, name: "sub_title" , value: @map.sub_title %>
           <h2>カテゴリー</h2>
-          <%= form.select :category,
+          <%= form.select :area,
           [
-          ["北湖"],["南湖"],
+            ["湖北"],["湖東"],["湖西"],["南湖東"],["南湖西"]
           ] ,
-          prompt: "カテゴリーを選択してください", name: "category" , value: @map.category %>
-          -->
-          <h3>トップ画像</h3>
+          prompt: "エリアを選択してください", value: @map.area %>
+          
+          <h3>画像</h3>
           <%= form.file_field :image, value: @map.image %>
           
           <h3>内容</h3>

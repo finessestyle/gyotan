@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2023_06_07_110605) do
     t.string "image"
     t.text "content"
     t.integer "user_id"
-    t.string "category"
+    t.string "area"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

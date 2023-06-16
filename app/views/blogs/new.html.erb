@@ -9,7 +9,7 @@
           </div>
         <% end %>
         
-        <%= form_with model: Blog.new, url: "/blogs/create", local: true do |form| %>
+        <%= form_with model: @blog, url: "/blogs/create", local: true do |form| %>
           <h3>タイトル</h3>
           <%= form.text_field :title, maxlength: 32 %>
           <!--

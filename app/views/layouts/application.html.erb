@@ -36,11 +36,11 @@
                 <li class="nav_menu_li"><%= link_to("釣果投稿", "/posts/new") %></li>
                 <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
                 <li class="nav_menu_li"><%= link_to("ユーザー一覧", "/users/index") %></li>
-                <li class="nav_menu_li"><%= link_to("ブログ's","/blogs") %></li>
+                <li class="nav_menu_li"><%= link_to("ブログ's","/blogs/index") %></li>
                 <% if @current_user.admin? %>
                   <li class="nav_menu_li"><%= link_to("ブログ投稿", "/blogs/new") %></li>
                 <% end %>
-                <li class="nav_menu_li"><%= link_to("釣り場情報","/maps") %></li>
+                <li class="nav_menu_li"><%= link_to("釣り場情報","/maps/index") %></li>
                 <% if @current_user.admin? %>
                   <li class="nav_menu_li"><%= link_to("釣り場投稿", "/maps/new") %></li>
                 <% end %>
@@ -56,8 +56,8 @@
             <nav class="nav">
               <ul class="nav_menu_ul">
                 <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
-                <li class="nav_menu_li"><%= link_to("ブログ's","/blogs") %></li>
-                <li class="nav_menu_li"><%= link_to("釣り場情報","/maps") %></li>
+                <li class="nav_menu_li"><%= link_to("ブログ's","/blogs/index") %></li>
+                <li class="nav_menu_li"><%= link_to("釣り場情報","/maps/index") %></li>
                 <li class="nav_menu_li"><%= link_to("新規登録", "/signup") %></li>
                 <li class="nav_menu_li"><%= link_to("ログイン","/login") %></li>
               </ul>

@@ -5,6 +5,6 @@ class Blog < ApplicationRecord
   is_impressionable counter_cache: true
         
   def user
-    User.find_by(id: self.user_id)
+    return User.find_by(id: self.user_id)
   end
 end

@@ -4,7 +4,11 @@ class MapsController < ApplicationController
   require 'mini_magick'
 
   def index
-    @maps = Map.all.order(created_at: :desc)
+    @maps1 = Map.where(area: "湖北")
+    @maps2 = Map.where(area: "湖東")
+    @maps3 = Map.where(area: "湖西")
+    @maps4 = Map.where(area: "南湖東")
+    @maps5 = Map.where(area: "南湖西")
   end
 
   def show
@@ -20,7 +24,7 @@ class MapsController < ApplicationController
     
     if @map.save
       flash[:notice] = "投稿しました"
-      redirect_to("/maps")
+      redirect_to("/maps/index")
     else
       render("maps/new")
     end
@@ -60,7 +64,7 @@ class MapsController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def map_params
-      params.require(:map).permit(:title, :content, :image).merge(:user_id => @current_user.id)
+      params.require(:map).permit(:title, :content, :image, :area).merge(:user_id => @current_user.id)
     end
 
 end

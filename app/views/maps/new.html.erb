@@ -12,8 +12,15 @@
         <%= form_with model: @map, url: "/maps/create", local: true do |form| %>
           <h3>タイトル</h3>
           <%= form.text_field :title %>
+
+          <h3>エリア選択</h3>
+          <%= form.select :area,
+            [
+              ["湖北"],["湖東"],["湖西"],["南湖東"],["南湖西"]
+            ],
+          prompt: "エリアを選択してください" %>
           
-          <h3>トップ画像</h3>
+          <h3>画像</h3>
           <%= form.file_field :image %>
 
           <h3>内容</h3>
