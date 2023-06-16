@@ -1,10 +1,6 @@
 Rails.application.routes.draw do    
 
-  get "contacts/new", to: "contacts#new"
-  post "contacts/create", to: "contacts#create"
-
-  post "likes/:post_id/create", to: "likes#create"
-  post "likes/:post_id/destroy", to: "likes#destroy"
+  get "/", to: "home#top"
 
   get "users/index", to: "users#index"
   get "signup", to: "users#new"
@@ -45,9 +41,14 @@ Rails.application.routes.draw do
   patch "maps/:id/update", to: "maps#update"
   post "maps/:id/destroy", to: "maps#destroy"
 
-  get "/", to: "home#top"
+  post "likes/:post_id/create", to: "likes#create"
+  post "likes/:post_id/destroy", to: "likes#destroy"
 
   get "term", to: "home#term"
   get "privacy", to: "home#privacy"
   get "cookie", to: "home#cookie"
+
+  get "contacts/new", to: "contacts#new"
+  post "contacts/create", to: "contacts#create"
+
 end
