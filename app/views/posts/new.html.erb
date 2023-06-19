@@ -9,7 +9,7 @@
           </div>
         <% end %>
 
-        <%= form_with model: Post.new, url: "/posts/create", local: true do |form| %>   
+        <%= form_with model: @post, url: "/posts/create", local: true do |form| %>   
           <p>タイトル</p>
           <%= form.text_field :title, maxlength: 20 %>
 
@@ -45,7 +45,7 @@
           </script>
           
           <script>
-            if(fish_area == "北湖北岸エリア"){
+            if(fish_area :"北湖北岸エリア"){
               console.log(
                 <%= form.select :fish_area, 
                   [
