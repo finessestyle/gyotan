@@ -285,6 +285,11 @@
   }
 }
 
+.area img{
+  width:100%;
+  height: 400px;
+}
+
 /*areaにis-activeというクラスがついた時の形状*/
 .area.is-active {
   display: block;/*表示*/

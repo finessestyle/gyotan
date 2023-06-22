@@ -19,5 +19,17 @@
         <%= @map.content %>
       </div>
     </div>
+    <div class="present">
+      <div class="previous"> 
+        <% if @map.previous.present? %>
+          <%= link_to("<前の記事", "/maps/#{@map.previous.id}") %>
+        <% end %>
+      </div>
+      <div class="next">
+        <% if @map.next.present? %>
+          <%= link_to("次の記事>", "/maps/#{@map.next.id}") %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

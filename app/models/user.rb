@@ -13,6 +13,10 @@ class User < ApplicationRecord
   def blogs
     return Blog.where(user_id: self.id)
   end
+
+  def maps
+    return Map.where(user_id: self.id)
+  end
   
   def likes
     return Like.where(user_id: self.id)
