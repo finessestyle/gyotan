@@ -7,7 +7,7 @@ CarrierWave.configure do |config|
     config.storage :fog
     config.fog_provider = 'fog/aws'
     config.fog_directory  = 'gyotan-bucket'
-    config.asset_host = 'https://s3.amazonaws.com/gyotanbucket'
+    config.asset_host = 'https://s3.amazonaws.com/gyotan-bucket'
     config.fog_public = false
     config.fog_credentials = {
       provider: 'AWS',
@@ -21,3 +21,5 @@ CarrierWave.configure do |config|
     config.enable_processing = false if Rails.env.development?
   end
 end 
+
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
