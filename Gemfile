@@ -31,8 +31,6 @@ gem 'impressionist'
 gem 'sitemap_generator'
 gem 'whenever'
 gem 'meta-tags'
-gem 'gretel'
-gem 'whenever', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
