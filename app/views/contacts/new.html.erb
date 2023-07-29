@@ -13,6 +13,8 @@
           <div class="contact-form">
             <%= f.label "お名前" %>
             <%= f.text_field :name %>
+            <%= f.label "E-mail" %>
+            <%= f.email_field :email %>
             <%= f.label "お問合せ内容" %>
             <%= f.text_area :content %>
             <%= f.submit "送信" %>
