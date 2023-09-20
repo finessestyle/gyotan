@@ -19,6 +19,14 @@
               ["湖北"],["湖東"],["湖西"],["南湖東"],["南湖西"]
             ],
           prompt: "エリアを選択してください" %>
+
+          <h3>緯度(latitude)</h3>
+          <%= form.text_field :latitude %>
+          <h3>経度(longitude)</h3>
+          <%= form.text_field :longitude %>
+
+          <h3>地理院地図URL</h3>
+          <%= from.text_field :url %>
           
           <h3>画像</h3>
           <%= form.file_field :image %>

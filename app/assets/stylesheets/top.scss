@@ -1,7 +1,7 @@
 /* top ================================ */
 .top-image {
   width: 100%;
-  height: 500px;
+  height: 600px;
   background-image: url("top.jpg");
   background-size: cover;
   box-shadow: 0 2px 6px #c1ced7;
@@ -53,7 +53,7 @@
     margin-left: 20px;
   }
 }
-  
+
 .top-message h2 {
   float: left;
   margin-left: 40px;
@@ -81,7 +81,7 @@
   
 @media(max-width:1000px) {
   .top-message p {
-    font-size: 20px;    
+    font-size: 20px;
   }
 }
   
