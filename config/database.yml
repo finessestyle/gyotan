@@ -14,6 +14,7 @@ test:
 
 production:
   adapter: mysql2
+  charset: utf8
   encoding: utf8
   database: gyotan_production
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
