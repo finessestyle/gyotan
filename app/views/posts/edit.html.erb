@@ -16,7 +16,7 @@
           <%= form.text_field :title, maxlength: 70, value: @post.title %>
 
           <h3>釣果画像</h3>
-          <%= form.file_field :image, value: @post.image %>
+          <%= form.file_field :images, multiple: true, value: @post.image %>
           
           <h3>天気</h3>
           <%= form.select :weather,

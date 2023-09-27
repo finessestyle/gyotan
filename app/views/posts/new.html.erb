@@ -13,9 +13,9 @@
           <p>タイトル</p>
           <%= form.text_field :title, maxlength: 20 %>
 
-          <p>釣果画像</p>
-          <%= form.file_field :image %>
-          
+          <p>釣果画像（①サイズ②釣れた場所③ルアー）</p>
+          <%= form.file_field :images, multiple: true %>
+
           <p>天気</p>
           <%= form.select :weather,
             [

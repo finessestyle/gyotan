@@ -14,7 +14,7 @@ import "../src/flash"
 import "../src/hamburger"
 import "../src/test"
 import "../src/page"
-import "../src/slider"
+import "../src/swiper"
 import "../src/test"
 
 require("trix")

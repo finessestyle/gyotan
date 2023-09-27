@@ -11,19 +11,39 @@
       <% end %>
       <p><%= @user.profile %></p>
       <% if @user.id == @current_user.id %>
-        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+        <div class="user-edit">
+          <%= link_to("編集", "/users/#{@user.id}/edit") %>
+        </div>
       <% end %> 
     </div>
-    
+    <h1 class="form-heading">最新釣果情報</h1>
     <% @user.posts.each do |post| %>
       <div class="posts-index-item">
         <div class="user-post-datetime">
           <span>投稿日：</span>
           <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
         </div>
-        <div class="post-user-image">
-          <%= image_tag post.image.url %>
+        
+        <div class="top-user-image">
+          <% if post.images.length < 2 %>
+            <% post.images.each do |image| %>
+              <%= image_tag image, class: "post-img"%>
+            <% end %>
+          <% else %>
+            <div class="swiper">
+              <div class= "swiper-wrapper ">
+                <% post.images.each do |image| %>
+                  <%= image_tag image.to_s, class: "swiper-slide index-img" %>
+                <% end %>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-scrollbar"></div>
+            </div>
+          <% end %>
         </div>
+
         <div class="posts-index-right">
           <%= link_to("👉釣果詳細はこちら","/posts/#{post.id}") %>
         </div>

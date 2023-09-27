@@ -1,5 +1,6 @@
 <div class="main">
   <div class="contents">  
+  
     <div class="top-image">
       <div class="top-message">
         <h1>琵琶湖バス釣り🎣</h1>
@@ -7,31 +8,50 @@
         <p>みんなの釣果情報があなたの魚探に変わる!?<p>
       </div>
     </div>  
+
     <div class="contents-title">
       <h3>-最新釣果情報-</h3>
     </div>
+
     <div class="top-posts">
       <% @posts.each do |post| %>
         <div class="top-index-item">
+
           <div class="top-left">
             <%= image_tag post.user.image.url %>
           </div>
+
           <div class="top-right">
             <div class="top-user-name">
               <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
             </div>
           </div>  
+
           <div class="top-user-image">
-            <div class="slider">
-              <%= image_tag post.image.url %>
-            </div>
+            <% if post.images.length < 2 %>
+              <% post.images.each do |image| %>
+                <%= image_tag image, class: "post-img"%>
+              <% end %>
+            <% else %>
+              <div class="swiper">
+                <div class= "swiper-wrapper ">
+                  <% post.images.each do |image| %>
+                    <%= image_tag image.to_s, class: "swiper-slide index-img" %>
+                  <% end %>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-scrollbar"></div>
+              </div>
+            <% end %>
           </div>
 
           <div class="top-datetime">
             <% if Rails.env.development? %>
-              <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{post.image.url}") %>
+              <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{post.images[0].to_s}") %>
               <% else %>
-              <% image = EXIFR::JPEG.new(open(post.image.url)) %>
+              <% image = EXIFR::JPEG.new(open(post.image.to_s)) %>
             <% end %>
             <span>釣果日時：</span><%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
           </div>
@@ -76,12 +96,15 @@
               </div>
             </div>
           </div>
+
         </div>  
       <% end %>
     </div>
+
     <div class="contents-title">
       <h3>-最新ブログ情報-</h3>
     </div>
+
     <div class="top-blogs">
       <% @blogs.each do |blog| %>
         <div class="top-blogs-item">
@@ -94,5 +117,6 @@
         </div>
       <% end %>
     </div>
+
   </div>
 </div>

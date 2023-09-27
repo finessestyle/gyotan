@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!--Google Search Consoleの読み込み-->
     <meta name="google-site-verification=jxlhLqjT7chxHAq1rjUMu1eYmH2tBQ9YqFBK7mSAbYA">
     <%= display_meta_tags(default_meta_tags) %>
@@ -75,6 +76,8 @@
             
     <%= yield %>
 
+    <aside></aside>
+
     <footer id="footer">
       <p id="page-top"><a href="#">Page Top</a></p> 
       <small>&copy; Gyotan.jp</small>
@@ -90,6 +93,8 @@
 
     <!--jqueryの読み込み-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--swiperの読み込み-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!--Google Maps APIの読み込み-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMsepPczbmm4sb6Fwmp8SjRaDspafFqlc&callback=initMap&v=weekly"defer></script>
     <!--Googleアドセンスの読み込み-->
