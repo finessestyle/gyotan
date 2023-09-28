@@ -12,7 +12,7 @@
         <div class="top-user-image">
           <% if post.images.length < 2 %>
             <% post.images.each do |image| %>
-              <%= image_tag image, class: "post-img"%>
+              <%= image_tag image.url, class: "post-img"%>
             <% end %>
           <% else %>
             <div class="swiper">
