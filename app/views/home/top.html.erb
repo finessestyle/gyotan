@@ -50,14 +50,15 @@
           <div class="top-datetime">
             <% if Rails.env.development? %>
               <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{post.images[0]}") %>
-            <% else %>
-              <% image = EXIFR::JPEG.new(open(post.images)) %>
+            <% end %>
+            <% if Rails.env.production? %>
+              <% image = EXIFR::JPEG.new(open(post.images[0])) %>
             <% end %>
 
+            <span>釣果日時：</span><%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
             <% if image.date_time == nil %>
-              <span>釣果日時：</span><%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
-            <% else %>
-              <span>投稿日時：</span><%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+              <span>投稿日時：</span>
+              <%= post.creater_at.strftime("%Y-%m-%d %H:%M") %>
             <% end %>
           </div>
 

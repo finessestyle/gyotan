@@ -1,14 +1,16 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user, {only: [:new, :create, :edit, :update, :destroy]}
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+  impressionist actions: [:show]
   require 'mini_magick'
   
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order(created_at: :desc) #or :asc
   end
     
   def show
     @blog = Blog.find_by(id: params[:id])
+    impressionist(@blog, nil, unique: [:ip_address])
   end
 
   def new
@@ -17,7 +19,6 @@ class BlogsController < ApplicationController
   
   def create
     @blog = Blog.new(blog_params)
-    
     if @blog.save
       flash[:notice] = "投稿しました"
       redirect_to("/blogs/index")

@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2023_09_23_090741) do
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "impressions_count", default: 0
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -134,8 +135,8 @@ ActiveRecord::Schema.define(version: 2023_09_23_090741) do
     t.string "fish_area"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "impressions_count", default: 0
     t.json "images"
+    t.integer "impressions_count", default: 0
   end
 
   create_table "users", force: :cascade do |t|

@@ -21,7 +21,7 @@ module ApplicationHelper
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@',
+        site: '@finessestyle1',
         image: ('top.jpg')
       }
     }

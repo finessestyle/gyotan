@@ -1,6 +1,6 @@
 'use strict';
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("turbolinks:load", function(){
   var mySwiper = new Swiper('.swiper', {
     // Optional parameters
     loop: true,
