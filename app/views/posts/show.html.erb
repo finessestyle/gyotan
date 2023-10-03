@@ -33,9 +33,9 @@
 
       <div class="post-datetime">
         <% if Rails.env.development? %>
-          <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{@post.images[0]}") %>
+          <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{@post.images[0].to_s}") %>
         <% else %>
-          <% image = EXIFR::JPEG.new(open(@post.images[0])) %>
+          <% image = EXIFR::JPEG.new(open(@post.images[0].to_s)) %>
         <% end %>
         <% if image.date_time == nil %>
           <span>投稿日時：</span><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
