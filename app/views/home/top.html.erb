@@ -52,7 +52,7 @@
               <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{post.images[0]}") %>
             <% end %>
             <% if Rails.env.production? %>
-              <% image = EXIFR::JPEG.new(open(post.images.to_s) %>
+              <% image = EXIFR::JPEG.new(open(post.images.to_s))%>
             <% end %>
 
             <span>釣果日時：</span><%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
