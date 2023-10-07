@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
-   #ログイン中のユーザーに適用される
   before_action :authenticate_user, {only: [:new, :create, :edit, :update, :destroy]}
-  #ログインiDとユーザーidが等しい時に出来る事
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
   impressionist actions: [:show]
   require 'exifr/jpeg'

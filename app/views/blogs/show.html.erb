@@ -20,15 +20,16 @@
         <%= @blog.content %>
       </div>
     </div>
+    
     <div class="present">
       <div class="previous"> 
         <% if @blog.previous.present? %>
-          <%= link_to("<前の記事", "/blogs/#{@blog.previous.id}") %>
+          <%= link_to('<前の記事', "/blogs/#{@blog.previous.id}") %>
         <% end %>
       </div>
       <div class="next">
         <% if @blog.next.present? %>
-          <%= link_to("次の記事>", "/blogs/#{@blog.next.id}") %>
+          <%= link_to('次の記事>', "/blogs/#{@blog.next.id}") %>
         <% end %>
       </div>
     </div>

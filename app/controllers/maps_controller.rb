@@ -21,7 +21,6 @@ class MapsController < ApplicationController
   
   def create
     @map = Map.new(map_params)
-    
     if @map.save
       flash[:notice] = "投稿しました"
       redirect_to("/maps/index")

@@ -24,12 +24,12 @@
         <script>
           let nRadiusHalfKm = 160;
 
-          function initMap() {
+          document.addEventListener("turbolinks:load", function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
               center: {lat: <%= @map.latitude %>, lng: <%= @map.longitude %> },
               zoom: 15
             });
-          }
+          })
         </script>
       </div>
       <%= link_to("👉地理院地図(ブレイクラインを詳しく見る)", "#{@map.url}") %>

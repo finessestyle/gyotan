@@ -1,7 +1,7 @@
 //スクロールした際の動きを関数でまとめる
 function PageTopAnime() {
 
-  var scroll = $(window).scrollTop(); //スクロール値を取得
+  let scroll = $(window).scrollTop(); //スクロール値を取得
   if (scroll >= 200){//200pxスクロールしたら
     $('#page-top').removeClass('DownMove');   // DownMoveというクラス名を除去して
     $('#page-top').addClass('UpMove');      // UpMoveというクラス名を追加して出現
@@ -12,10 +12,10 @@ function PageTopAnime() {
     }
   }
   
-  var wH = window.innerHeight; //画面の高さを取得
-  var footerPos =  $('#footer').offset().top; //footerの位置を取得
+  let wH = window.innerHeight; //画面の高さを取得
+  let footerPos =  $('#footer').offset().top; //footerの位置を取得
   if(scroll+wH >= (footerPos+10)) {
-    var pos = (scroll+wH) - footerPos+10 //スクロールの値＋画面の高さからfooterの位置＋10pxを引いた場所を取得し
+    let pos = (scroll+wH) - footerPos+10 //スクロールの値＋画面の高さからfooterの位置＋10pxを引いた場所を取得し
     $('#page-top').css('bottom',pos); //#page-topに上記の値をCSSのbottomに直接指定してフッター手前で止まるようにする
   }else{//それ以外は
     if($('#page-top').hasClass('UpMove')){//UpMoveというクラス名がついていたら
