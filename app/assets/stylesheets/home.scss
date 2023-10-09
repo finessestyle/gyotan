@@ -7,6 +7,7 @@ html {
   font: 100%/1.5 'Avenir Next', 'Hiragino Sans', sans-serif;
   line-height: 1.7;
   letter-spacing: 1px;
+  height: 100%;
 }
 
 ul, li {
@@ -218,8 +219,9 @@ body {
   background-color: white;
   width: 100%;
   margin: 0 auto;
-  min-height: 70vh;
-  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 body.active {
@@ -239,19 +241,13 @@ body.fixed {
   height: auto;
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  height: auto;
-  min-height: 100vh;
-  margin-bottom: 50px;
-}
-
 .contents {
   margin: 0 auto;
-  min-height: 100vh;
+  height: auto;
   width: 1000px;
   padding-top: 43px;
+  background-color: white;
+  margin-bottom: 10px;
 }
   
 @media(max-width:1000px) {
@@ -262,9 +258,15 @@ body.fixed {
   
 @media(max-width:670px) {
   .contents {
-    padding-top: 0px;
     width: 100%;
   }
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  height: auto;
+  min-height: 100vh;
 }
 
 .present {
@@ -287,11 +289,6 @@ body.fixed {
 footer{
   border-top: 1px solid #c1ced7;
   background: white;
-  position: relative;
-  z-index: 2;
-  .push {
-    height: 10px;
-  }
 }
 
 small{
@@ -300,20 +297,13 @@ small{
   text-align: center;
 }
 
-.footer-info {
-  float: left;
+.footer-menus {
+  float: right;
 }
 
-.footer-info li {
+.footer-menus li {
   padding-left: 10px;
   list-style-type: disc;
-}
-
-@media(max-width:670px) {
-  .footer-info li {
-    list-style-type: disc;
-    padding-left: 10px;
-  }
 }
 
 /*リンクの形状*/

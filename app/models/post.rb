@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   validates :user_id,{presence: true}
   mount_uploaders :images, ImageUploader
-  # serialize :images, JSON
+  serialize :images, JSON
   is_impressionable counter_cache: true
 
   def user

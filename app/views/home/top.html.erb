@@ -1,17 +1,14 @@
 <div class="main">
   <div class="contents">  
-  
     <div class="top-image">
       <div class="top-message">
         <h1>琵琶湖バス釣り🎣</h1>
         <h2>琵琶湖バス釣り釣果情報共有サイト</h2>
         <p>みんなの釣果情報があなたの魚探に変わる!?<p>
       </div>
-    </div>  
+    </div> 
 
-    <div class="contents-title">
-      <h3>-最新釣果情報-</h3>
-    </div>
+    <h3 class="contents-title">-最新釣果情報-</h3>
 
     <div class="top-posts">
       <% @posts.each do |post| %>
@@ -30,7 +27,7 @@
           <div class="top-user-image">
             <% if post.images.length < 2 %>
               <% post.images.each do |image| %>
-                <%= image_tag image.to_s, class: "post-img"%>
+                <%= image_tag image.to_s %>
               <% end %>
             <% else %>
               <div class="swiper">
@@ -46,7 +43,7 @@
               </div>
             <% end %>
           </div>
-
+          
           <div class="top-datetime">
             <% if Rails.env.development? %>
               <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{post.images[0].to_s}") %>
@@ -101,15 +98,35 @@
               </div>
             </div>
           </div>
-
         </div>  
       <% end %>
-    </div>
 
-    <div class="contents-title">
-      <h3>-最新ブログ情報-</h3>
-    </div>
+      <div class="top-side-item">
+        <% @posps.each do |post| %>
+          <div class="posts-index-item">
+            <div class="top-left">
+              <%= image_tag post.user.image.url %>
+            </div>
 
+            <div class="top-right">
+              <div class="top-user-name">
+                <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
+              </div>
+            </div> 
+            <div class="user-post-left">
+              <%= image_tag post.images[0].to_s %>
+            </div>
+            <div class="user-post-datetime">
+              <span>投稿日：</span>
+              <%= link_to(post.created_at.strftime("%Y-%m-%d"), "/posts/#{post.id}") %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <h3 class="contents-title">-最新ブログ情報-</h3>
+    
     <div class="top-blogs">
       <% @blogs.each do |blog| %>
         <div class="top-blogs-item">
@@ -121,7 +138,24 @@
           </div>
         </div>
       <% end %>
+      <div class="top-side-item">
+        <% @blops.each do |blog| %>  
+          <div class="blogs-index-item">
+            <div class="user-post-left">
+              <%= image_tag blog.image.to_s %>
+            </div>
+            <div class="user-post-right">
+              <div class="post-user-name">
+                <%= link_to(blog.title, "/blogs/#{blog.id}") %>
+              </div>
+              <div class="user-post-datetime">
+                <span>投稿日：</span>
+                <%= link_to(blog.created_at.strftime("%Y-%m-%d"), "/blogs/#{blog.id}") %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-
   </div>
 </div>
