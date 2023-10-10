@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   get "/", to: "home#top"
   
-  get "users/index", to: "users#index"
-  get "signup", to: "users#new"
-  get "users/:id", to: "users#show"
-  post "users/create", to: "users#create"
-  get "users/:id/edit", to: "users#edit"
   post "users/:id/update", to: "users#update"
   patch "users/:id/update", to: "users#update"
+  get "users/:id/edit", to: "users#edit"
+  get "signup", to: "users#new"
+  post "users/create", to: "users#create"
+  get "users/index", to: "users#index"
+  get "users/:id", to: "users#show"
   post "login", to: "users#login"
   post "logout", to: "users#logout"
   get "login", to: "users#login_form"
