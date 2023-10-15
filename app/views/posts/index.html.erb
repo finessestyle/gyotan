@@ -30,7 +30,7 @@
         </div>
 
         <div class="posts-index-right">
-          <%= link_to("👉釣果詳細はこちら","/posts/#{post.id}") %>
+          <%= link_to("👉釣果詳細はこちら","/posts/#{post.id}", data: {"turbolinks" => false}) %>
         </div>
       </div>
     <% end %>

@@ -15,7 +15,3 @@ import "../src/hamburger"
 import "../src/test"
 import "../src/page"
 import "../src/swiper"
-import "../src/test"
-
-require("trix")
-require("@rails/actiontext")

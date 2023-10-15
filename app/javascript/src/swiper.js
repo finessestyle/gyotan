@@ -1,7 +1,7 @@
 'use strict';
 
 document.addEventListener("turbolinks:load", function(){
-  var mySwiper = new Swiper('.swiper', {
+  let mySwiper = new Swiper('.swiper', {
     // Optional parameters
     loop: true,
 
