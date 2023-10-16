@@ -13,35 +13,35 @@
     <div id="kohoku" class="area" >
       <% @maps1.each do |map| %>
         <div class="post-user-name">
-          <%= link_to(map.title, "/maps/#{map.id}/") %>
+          <%= link_to(map.title, "/maps/#{map.id}/", data: {"turbolinks" => false}) %>
         </div>
       <% end %>
     </div>
     <div id="kotou" class="area" >
       <% @maps2.each do |map| %>
         <div class="post-user-name">
-          <%= link_to(map.title, "/maps/#{map.id}") %>
+          <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
         </div>
       <% end %>
     </div>
     <div id="kosai" class="area" >
       <% @maps3.each do |map| %>
         <div class="post-user-name">
-          <%= link_to(map.title, "/maps/#{map.id}") %>
+          <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
         </div>
       <% end %>
     </div>
     <div id="nankotougan" class="area" >
       <% @maps4.each do |map| %>
         <div class="post-user-name">
-          <%= link_to(map.title, "/maps/#{map.id}") %>
+          <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
         </div>
       <% end %>
     </div>
     <div id="nankoseigan" class="area" >
       <% @maps5.each do |map| %>
         <div class="post-user-name">
-          <%= link_to(map.title, "/maps/#{map.id}") %>
+          <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
         </div>
       <% end %>
     </div>
