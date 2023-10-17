@@ -12,6 +12,9 @@
     <!--Google Search Consoleの読み込み-->
     <meta name="google-site-verification" content="jxlhLqjT7chxHAq1rjUMu1eYmH2tBQ9YqFBK7mSAbYA" />
     <%= display_meta_tags(default_meta_tags) %>
+    <% if Rails.env.production? %>
+      <%= render 'layouts/google_analytics' %>
+    <% end %>
   </head>
   
   <body>
