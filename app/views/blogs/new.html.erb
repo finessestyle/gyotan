@@ -10,23 +10,15 @@
         <% end %>
         
         <%= form_with model: @blog, url: "/blogs/create", local: true do |form| %>
-          <h3>タイトル</h3>
+          <%= form.label "タイトル" %>
           <%= form.text_field :title, maxlength: 32 %>
-          <!--
-          <h2>サブタイトル</h2>
-          <%= form.text_field :sub_title, name: "sub_title" %>
-          <h2>カテゴリー</h2>
-          <%= form.select :category,
-          [
-          ["バス釣り入門編"],["フィネス入門編"],["タックル編"],["フィネスルアー編"],
-          ] ,
-          prompt: "カテゴリーを選択してください", name: "category" %>
-          -->
-          <h3>トップ画像</h3>
+
+          <%= form.label "トップ画像" %>
           <%= form.file_field :image %>
 
-          <h3>内容</h3>
+          <%= form.label "内容" %>
           <%= form.rich_text_area :content %>
+          
           <%= form.submit "投稿" %>
         <% end %>
       </div>

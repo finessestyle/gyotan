@@ -10,13 +10,13 @@
         <% end %>
         
         <%= form_with model: @user, url: "/users/#{@user.id}/update", local: true do |form| %>
-          <p>ユーザー名</p>
+          <%= form.label "ユーザー名" %>
           <%= form.text_field :name, value: @user.name %>
-          <p>メールアドレス</p>
+          <%= form.label "メールアドレス" %>
           <%= form.email_field :email, value: @user.email %>
-          <p>プロフィール画像</p>
+          <%= form.label "プロフィール画像" %>
           <%= form.file_field :image, value: @user.image %>
-          <p>プロフィール</p>
+          <%= form.label "プロフィール" %>
           <%= form.text_field :profile, value: @user.profile %>
           <%= form.submit "登録" %>
         <% end %>

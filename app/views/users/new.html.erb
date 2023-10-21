@@ -10,15 +10,15 @@
         <% end %>
         
         <%= form_with model: @user, url: "/users/create", local: true do |form| %>
-          <p>ユーザー名 ※10文字以内</p>
+          <%= form.label "ユーザー数" %><span> ※10文字以内</span>
           <%= form.text_field :name, size: 10 %>
-          <p>メールアドレス</p>
+          <%= form.label "メールアドレス" %>
           <%= form.email_field :email %>
-          <p>パスワード</p>
+          <%= form.label "パスワード" %>
           <%= form.password_field :password %>
-          <p>プロフィール画像</p>
+          <%= form.label "プロフィール画像" %>
           <%= form.file_field :image %>
-          <p>プロフィール ※30文字以内</p>
+          <%= form.label "プロフィール" %><span> ※30文字以内</span>
           <%= form.text_field :profile, size: 30 %>
           <%= link_to("☞ログインはこちらから", "/login") %>
           <%= form.submit "新規登録" %>

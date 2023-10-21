@@ -74,8 +74,10 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-          
-    <div class="wrapper"><%= yield %></div>
+
+    <%= breadcrumbs separator: " &rsaquo; " %>
+    
+    <%= yield %>
 
     <footer id="footer">
       <p id="page-top"><a href="#">Page Top</a></p> 

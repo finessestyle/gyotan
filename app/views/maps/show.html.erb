@@ -2,15 +2,19 @@
   <div class="container">
     <h1 class="form-heading">釣り場情報詳細</h1>
     <div class="blogs-index-item">
-      <% if session[:user_id] %>
-        <% if @map.user_id == @current_user.id %>
-          <div class="post-menus">
-            <%= link_to("投稿", "/maps/new") %>
-            <%= link_to("編集", "/maps/#{@map.id}/edit") %>
-            <%= link_to("削除", "/maps/#{@map.id}/destroy", {method: "post"}) %>
-          </div>
+
+      <div>
+        <% if session[:user_id] %>
+          <% if @map.user_id == @current_user.id %>
+            <div class="post-menus">
+              <%= link_to("投稿", "/maps/new") %>
+              <%= link_to("編集", "/maps/#{@map.id}/edit") %>
+              <%= link_to("削除", "/maps/#{@map.id}/destroy", {method: "post"}) %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+
       <div class="map-title">
         <%= @map.title %>
       </div>
@@ -30,11 +34,14 @@
           })
         });
       </script>
+
       <%= link_to("👉地理院地図(ブレイクラインを詳しく見る)", "#{@map.url}") %>
+      
       <div class="map-content">
         <%= @map.content %>
       </div>
     </div>
+    
     <div class="present">
       <div class="previous"> 
         <% if @map.previous.present? %>

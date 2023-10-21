@@ -1,15 +1,28 @@
 <div class="main">
   <div class="container">
     <h1 class="form-heading">釣果詳細</h1>
+
     <div class="posts-index-item">
+
       <div class="post-left">
         <%= image_tag @user.image.url %>
       </div>
+      
       <div class="post-right">
         <div class="post-user-name">
           <%= link_to(@user.name, "/users/#{@user.id}") %><span> さん</sapan>
         </div>
       </div>  
+      
+      <% if session[:user_id] %>
+        <% if @post.user_id == @current_user.id %>
+          <div class="post-menus">
+            <%= link_to("投稿", "/posts/new") %>
+            <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+            <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+          </div>
+        <% end %>
+      <% end %>
 
       <div class="top-user-image">
         <% if @post.images.length < 2 %>
@@ -47,9 +60,11 @@
       <div class="post-weather">
         <span>天気：</span><%= @post.weather %>
       </div>
+
       <div class="post-fish-area">
         <span>釣果エリア：</span><%= @post.fish_area %>
       </div>
+      
       <% if session[:user_id] %>
         <div class="map">
           <div id="map">
@@ -129,15 +144,22 @@
           <% end %>
         <% end %>
           <%= @likes_count %>
-        
-        <% if @post.user_id == @current_user.id %>
-          <div class="post-menus">
-            <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-            <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
-          </div>
-        <% end %>
       <% end %>
     </div>
+
+    <div class="present">
+      <div class="previous"> 
+        <% if @post.previous.present? %>
+          <%= link_to("<前の記事", "/posts/#{@post.previous.id}") %>
+        <% end %>
+      </div>
+      <div class="next">
+        <% if @post.next.present? %>
+          <%= link_to("次の記事>", "/posts/#{@post.next.id}") %>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
 

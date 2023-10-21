@@ -53,14 +53,8 @@ header {
 }
 
 .header-logo a {
-  color: rgb(23, 167, 233);
   font-size: 35px;
   line-height: 50px;
-}
-
-.header-logo a:hover {
-  color: #c1ced7;
-  transition: all 0.3s;
 }
 
 .header-logo span {
@@ -288,7 +282,6 @@ body.fixed {
 /* footer ================================ */
 footer{
   border-top: 1px solid #c1ced7;
-  background: white;
 }
 
 small{
@@ -297,12 +290,13 @@ small{
   text-align: center;
 }
 
-.footer-menus {
-  float: right;
+.footer-info {
+  float: left;
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
 
 .footer-menus li {
-  padding-left: 10px;
   list-style-type: disc;
 }
 
