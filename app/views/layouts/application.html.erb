@@ -36,9 +36,9 @@
           <nav class="nav">
             <ul class="nav_menu_ul">
               <li class="nav_menu_li"><%= link_to("アカウント情報", "/users/#{@current_user.id}") %></li>
-              <li class="nav_menu_li"><%= link_to("釣果投稿", "/posts/new") %></li>
-              <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
               <li class="nav_menu_li"><%= link_to("ユーザー一覧", "/users/index") %></li>
+              <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
+              <li class="nav_menu_li"><%= link_to("釣果投稿", "/posts/new") %></li>
               <li class="nav_menu_li"><%= link_to("ブログ's","/blogs/index") %></li>
               <% if @current_user.admin? %>
                 <li class="nav_menu_li"><%= link_to("ブログ投稿", "/blogs/new") %></li>

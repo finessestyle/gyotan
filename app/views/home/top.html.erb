@@ -17,12 +17,10 @@
           <div class="top-left">
             <%= image_tag post.user.image.url %>
           </div>
-
-          <div class="top-right">
-            <div class="top-user-name">
-              <%= link_to(post.user.name,"/users/#{post.user_id}") %><span>さん</span> 
-            </div>
-          </div>  
+          
+          <div class="post-user-name">
+            <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
+          </div>
 
           <div class="top-user-image">
             <% if post.images.length < 2 %>
@@ -106,14 +104,14 @@
               <%= image_tag post.user.image.url %>
             </div>
 
-            <div class="top-right">
-              <div class="post-user-name">
-                <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
-              </div>
-            </div> 
+            <div class="post-user-name">
+              <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
+            </div>
+
             <div class="user-post-left">
               <%= image_tag post.images[0].to_s %>
             </div>
+
             <div class="user-post-datetime">
               <span>投稿日：</span><%= link_to(post.created_at.strftime("%Y-%m-%d"), "/posts/#{post.id}") %>
             </div>

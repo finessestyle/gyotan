@@ -1,19 +1,19 @@
 <div class="main">
   <div class="container">
-    <h1 class="form-heading">ブログ詳細</h1>
+
+    <h1 class="form-heading">-ブログ詳細-</h1>
+    
     <div class="blogs-index-item">
       
-      <div>
-        <% if session[:user_id] %>
-          <% if @blog.user_id == @current_user.id %>
-            <div class="post-menus">
-              <%= link_to("投稿", "/blogs/new") %>
-              <%= link_to("編集", "/blogs/#{@blog.id}/edit") %>
-              <%= link_to("削除", "/blogs/#{@blog.id}/destroy", {method: "post"}) %>
-            </div>
-          <% end %>
-        <% end %>  
-      </div>
+      <% if session[:user_id] %>
+        <% if @blog.user_id == @current_user.id %>
+          <div class="post-menus">
+            <%= link_to("投稿", "/blogs/new") %>
+            <%= link_to("編集", "/blogs/#{@blog.id}/edit") %>
+            <%= link_to("削除", "/blogs/#{@blog.id}/destroy", {method: "post"}) %>
+          </div>
+        <% end %>
+      <% end %>  
 
       <div class="blog-title">
         <%= @blog.title %>
@@ -30,11 +30,15 @@
           <%= link_to("<前の記事", "/blogs/#{@blog.previous.id}") %>
         <% end %>
       </div>
+
+      <%= link_to("|ブログ一覧に戻る|", "/blogs/index") %>
+
       <div class="next">
         <% if @blog.next.present? %>
           <%= link_to("次の記事>", "/blogs/#{@blog.next.id}") %>
         <% end %>
       </div>
     </div>
+
   </div>
 </div>

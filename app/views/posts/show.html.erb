@@ -1,6 +1,6 @@
 <div class="main">
   <div class="container">
-    <h1 class="form-heading">釣果詳細</h1>
+    <h3 class="form-heading">-釣果詳細-</h3>
 
     <div class="posts-index-item">
 
@@ -8,11 +8,9 @@
         <%= image_tag @user.image.url %>
       </div>
       
-      <div class="post-right">
-        <div class="post-user-name">
-          <%= link_to(@user.name, "/users/#{@user.id}") %><span> さん</sapan>
-        </div>
-      </div>  
+      <div class="post-user-name">
+        <%= link_to(@user.name, "/users/#{@user.id}") %><span> さん</sapan>
+      </div>
       
       <% if session[:user_id] %>
         <% if @post.user_id == @current_user.id %>
@@ -39,7 +37,6 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
             <div class="swiper-pagination"></div>
-            <div class="swiper-scrollbar"></div>
           </div>
         <% end %>
       </div>
@@ -153,6 +150,9 @@
           <%= link_to("<前の記事", "/posts/#{@post.previous.id}") %>
         <% end %>
       </div>
+
+      <%= link_to("|釣果一覧に戻る|", "/posts/index") %>
+
       <div class="next">
         <% if @post.next.present? %>
           <%= link_to("次の記事>", "/posts/#{@post.next.id}") %>
