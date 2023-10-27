@@ -5,7 +5,14 @@
   overflow: auto;
   box-shadow: 0 2px 6px #c1ced7;
   border-radius: 5px 5px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+@media(max-width:670px) {
+  .blogs-index-item {
+    box-shadow: 0 2px 6px #c1ced7;
+    border-radius: 0 0;
+  }
 }
 
 /* blogs/show ================================ */

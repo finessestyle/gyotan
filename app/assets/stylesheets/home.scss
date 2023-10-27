@@ -256,6 +256,25 @@ body.fixed {
   }
 }
 
+.contents-title {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 48px;
+  color: #bcc8d4;
+}
+  
+@media(max-width:1000px) {
+  .contents-title {
+    font-size: 40px;   
+  }
+}
+  
+@media(max-width:670px) {
+  .contents-title {
+    font-size: 30px;
+  }
+}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -264,19 +283,9 @@ body.fixed {
 }
 
 .present {
-  margin: 20px auto;
-  width: 60%;
-}
-
-.previous{
-  float: left;
-  padding: 0 20px ;
-}
-
-
-.next{
-  float: right;
-  padding: 0 20px;
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 14px;
 }
 
 /* footer ================================ */
@@ -300,6 +309,7 @@ small{
   list-style-type: disc;
 }
 
+/* PAGE TOP ================================ */
 /*リンクの形状*/
 #page-top a{
   display: flex;

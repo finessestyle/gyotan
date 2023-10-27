@@ -1,14 +1,13 @@
 <div class="main">
   <div class="container">
-    <div class="form-heading">-新規登録-</div>
-    <div class="form users-form">
+    <h3 class="form-heading">新規登録</h3>
+    <div class="form">
       <div class="form-body">
         <% @user.errors.full_messages.each do |message| %>
           <div class="form-error">
             <%= message %>
           </div>
         <% end %>
-        
         <%= form_with model: @user, url: "/users/create", local: true do |form| %>
           <%= form.label "ユーザー数" %><span> ※10文字以内</span>
           <%= form.text_field :name, size: 10 %>
@@ -23,7 +22,6 @@
           <%= link_to("☞ログインはこちらから", "/login") %>
           <%= form.submit "新規登録" %>
         <% end %>
-        
       </div>
     </div>
   </div>

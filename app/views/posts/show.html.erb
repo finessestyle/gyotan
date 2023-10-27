@@ -1,9 +1,7 @@
 <div class="main">
   <div class="container">
-    <h3 class="form-heading">-釣果詳細-</h3>
-
+    <h3 class="form-heading">釣果詳細</h3>
     <div class="posts-index-item">
-
       <div class="post-left">
         <%= image_tag @user.image.url %>
       </div>
@@ -145,21 +143,14 @@
     </div>
 
     <div class="present">
-      <div class="previous"> 
-        <% if @post.previous.present? %>
-          <%= link_to("<前の記事", "/posts/#{@post.previous.id}") %>
-        <% end %>
-      </div>
-
-      <%= link_to("|釣果一覧に戻る|", "/posts/index") %>
-
-      <div class="next">
-        <% if @post.next.present? %>
-          <%= link_to("次の記事>", "/posts/#{@post.next.id}") %>
-        <% end %>
-      </div>
+      <% if @post.previous.present? %>
+        <%= link_to(" 前の記事 ", "/posts/#{@post.previous.id}") %>
+      <% end %>
+      <%= link_to("| 一覧に戻る |", "/posts/index") %>
+      <% if @post.next.present? %>
+        <%= link_to(" 次の記事 ", "/posts/#{@post.next.id}") %>
+      <% end %>
     </div>
-
   </div>
 </div>
 

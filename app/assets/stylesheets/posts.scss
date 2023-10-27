@@ -17,7 +17,6 @@
 
 /* posts/show ================================ */
 .post-left {
-  float: left;
   width: 20%;
   padding-left: 10px;
 }
@@ -42,8 +41,9 @@
 
 .post-user-name a {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 50px;
+  padding-left: 10px;
 }
 
 .post-user-image img{

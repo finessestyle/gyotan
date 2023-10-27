@@ -8,11 +8,11 @@
       </div>
     </div> 
 
-    <h3 class="contents-title">-最新釣果情報-</h3>
+    <h3 class="contents-title">最新釣果情報</h3>
 
     <div class="top-posts">
       <% @posts.each do |post| %>
-        <div class="top-index-item">
+        <div class="top-posts-item">
 
           <div class="top-left">
             <%= image_tag post.user.image.url %>
@@ -100,27 +100,28 @@
       <div class="top-side-item">
         <% @posps.each do |post| %>
           <div class="posts-index-item">
-            <div class="top-left-side">
+            <div class="top-right-side">
               <%= image_tag post.user.image.url %>
             </div>
 
-            <div class="post-user-name">
+            <div class="user-name-side">
               <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
             </div>
 
-            <div class="user-post-left">
+            <div class="top-right-image">
               <%= image_tag post.images[0].to_s %>
             </div>
 
             <div class="user-post-datetime">
               <span>投稿日：</span><%= link_to(post.created_at.strftime("%Y-%m-%d"), "/posts/#{post.id}") %>
             </div>
+
           </div>
         <% end %>
       </div>
     </div>
     
-    <h3 class="contents-title">-最新ブログ情報-</h3>
+    <h3 class="contents-title">最新ブログ情報</h3>
     
     <div class="top-blogs">
       <% @blogs.each do |blog| %>
@@ -136,17 +137,15 @@
       <div class="top-side-item">
         <% @blops.each do |blog| %>  
           <div class="blogs-index-item">
-            <div class="user-post-left">
+            <div class="user-name-side">
+              <%= link_to(blog.title, "/blogs/#{blog.id}") %>
+            </div>
+            <div class="top-right-image">
               <%= image_tag blog.image.to_s %>
             </div>
-            <div class="user-post-right">
-              <div class="post-user-name">
-                <%= link_to(blog.title, "/blogs/#{blog.id}") %>
-              </div>
-              <div class="user-post-datetime">
-                <span>投稿日：</span>
-                <%= link_to(blog.created_at.strftime("%Y-%m-%d"), "/blogs/#{blog.id}") %>
-              </div>
+            <div class="user-post-datetime">
+              <span>投稿日：</span>
+              <%= link_to(blog.created_at.strftime("%Y-%m-%d"), "/blogs/#{blog.id}") %>
             </div>
           </div>
         <% end %>

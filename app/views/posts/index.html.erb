@@ -1,6 +1,6 @@
 <div class="main">
   <div class="container">
-    <h1 class="form-heading">-釣果一覧-</h1>
+    <h3 class="form-heading">釣果一覧</h3>
     <% @posts.each do |post| %>
       <div class="posts-index-item">
         <div class="posts-index-datetime">
@@ -8,7 +8,6 @@
           <%= post.created_at.strftime("%Y-%m-%d %H:%M") %><br>
           <%= link_to(post.user.name,"/users/#{post.user_id}") %><span>さんが釣果を投稿</span> 
         </div>
-        
         <div class="top-user-image">
           <% if post.images.length < 2 %>
             <% post.images.each do |image| %>
@@ -27,7 +26,6 @@
             </div>
           <% end %>
         </div>
-
         <div class="posts-index-right">
           <%= link_to("👉釣果詳細はこちら","/posts/#{post.id}", data: {"turbolinks" => false}) %>
         </div>

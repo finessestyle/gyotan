@@ -1,7 +1,7 @@
 <div class="main">
   <div class="container">
-    <div class="form-heading">-ログイン-</div>
-    <div class="form users-form">
+    <h3 class="form-heading">ログイン</h3>
+    <div class="form">
       <div class="form-body">
         <% if @error_message %>
           <div class="form-error">
@@ -9,9 +9,9 @@
           </div>
         <% end %>
         <%= form_with  url: "/login", local: true do |form| %>
-          <p>メールアドレス</p>
+          <%= form.label "メールアドレス" %>
           <%= form.email_field :email, value: @email  %>
-          <p>パスワード</p>
+          <%= form.label "パスワード" %>
           <%= form.password_field :password, value: @password %>
           <%= link_to("☞新規登録はこちらから", "/signup") %>
           <%= form.submit "ログイン" %>

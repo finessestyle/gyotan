@@ -1,10 +1,7 @@
 <div class="main">
   <div class="container">
-
-    <h1 class="form-heading">-ブログ詳細-</h1>
-    
+    <h3 class="form-heading">ブログ詳細</h3>
     <div class="blogs-index-item">
-      
       <% if session[:user_id] %>
         <% if @blog.user_id == @current_user.id %>
           <div class="post-menus">
@@ -14,31 +11,21 @@
           </div>
         <% end %>
       <% end %>  
-
       <div class="blog-title">
         <%= @blog.title %>
       </div>
-
       <div class="blog-content">
         <%= @blog.content %>
       </div>
     </div>
-    
     <div class="present">
-      <div class="previous"> 
-        <% if @blog.previous.present? %>
-          <%= link_to("<前の記事", "/blogs/#{@blog.previous.id}") %>
-        <% end %>
-      </div>
-
-      <%= link_to("|ブログ一覧に戻る|", "/blogs/index") %>
-
-      <div class="next">
-        <% if @blog.next.present? %>
-          <%= link_to("次の記事>", "/blogs/#{@blog.next.id}") %>
-        <% end %>
-      </div>
+      <% if @blog.previous.present? %>
+        <%= link_to(" 前の記事 ", "/blogs/#{@blog.previous.id}") %>
+      <% end %>
+      <%= link_to("| 一覧に戻る |", "/blogs/index") %>
+      <% if @blog.next.present? %>
+        <%= link_to("次の記事", "/blogs/#{@blog.next.id}") %>
+      <% end %>
     </div>
-
   </div>
 </div>

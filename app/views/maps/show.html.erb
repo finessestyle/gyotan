@@ -1,6 +1,6 @@
 <div class="main">
   <div class="container">
-    <h1 class="form-heading">-釣り場情報詳細-</h1>
+    <h3 class="form-heading">釣り場情報詳細</h3>
     <div class="blogs-index-item">
 
       <div>
@@ -43,19 +43,13 @@
     </div>
     
     <div class="present">
-      <div class="previous"> 
-        <% if @map.previous.present? %>
-          <%= link_to("<前の記事", "/maps/#{@map.previous.id}") %>
-        <% end %>
-      </div>
-
-      <%= link_to("|釣り場情報に戻る|", "/maps/index") %>
-
-      <div class="next">
-        <% if @map.next.present? %>
-          <%= link_to("次の記事>", "/maps/#{@map.next.id}") %>
-        <% end %>
-      </div>
+      <% if @map.previous.present? %>
+        <%= link_to(" 前の記事 ", "/maps/#{@map.previous.id}") %>
+      <% end %>
+      <%= link_to("| 釣り場一覧に戻る |", "/maps/index") %>
+      <% if @map.next.present? %>
+        <%= link_to(" 次の記事 ", "/maps/#{@map.next.id}") %>
+      <% end %>
     </div>
   </div>
 </div>

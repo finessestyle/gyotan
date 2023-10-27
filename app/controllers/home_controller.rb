@@ -5,8 +5,8 @@ class HomeController < ApplicationController
 
   def top
     @posts = Post.all.order(created_at: :desc).limit(1)
-    @posps = Post.all.order(created_at: :desc).limit(5).offset(1)
+    @posps = Post.all.order(created_at: :desc).limit(3).offset(1)
     @blogs = Blog.all.order(created_at: :desc).limit(1)
-    @blops = Blog.all.order(created_at: :desc).limit(5).offset(1)
+    @blops = Blog.all.order(created_at: :desc).limit(3).offset(1)
   end
 end
