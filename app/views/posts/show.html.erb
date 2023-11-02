@@ -70,12 +70,39 @@
           let nRadiusHalfKm = 300;
           
           <% if image.gps_latitude.nil? %>
+            window.document.addEventListener('turbolinks:load', function initMap() {
+              map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 35.28537173798231, lng: 136.09664223303773 },
+                zoom: 10
+              })
+            })
+          <% else %>
+            window.document.addEventListener('turbolinks:load', function initMap() {
+              map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
+                zoom: 14
+              })
+
+              circleBlue = new google.maps.Circle({
+                strokeColor: "#3333FF",
+                strokeOpacity: 1.0,
+                strokeWeight: 2,
+                fillColor: "#3333FF",
+                fillOpacity: 0.35,
+                map: map,
+                draggable: false,
+                center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
+                radius: nRadiusHalfKm
+              })
+            })
+          <% end %>
+          <% if image.gps_latitude.nil? %>
             document.addEventListener('turbolinks:load', function initMap() {
               map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 35.28537173798231, lng: 136.09664223303773 },
                 zoom: 10
               })
-            });
+            })
           <% else %>
             document.addEventListener('turbolinks:load', function initMap() {
               map = new google.maps.Map(document.getElementById('map'), {
@@ -94,7 +121,7 @@
                 center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
                 radius: nRadiusHalfKm
               })
-            });
+            })
           <% end %>
         </script>
       <% end %>
