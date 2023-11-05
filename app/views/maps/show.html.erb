@@ -2,18 +2,6 @@
   <div class="container">
     <h3 class="form-heading">釣り場情報詳細</h3>
     <div class="blogs-index-item">
-      <div>
-        <% if session[:user_id] %>
-          <% if @map.user_id == @current_user.id %>
-            <div class="post-menus">
-              <%= link_to("投稿", "/maps/new") %>
-              <%= link_to("編集", "/maps/#{@map.id}/edit") %>
-              <%= link_to("削除", "/maps/#{@map.id}/destroy", {method: "post"}) %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
       <div class="map-title">
         <%= @map.title %>
       </div>
@@ -39,13 +27,22 @@
       <div class="map-content">
         <%= @map.content %>
       </div>
+      <% if session[:user_id] %>
+        <% if @map.user_id == @current_user.id %>
+          <div class="post-menus">
+            <%= link_to("投稿", "/maps/new") %>
+            <%= link_to("編集", "/maps/#{@map.id}/edit") %>
+            <%= link_to("削除", "/maps/#{@map.id}/destroy", {method: "post"}) %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
     
     <div class="present">
       <% if @map.previous.present? %>
         <%= link_to(" 前の記事 ", "/maps/#{@map.previous.id}") %>
       <% end %>
-      <%= link_to("| 釣り場一覧に戻る |", "/maps/index") %>
+      <%= link_to("| 一覧に戻る |", "/maps/index") %>
       <% if @map.next.present? %>
         <%= link_to(" 次の記事 ", "/maps/#{@map.next.id}") %>
       <% end %>

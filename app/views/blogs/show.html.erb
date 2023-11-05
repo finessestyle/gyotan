@@ -2,6 +2,12 @@
   <div class="container">
     <h3 class="form-heading">ブログ詳細</h3>
     <div class="blogs-index-item">
+      <div class="blog-title">
+        <%= @blog.title %>
+      </div>
+      <div class="blog-content">
+        <%= @blog.content %>
+      </div>
       <% if session[:user_id] %>
         <% if @blog.user_id == @current_user.id %>
           <div class="post-menus">
@@ -10,14 +16,7 @@
             <%= link_to("削除", "/blogs/#{@blog.id}/destroy", {method: "post"}) %>
           </div>
         <% end %>
-      <% end %>  
-      
-      <div class="blog-title">
-        <%= @blog.title %>
-      </div>
-      <div class="blog-content">
-        <%= @blog.content %>
-      </div>
+      <% end %> 
     </div>
     <div class="present">
       <% if @blog.previous.present? %>

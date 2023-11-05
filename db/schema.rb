@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_23_090741) do
+ActiveRecord::Schema.define(version: 2023_11_03_001404) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -137,6 +137,13 @@ ActiveRecord::Schema.define(version: 2023_09_23_090741) do
     t.datetime "updated_at", precision: 6, null: false
     t.json "images"
     t.integer "impressions_count", default: 0
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

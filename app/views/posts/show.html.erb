@@ -2,16 +2,6 @@
   <div class="container">
     <h3 class="form-heading">釣果詳細</h3>
     <div class="posts-index-item">
-      <% if session[:user_id] %>
-        <% if @post.user_id == @current_user.id %>
-          <div class="post-menus">
-            <%= link_to("投稿", "/posts/new") %>
-            <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-            <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
-          </div>
-        <% end %>
-      <% end %>
-      
       <div class="post-left">
         <%= image_tag @user.image.url %>
       </div>
@@ -141,6 +131,15 @@
           <% end %>
         <% end %>
           <%= @likes_count %>
+      <% end %>
+      <% if session[:user_id] %>
+        <% if @post.user_id == @current_user.id %>
+          <div class="post-menus">
+            <%= link_to("投稿", "/posts/new") %>
+            <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+            <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+          </div>
+        <% end %>
       <% end %>
     </div>
 
