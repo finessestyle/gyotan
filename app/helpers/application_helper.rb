@@ -11,8 +11,8 @@ module ApplicationHelper
       canonical: request.original_url,
       noindex: ! Rails.env.production?,
       icon: [                    #favicon、apple用アイコンを指定する
-        { href: image_url('favicon.ico') },
-        { href: image_url('icon.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
+        { href: image_url('icon.jpeg') },
+        { href: image_url('icon.jpeg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
       ],
       og: {
         site_name: :site,
