@@ -9,7 +9,7 @@
 #
 # 毎日 8:00 にサイトマップを更新
 every 1.day, at: '8:00 am' do
-  rails 'sitemap:refresh'
+  rake 'sitemap:refresh' => :production
 end
 #sitemap.xml.gz
 # every 2.hours do
