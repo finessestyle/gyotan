@@ -68,6 +68,8 @@
         <% end %>
       </ul>
     </header>
+
+    <%= breadcrumbs separator: " &rsaquo; " %>
     
     <% if flash[:notice] %>
       <div class="flash">
@@ -76,7 +78,6 @@
     <% end %>
 
     <%= breadcrumbs separator: " &rsaquo; " %>
-    
     <%= yield %>
 
     <footer id="footer">

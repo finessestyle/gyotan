@@ -3,7 +3,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process resize_to_fit: [1000, 1000]
+  process resize_to_fit: [600, 400, "#ffffff", "Center"]
   process :convert => 'jpg'
   
   if Rails.env.production?
