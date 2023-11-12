@@ -69,13 +69,13 @@
       </ul>
     </header>
 
-    <%= breadcrumbs separator: " &rsaquo; " %>
-    
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
       </div>
     <% end %>
+
+    <%= breadcrumbs separator: " &rsaquo; " %>
 
     <%= yield %>
 
