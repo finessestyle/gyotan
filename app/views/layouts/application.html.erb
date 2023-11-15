@@ -8,9 +8,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <!--Google Search Consoleの読み込み-->
-    <meta name="google-site-verification" content="jxlhLqjT7chxHAq1rjUMu1eYmH2tBQ9YqFBK7mSAbYA" />
+    <meta name="google-site-verification" content="jxlhLqjT7chxHAq1rjUMu1eYmH2tBQ9YqFBK7mSAbYA">
+    <!--Googleアドセンスの読み込み-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758"crossorigin="anonymous"></script>
     <%= display_meta_tags(default_meta_tags) %>
     <% if Rails.env.production? %>
       <%= render 'layouts/google_analytics' %>
@@ -35,7 +37,7 @@
           </span>
           <nav class="nav">
             <ul class="nav_menu_ul">
-              <li class="nav_menu_li"><%= link_to("アカウント情報", "/users/#{@current_user.id}") %></li>
+              <li class="nav_menu_li"><%= link_to("ユーザー情報", "/users/#{@current_user.id}") %></li>
               <li class="nav_menu_li"><%= link_to("ユーザー一覧", "/users/index") %></li>
               <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
               <li class="nav_menu_li"><%= link_to("釣果投稿", "/posts/new") %></li>
@@ -98,7 +100,5 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!--Google Maps APIの読み込み-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMsepPczbmm4sb6Fwmp8SjRaDspafFqlc&callback=initMap&v=weekly"defer></script>
-    <!--Googleアドセンスの読み込み-->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758"crossorigin="anonymous"></script>
   </body>
 </html>
