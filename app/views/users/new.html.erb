@@ -10,7 +10,7 @@
           </div>
         <% end %>
         <%= form_with model: @user, url: "/users/create", local: true do |form| %>
-          <%= form.label "ユーザー数" %><span> ※10文字以内</span>
+          <%= form.label "ユーザー名" %><span> ※10文字以内</span>
           <%= form.text_field :name, size: 10 %>
           <%= form.label "メールアドレス" %>
           <%= form.email_field :email %>
