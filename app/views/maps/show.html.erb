@@ -13,12 +13,25 @@
       </div>
 
       <script>
-        let nRadiusHalfKm = 160;
+        let circleBlue;
+        let nRadiusHalfKm = 600;
 
         document.addEventListener("turbolinks:load", function initMap() {
           map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: <%= @map.latitude %>, lng: <%= @map.longitude %> },
-            zoom: 15
+            zoom: 13
+          })
+
+          circleBlue = new google.maps.Circle({
+            strokeColor: "#3333FF",
+            strokeOpacity: 1.0,
+            strokeWeight: 2,
+            fillColor: "#3333FF",
+            fillOpacity: 0.35,
+            map: map,
+            draggable: false,
+            center: {lat: <%= @map.latitude %>, lng: <%= @map.longitude %> },
+            radius: nRadiusHalfKm
           })
         });
       </script>
