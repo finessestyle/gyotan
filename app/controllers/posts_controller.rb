@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    # impressionist(@post, nil, unique: [:ip_address])
+    impressionist(@post, nil, unique: [:ip_address])
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
   end
