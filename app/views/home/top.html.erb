@@ -1,15 +1,21 @@
 <div class="main">
-  <div class="contents">  
+  <div class="contents">
     <div class="top-image">
       <div class="top-message">
-        <h1>琵琶湖バス釣り釣果情報共有サイト</h1>
-        <h2>みんなの釣果情報があなたの釣果に</h2>
-        <h2>あなたの釣果情報がみんなの釣果に!?</h2>
+        <h1>Gyotan<span>-琵琶湖バス釣り情報サイト-とは？</span></h1>
+        <dl>
+          <dt>・琵琶湖バス釣り釣果情報</dt>
+          <dd>いつ、どこで、誰が、どのように、どれくらいのサイズ釣ったのか釣果情報を投稿・共有することができます。</dd>
+          <br>
+          <dt>・琵琶湖バス釣り場情報</dt>
+          <dd>琵琶湖おかっぱりバス釣りポイント情報を紹介しています。</dd>
+          <br>
+          <dt>・バス釣り初心者向けブログ</dt>
+          <dd>バス釣り初心者向けにフィネス（ライトリグ）の釣りを紹介しています。</dd>
+        </dl>
       </div>
     </div> 
-
-    <h3 class="contents-title">最新釣果情報</h3>
-
+    <h2 class="contents-title">最新釣果情報</h2>
     <div class="top-posts">
       <% @posts.each do |post| %>
         <div class="top-posts-item">
@@ -121,7 +127,7 @@
       </div>
     </div>
     
-    <h3 class="contents-title">最新ブログ情報</h3>
+    <h2 class="contents-title">最新ブログ情報</h2>
     
     <div class="top-blogs">
       <% @blogs.each do |blog| %>
