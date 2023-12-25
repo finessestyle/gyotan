@@ -2,12 +2,12 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'Gyotan',
-      title: 'Gyotan-琵琶湖バス釣り釣果共有サイト-',
+      title: 'Gyotan-琵琶湖バス釣り情報サイト-',
       reverse: true,
       charset: 'utf-8',
       separator: '|',
-      description: '琵琶湖バス釣り釣果共有サイト!!あなたの釣果情報がみんなの魚探に、みんなの釣果情報があなたの魚探に変わる！？',
-      keywords: '琵琶湖,バス釣り,滋賀県',
+      description: '琵琶湖バス釣り情報サイト!!・琵琶湖バス釣り釣果情報・琵琶湖バス釣り場情報・バス釣り初心者向けブログ',
+      keywords: '琵琶湖,バス釣り,滋賀県,初心者,biwako,bassfishing,ブラックバス,釣り,gyotan,フィネス',
       canonical: request.original_url,
       noindex: ! Rails.env.production?,
       icon: [                    #favicon、apple用アイコンを指定する
@@ -20,7 +20,7 @@ module ApplicationHelper
         description: :description, 
         type: 'website',
         url: request.original_url,
-        image: ('top.jpg'),
+        image: ('3.jpg'),
         locale: 'ja_JP',
       },
       twitter: {
