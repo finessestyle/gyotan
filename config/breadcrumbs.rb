@@ -17,6 +17,11 @@ crumb :cookie do
   parent :top
 end
 
+crumb :rule do
+  link "琵琶湖のルール", rule_path
+  parent :top
+end
+
 crumb :profile do
   link "運営者情報", profile_path
   parent :top

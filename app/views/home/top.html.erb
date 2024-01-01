@@ -1,161 +1,160 @@
-<div class="main">
-  <div class="contents">
-    <div class="top-image">
-      <div class="top-message">
-        <h1>Gyotan<span>-琵琶湖バス釣り情報サイト-とは？</span></h1>
-        <dl>
-          <dt>・琵琶湖バス釣り釣果情報</dt>
-          <dd>釣果情報を投稿・共有できます。</dd>
-          <br>
-          <dt>・琵琶湖バス釣り場情報</dt>
-          <dd>琵琶湖おかっぱりバス釣りポイント情報を紹介しています。</dd>
-          <br>
-          <dt>・バス釣り初心者向けブログ</dt>
-          <dd>バス釣り初心者向けにフィネスの釣りを紹介しています。</dd>
-        </dl>
-      </div>
-    </div> 
-    <h2 class="contents-title">最新釣果情報</h2>
-    <div class="top-posts">
-      <% @posts.each do |post| %>
-        <div class="top-posts-item">
 
-          <div class="top-left">
+<div class="contents">
+  <div class="top-image">
+    <div class="top-message">
+      <h1>Gyotan<span>-琵琶湖バス釣り情報サイト-とは？</span></h1>
+      <dl>
+        <dt>・琵琶湖バス釣り釣果情報</dt>
+        <dd>釣果情報を投稿・共有できます。</dd>
+        <br>
+        <dt>・琵琶湖バス釣り場情報</dt>
+        <dd>琵琶湖おかっぱりバス釣りポイント情報を紹介しています。</dd>
+        <br>
+        <dt>・バス釣り初心者向けブログ</dt>
+        <dd>バス釣り初心者向けにフィネスの釣りを紹介しています。</dd>
+      </dl>
+    </div>
+  </div> 
+  <h2 class="contents-title">最新釣果情報</h2>
+  <div class="top-posts">
+    <% @posts.each do |post| %>
+      <div class="top-posts-item">
+
+        <div class="top-left">
+          <%= image_tag post.user.image.url %>
+        </div>
+        
+        <div class="post-user-name">
+          <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
+        </div>
+
+        <div class="top-user-image">
+          <% if post.images.length < 2 %>
+            <% post.images.each do |image| %>
+              <%= image_tag image.to_s %>
+            <% end %>
+          <% else %>
+            <div class="swiper">
+              <div class= "swiper-wrapper ">
+                <% post.images.each do |image| %>
+                  <%= image_tag image.to_s, class: "swiper-slide index-img" %>
+                <% end %>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class="top-datetime">
+          <% if Rails.env.development? %>
+            <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{post.images[0].to_s}") %>
+          <% else %>
+            <% image = EXIFR::JPEG.new(open(post.images[0].to_s)) %>
+          <% end %>
+          <% if image.date_time == nil %>
+            <span>投稿日時：</span><%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+          <% else %>
+            <span>釣果日時：</span><%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
+          <% end %>
+        </div>
+
+        <div class="top-weather">
+          <span>天気：</span><%= post.weather %>
+        </div>
+
+        <div class="top-fish-area">
+          <span>釣果エリア：</span><%= post.fish_area %>
+        </div>
+
+        <div class="top-info">
+          <div class="top-content">
+            <p>～釣果状況～</p>
+            <%= post.content %>
+          </div>
+          <div class="top-fish-info">
+            <div class="top-length">
+              <p>長さ :</p>
+              <%= post.length %><span> cm</span>
+            </div>
+
+            <div class="top-weight">
+              <p>重さ :</p>
+              <%= post.weight %><span> g</span>
+            </div>
+
+            <div class="top-lure">
+              <p>ルアー : </p>
+              <%= post.lure %>
+            </div>
+
+            <div class="top-lure-color">
+              <p>カラー :</p>
+              <%= post.lure_color %>
+            </div>
+            
+            <div class="top-catch-fish">
+              <p>釣果数 :</p>
+              <%= post.catch_fish %><span> 匹</span>
+            </div>
+          </div>
+        </div>
+      </div>  
+    <% end %>
+
+    <div class="top-side-item">
+      <% @posps.each do |post| %>
+        <div class="posts-index-item">
+          <div class="top-right-side">
             <%= image_tag post.user.image.url %>
           </div>
-          
-          <div class="post-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
+
+          <div class="user-name-side">
+            <%= link_to(post.title, "/posts/#{post.user.id}") %>
           </div>
 
-          <div class="top-user-image">
-            <% if post.images.length < 2 %>
-              <% post.images.each do |image| %>
-                <%= image_tag image.to_s %>
-              <% end %>
-            <% else %>
-              <div class="swiper">
-                <div class= "swiper-wrapper ">
-                  <% post.images.each do |image| %>
-                    <%= image_tag image.to_s, class: "swiper-slide index-img" %>
-                  <% end %>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
-              </div>
-            <% end %>
-          </div>
-          
-          <div class="top-datetime">
-            <% if Rails.env.development? %>
-              <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{post.images[0].to_s}") %>
-            <% else %>
-              <% image = EXIFR::JPEG.new(open(post.images[0].to_s)) %>
-            <% end %>
-            <% if image.date_time == nil %>
-              <span>投稿日時：</span><%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
-            <% else %>
-              <span>釣果日時：</span><%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
-            <% end %>
+          <div class="top-right-image">
+            <%= image_tag post.images[0].to_s %>
           </div>
 
-          <div class="top-weather">
-            <span>天気：</span><%= post.weather %>
+          <div class="user-post-datetime">
+            <span>投稿日：</span><%= post.created_at.strftime("%Y-%m-%d") %>
           </div>
 
-          <div class="top-fish-area">
-            <span>釣果エリア：</span><%= post.fish_area %>
-          </div>
-
-          <div class="top-info">
-            <div class="top-content">
-              <p>～釣果状況～</p>
-              <%= post.content %>
-            </div>
-            <div class="top-fish-info">
-              <div class="top-length">
-                <p>長さ :</p>
-                <%= post.length %><span> cm</span>
-              </div>
-
-              <div class="top-weight">
-                <p>重さ :</p>
-                <%= post.weight %><span> g</span>
-              </div>
-
-              <div class="top-lure">
-                <p>ルアー : </p>
-                <%= post.lure %>
-              </div>
-
-              <div class="top-lure-color">
-                <p>カラー :</p>
-                <%= post.lure_color %>
-              </div>
-              
-              <div class="top-catch-fish">
-                <p>釣果数 :</p>
-                <%= post.catch_fish %><span> 匹</span>
-              </div>
-            </div>
-          </div>
-        </div>  
+        </div>
       <% end %>
-
-      <div class="top-side-item">
-        <% @posps.each do |post| %>
-          <div class="posts-index-item">
-            <div class="top-right-side">
-              <%= image_tag post.user.image.url %>
-            </div>
-
-            <div class="user-name-side">
-              <%= link_to(post.title, "/posts/#{post.user.id}") %>
-            </div>
-
-            <div class="top-right-image">
-              <%= image_tag post.images[0].to_s %>
-            </div>
-
-            <div class="user-post-datetime">
-              <span>投稿日：</span><%= post.created_at.strftime("%Y-%m-%d") %>
-            </div>
-
-          </div>
-        <% end %>
-      </div>
     </div>
-    
-    <h2 class="contents-title">最新ブログ情報</h2>
-    
-    <div class="top-blogs">
-      <% @blogs.each do |blog| %>
-        <div class="top-blogs-item">
-          <div class="blog-title">
+  </div>
+  
+  <h2 class="contents-title">最新ブログ情報</h2>
+  
+  <div class="top-blogs">
+    <% @blogs.each do |blog| %>
+      <div class="top-blogs-item">
+        <div class="blog-title">
+          <%= link_to(blog.title, "/blogs/#{blog.id}") %>
+        </div>
+        <div class="blog-content">
+          <%= blog.content %>
+        </div>
+      </div>
+    <% end %>
+    <div class="top-side-item">
+      <% @blops.each do |blog| %>  
+        <div class="blogs-index-item">
+          <div class="user-name-side">
             <%= link_to(blog.title, "/blogs/#{blog.id}") %>
           </div>
-          <div class="blog-content">
-            <%= blog.content %>
+          <div class="top-right-image">
+            <%= image_tag blog.image.to_s %>
+          </div>
+          <div class="user-post-datetime">
+            <span>投稿日：</span>
+            <%= blog.created_at.strftime("%Y-%m-%d") %>
           </div>
         </div>
       <% end %>
-      <div class="top-side-item">
-        <% @blops.each do |blog| %>  
-          <div class="blogs-index-item">
-            <div class="user-name-side">
-              <%= link_to(blog.title, "/blogs/#{blog.id}") %>
-            </div>
-            <div class="top-right-image">
-              <%= image_tag blog.image.to_s %>
-            </div>
-            <div class="user-post-datetime">
-              <span>投稿日：</span>
-              <%= blog.created_at.strftime("%Y-%m-%d") %>
-            </div>
-          </div>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>

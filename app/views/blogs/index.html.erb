@@ -1,22 +1,20 @@
 <% breadcrumb :blogs %>
-<div class="main">
-  <div class="container">
-    <h3 class="form-heading">ブログ一覧</h3>
-    <% @blogs.each do |blog| %>
-      <div class="blogs-index-item">
-        <div class="user-post-left">
-          <%= image_tag blog.image.url%>
+<div class="container">
+  <h3 class="form-heading">ブログ一覧</h3>
+  <% @blogs.each do |blog| %>
+    <div class="blogs-index-item">
+      <div class="user-post-left">
+        <%= image_tag blog.image.url%>
+      </div>
+      <div class="user-post-right">
+        <div class="post-user-name">
+          <%= link_to(blog.title, "/blogs/#{blog.id}") %>
         </div>
-        <div class="user-post-right">
-          <div class="post-user-name">
-            <%= link_to(blog.title, "/blogs/#{blog.id}") %>
-          </div>
-          <div class="user-post-datetime">
-            <span>投稿日：</span>
-            <%= link_to(blog.created_at.strftime("%Y-%m-%d"), "/blogs/#{blog.id}") %>
-          </div>
+        <div class="user-post-datetime">
+          <span>投稿日：</span>
+          <%= link_to(blog.created_at.strftime("%Y-%m-%d"), "/blogs/#{blog.id}") %>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

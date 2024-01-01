@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   get "privacy", to: "home#privacy"
   get "cookie", to: "home#cookie"
   get "profile", to: "home#profile"
+  get "rule", to: "home#rule"
 
   get "contacts/new", to: "contacts#new"
   post "contacts/create", to: "contacts#create"

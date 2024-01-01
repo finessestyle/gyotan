@@ -1,55 +1,53 @@
 <% breadcrumb :maps %>
-<div class="main">
-  <div class="container">
-    <h3 class="form-heading">釣り場情報</h3>
-    
-    <iframe src="https://www.google.com/maps/d/embed?mid=1drub9q4GKQ1jvSuQDIx4XyOvAunEn_s&ehbc=2E312F"></iframe>
+<div class="container">
+  <h3 class="form-heading">釣り場情報</h3>
+  
+  <iframe src="https://www.google.com/maps/d/embed?mid=1drub9q4GKQ1jvSuQDIx4XyOvAunEn_s&ehbc=2E312F"></iframe>
 
-    <ul class="tab">
-      <li><a href="#kohoku">湖北</a></li>
-      <li><a href="#kotou">湖東</a></li>
-      <li><a href="#kosai">湖西</a></li>
-      <li><a href="#nankotougan">南湖東</a></li>
-      <li><a href="#nankoseigan">南湖西</a></li>
-    </ul>
+  <ul class="tab">
+    <li><a href="#kohoku">湖北</a></li>
+    <li><a href="#kotou">湖東</a></li>
+    <li><a href="#kosai">湖西</a></li>
+    <li><a href="#nankotougan">南湖東</a></li>
+    <li><a href="#nankoseigan">南湖西</a></li>
+  </ul>
 
-    <div id="kohoku" class="area" >
-      <% @maps1.each do |map| %>
-        <div class="post-user-name">
-          <%= link_to(map.title, "/maps/#{map.id}/", data: {"turbolinks" => false}) %>
-        </div>
-      <% end %>
-    </div>
-    <div id="kotou" class="area" >
-      <% @maps2.each do |map| %>
-        <div class="post-user-name">
-          <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
-        </div>
-      <% end %>
-    </div>
-    <div id="kosai" class="area" >
-      <% @maps3.each do |map| %>
-        <div class="post-user-name">
-          <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
-        </div>
-      <% end %>
-    </div>
-    <div id="nankotougan" class="area" >
-      <% @maps4.each do |map| %>
-        <div class="post-user-name">
-          <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
-        </div>
-      <% end %>
-    </div>
-    <div id="nankoseigan" class="area" >
-      <% @maps5.each do |map| %>
-        <div class="post-user-name">
-          <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
-        </div>
-      <% end %>
-    </div>
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous"></script>
-    <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-4-1/js/5-4-1.js"></script>
+  <div id="kohoku" class="area" >
+    <% @maps1.each do |map| %>
+      <div class="post-user-name">
+        <%= link_to(map.title, "/maps/#{map.id}/", data: {"turbolinks" => false}) %>
+      </div>
+    <% end %>
   </div>
+  <div id="kotou" class="area" >
+    <% @maps2.each do |map| %>
+      <div class="post-user-name">
+        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
+      </div>
+    <% end %>
+  </div>
+  <div id="kosai" class="area" >
+    <% @maps3.each do |map| %>
+      <div class="post-user-name">
+        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
+      </div>
+    <% end %>
+  </div>
+  <div id="nankotougan" class="area" >
+    <% @maps4.each do |map| %>
+      <div class="post-user-name">
+        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
+      </div>
+    <% end %>
+  </div>
+  <div id="nankoseigan" class="area" >
+    <% @maps5.each do |map| %>
+      <div class="post-user-name">
+        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
+      </div>
+    <% end %>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous"></script>
+  <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-4-1/js/5-4-1.js"></script>
 </div>

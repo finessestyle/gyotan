@@ -1,44 +1,42 @@
 <% breadcrumb :maps_create %>
-<div class="main">
-  <div class="container">
-    <h3 class="form-heading">釣り場投稿</h3>
-    <div class="form">
-      <div class="form-body">
-        <% @map.errors.full_messages.each do |message| %>
-          <div class="form-error">
-            <%= message %>
-          </div>
-        <% end %>
+<div class="container">
+  <h3 class="form-heading">釣り場投稿</h3>
+  <div class="form">
+    <div class="form-body">
+      <% @map.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
+      
+      <%= form_with model: @map, url: "/maps/create", local: true do |form| %>
+        <%= form.label "タイトル" %>
+        <%= form.text_field :title %>
+
+        <%= form.label "エリア選択" %>
+        <%= form.select :area,
+          [
+            ["湖北"],["湖東"],["湖西"],["南湖東"],["南湖西"]
+          ],
+        prompt: "エリアを選択してください" %>
+
+        <%= form.label "緯度" %>
+        <%= form.text_field :latitude %>
+
+        <%= form.label "経度" %>
+        <%= form.text_field :longitude %>
+
+        <%= form.label "地理院地図URL" %>
+        <%= form.text_field :url %>
         
-        <%= form_with model: @map, url: "/maps/create", local: true do |form| %>
-          <%= form.label "タイトル" %>
-          <%= form.text_field :title %>
+        <%= form.label "画像" %>
+        <%= form.file_field :image %>
 
-          <%= form.label "エリア選択" %>
-          <%= form.select :area,
-            [
-              ["湖北"],["湖東"],["湖西"],["南湖東"],["南湖西"]
-            ],
-          prompt: "エリアを選択してください" %>
+        <%= form.label "内容" %>
+        <%= form.rich_text_area :content %>
 
-          <%= form.label "緯度" %>
-          <%= form.text_field :latitude %>
-
-          <%= form.label "経度" %>
-          <%= form.text_field :longitude %>
-
-          <%= form.label "地理院地図URL" %>
-          <%= form.text_field :url %>
-          
-          <%= form.label "画像" %>
-          <%= form.file_field :image %>
-
-          <%= form.label "内容" %>
-          <%= form.rich_text_area :content %>
-
-          <%= form.submit "投稿" %>
-        <% end %>
-      </div>
+        <%= form.submit "投稿" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,18 +1,16 @@
 <% breadcrumb :users %>
-<div class="main">
-  <div class="container">
-    <h3 class="form-heading">ユーザーー覧</h3>
-    <div class="users-index">
-      <% @users.each do |user| %>
-        <div class="users-index-item">
-          <div class="user-left">
-            <%= image_tag user.image.url %>
-          </div>
-          <div class="user-right">
-            <%= link_to(user.name, "/users/#{user.id}") %>
-          </div> 
+<div class="container">
+  <h3 class="form-heading">ユーザーー覧</h3>
+  <div class="users-index">
+    <% @users.each do |user| %>
+      <div class="users-index-item">
+        <div class="user-left">
+          <%= image_tag user.image.url %>
         </div>
-      <% end %>
-    </div> 
+        <div class="user-right">
+          <%= link_to(user.name, "/users/#{user.id}") %>
+        </div> 
+      </div>
+    <% end %>
   </div> 
-</div>
+</div> 

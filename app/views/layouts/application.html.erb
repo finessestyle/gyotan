@@ -70,16 +70,21 @@
         <% end %>
       </ul>
     </header>
+    
+    <main>
+      <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
 
-    <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
+      <%= breadcrumbs separator: " &rsaquo; " %>
+      <%= yield %>
+    </main>
 
-    <%= breadcrumbs separator: " &rsaquo; " %>
-
-    <%= yield %>
+    <aside> 
+      <small>広告</small>
+    </aside>
 
     <footer id="footer">
       <p id="page-top"><a href="#">Page Top</a></p> 
@@ -89,6 +94,7 @@
           <li><%= link_to("利用規約", "/term") %></li>
           <li><%= link_to("プライバシーポリシー", "/privacy") %></li>
           <li><%= link_to("Cookie", "/cookie") %></li>
+          <li><%= link_to("琵琶湖バス釣りルール", "/rule") %></li>
           <li><%= link_to("運営者情報", "/profile") %></li>
           <li><%= link_to("お問い合わせ", "/contacts/new") %></li>
         </ul>
