@@ -49,6 +49,7 @@
               <% if @current_user.admin? %>
                 <li class="nav_menu_li"><%= link_to("釣り場投稿", "/maps/new") %></li>
               <% end %>
+              <li class="nav_menu_li"><%= link_to("【広告】釣具買取","https://px.a8.net/svt/ejp?a8mat=3BBXGL+1ZG1DE+49AW+614CY") %></li>
               <li class="nav_menu_li"><%= link_to("ログアウト", "/logout", {method: "post"}) %></li>
             </ul>
           </nav>
@@ -63,6 +64,7 @@
               <li class="nav_menu_li"><%= link_to("みんなの釣果", "/posts/index") %></li>
               <li class="nav_menu_li"><%= link_to("ブログ's","/blogs/index") %></li>
               <li class="nav_menu_li"><%= link_to("釣り場情報","/maps/index") %></li>
+              <li class="nav_menu_li"><%= link_to("【広告】釣具買取","https://px.a8.net/svt/ejp?a8mat=3BBXGL+1ZG1DE+49AW+614CY") %></li>
               <li class="nav_menu_li"><%= link_to("新規登録","/signup") %></li>
               <li class="nav_menu_li"><%= link_to("ログイン","/login") %></li>
             </ul>
@@ -81,10 +83,6 @@
       <%= breadcrumbs separator: " &rsaquo; " %>
       <%= yield %>
     </main>
-
-    <aside> 
-      <small>広告</small>
-    </aside>
 
     <footer id="footer">
       <p id="page-top"><a href="#">Page Top</a></p> 
