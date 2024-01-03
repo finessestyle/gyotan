@@ -280,6 +280,23 @@ main {
   min-height: 100vh;
 }
 
+.gyotan-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1px;
+}
+
+.gyotan-item {
+  margin: 5px;
+  text-align: center;
+ }
+
+.gyotan-item a{
+  font-size: 15px;
+  display: inline-block;
+}
+
 .present {
   text-align: center;
   padding-bottom: 20px;

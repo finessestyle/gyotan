@@ -21,7 +21,7 @@
   
   <body>
     <header>
-      <div class="header-logo">
+      <div class="header-logo" id="top">
         <% if @current_user %>
           <%= link_to(" Gyotan ", "/posts/index") %><span>-琵琶湖バス釣り情報サイト-</span>
         <% else %>
@@ -85,18 +85,16 @@
     </main>
 
     <footer id="footer">
+      <div class="gyotan-info">
+        <div class="gyotan-item"><%= link_to("利用規約", "/term") %></div>
+        <div class="gyotan-item"><%= link_to("プライバシーポリシー", "/privacy") %></li></div>
+        <div class="gyotan-item"><%= link_to("Cookie", "/cookie") %></li></div>
+        <div class="gyotan-item"><%= link_to("琵琶湖バス釣りルール", "/rule") %></li></div>
+        <div class="gyotan-item"><%= link_to("運営者情報", "/profile") %></li></div>
+        <div class="gyotan-item"><%= link_to("お問い合わせ", "/contacts/new") %></li></div>
+      </div>
       <p id="page-top"><a href="#">Page Top</a></p> 
       <small>&copy; Gyotan.jp</small>
-      <div class="footer-info"
-        <ul>
-          <li><%= link_to("利用規約", "/term") %></li>
-          <li><%= link_to("プライバシーポリシー", "/privacy") %></li>
-          <li><%= link_to("Cookie", "/cookie") %></li>
-          <li><%= link_to("琵琶湖バス釣りルール", "/rule") %></li>
-          <li><%= link_to("運営者情報", "/profile") %></li>
-          <li><%= link_to("お問い合わせ", "/contacts/new") %></li>
-        </ul>
-      </div>
     </footer>
     
     <!--jqueryの読み込み-->
