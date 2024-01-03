@@ -1,6 +1,6 @@
 <% breadcrumb :maps_edit %>
 <div class="container">
-  <h3 class="form-heading">釣り場編集</h3>
+  <h3 class="form-heading">琵琶湖バス釣り場編集</h3>
 
   <%= form_with model: @map, url: "/maps/#{@map.id}/update", local: true do |form| %>
     <div class="form">
@@ -18,7 +18,7 @@
         <%= form.label "カテゴリー" %>
         <%= form.select :area,
         [
-          ["湖北"],["湖東"],["湖西"],["南湖東"],["南湖西"]
+          ["北湖北岸"],["北湖東岸"],["北湖西岸"],["南湖東岸"],["南湖西岸"]
         ] ,
         prompt: "エリアを選択してください", value: @map.area %>
         

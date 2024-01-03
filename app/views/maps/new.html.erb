@@ -1,6 +1,6 @@
 <% breadcrumb :maps_create %>
 <div class="container">
-  <h3 class="form-heading">釣り場投稿</h3>
+  <h3 class="form-heading">琵琶湖バス釣り場投稿</h3>
   <div class="form">
     <div class="form-body">
       <% @map.errors.full_messages.each do |message| %>
@@ -16,7 +16,7 @@
         <%= form.label "エリア選択" %>
         <%= form.select :area,
           [
-            ["湖北"],["湖東"],["湖西"],["南湖東"],["南湖西"]
+            ["北湖北岸"],["北湖東岸"],["北湖西岸"],["南湖東岸"],["南湖西岸"]
           ],
         prompt: "エリアを選択してください" %>
 
