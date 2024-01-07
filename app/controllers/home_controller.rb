@@ -4,9 +4,9 @@ class HomeController < ApplicationController
   require 'mini_magick'
 
   def top
-    @posts = Post.all.order(created_at: :desc).limit(1)
-    @posps = Post.all.order(created_at: :desc).limit(3).offset(1)
-    @blogs = Blog.all.order(created_at: :desc).limit(1)
-    @blops = Blog.all.order(created_at: :desc).limit(3).offset(1)
+    @posts = Post.all.order(created_at: :desc)
+    # @posps = Post.all.order(created_at: :desc).limit(3).offset(1)
+    @blogs = Blog.all.order(created_at: :desc)
+    # @blops = Blog.all.order(created_at: :desc).limit(3).offset(1)
   end
 end
