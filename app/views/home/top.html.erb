@@ -1,4 +1,9 @@
-<div class="top-image"></div> 
+<div class="top-image">
+  <div class="top-message">
+    <h1>琵琶湖バス釣り情報サイト</h1>
+    <h2>みんなの釣果情報があなたの釣果に!?</h2>
+  </div>
+</div>
 <div class="contents">
   <div class="top-info">
     <div class="info-item">
@@ -15,7 +20,7 @@
     </div>
   </div>
 
-  <h2 class="contents-title">最新釣果情報</h2>
+  <div class="contents-title">最新釣果情報</div>
   
   <div class="top-contents">
     <% @posts.each do |post| %> 
@@ -51,7 +56,7 @@
     <% end %>
   </div>
 
-  <h2 class="contents-title">最新ブログ情報</h2>
+  <div class="contents-title">最新ブログ情報</div>
 
   <div class="top-contents">
     <% @blogs.each do |blog| %>
@@ -69,12 +74,12 @@
     <% end %>
   </div>
 
-  <h2 class="contents-title">運営からのお知らせ</h2>
+  <div class="contents-title">運営情報</div>
 
   <div class="gyotan-info">
     <div class="gyotan-item"><%= link_to("利用規約", "/term") %></div>
     <div class="gyotan-item"><%= link_to("プライバシーポリシー", "/privacy") %></li></div>
-    <div class="gyotan-item"><%= link_to("Cookie", "/cookie") %></li></div>
+    <div class="gyotan-item"><%= link_to("Cookieポリシー", "/cookie") %></li></div>
     <div class="gyotan-item"><%= link_to("琵琶湖バス釣りルール", "/rule") %></li></div>
     <div class="gyotan-item"><%= link_to("運営者情報", "/profile") %></li></div>
     <div class="gyotan-item"><%= link_to("お問い合わせ", "/contacts/new") %></li></div>

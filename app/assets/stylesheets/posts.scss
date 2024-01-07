@@ -6,11 +6,12 @@
   box-shadow: 0 2px 6px #c1ced7;
   border-radius: 5px 5px;
   margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 @media(max-width:670px) {
   .posts-index-item {
-    box-shadow: 0 2px 6px #c1ced7;
     border-radius: 0 0;
   }
 }
@@ -30,18 +31,9 @@
   float: left;
 }
 
-.post-right {
-  float: left;
-  width: 80%;
-}
-
-.user-post-right {
-  text-align: center;
-}
-
 .post-user-name a {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 50px;
   padding-left: 10px;
 }
@@ -56,8 +48,6 @@
 @media(max-width:670px) {
   .post-user-image img {
     height: 300px;
-    width: 100%;
-    object-fit: cover;
   }
 }
 
@@ -67,14 +57,7 @@
   width: 60%;
   border-right: none;
   text-align: center;
-  font-weight: bold;
   line-height: 200%;
-}
-
-@media(max-width:670px) {
-  .post-datetime {
-    font-size: 12px; 
-  }
 }
 
 .post-weather {
@@ -82,26 +65,12 @@
   float: left;
   width:40%;
   text-align: center;
-  font-weight: bold;
   line-height: 200%;
-}
-
-@media(max-width:670px) {
-  .post-weather {
-    font-size: 12px; 
-  }
 }
 
 .post-fish-area {
   border: 1px solid #c1ced7;
   border-bottom: none;
-  font-weight: bold;
-}
-
-@media(max-width:670px) {
-  .post-fish-area {
-    font-size: 12px; 
-  }
 }
 
 .post-content {
@@ -110,15 +79,12 @@
   float: left;
   width: 40%;
   height: 200px;
-  font-weight: bold;
-  font-size: 13px;
   padding: 0 10px;
 }
 
 @media(max-width:670px) {
   .post-content {
     padding: 0 10px;
-    font-size: 11px; 
   }
 }
 
@@ -134,15 +100,7 @@
   border: 1px solid #c1ced7;
   height: 200px;
   width: 60%;
-  font-size: 15px;
   text-align: center;
-  font-weight: bold;
-}
-
-@media(max-width:670px) {
-  .post-fish-info {
-    font-size: 12px; 
-  }
 }
 
 .post-fish-area {
@@ -231,7 +189,7 @@
 }
 
 .posts-show-item .fa {
-  font-size: 16px;
+  font-size: 14px;
   margin-right: 3px;
 }
 

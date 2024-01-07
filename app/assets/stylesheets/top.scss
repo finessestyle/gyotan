@@ -18,6 +18,43 @@
   }
 }
 
+.top-message {
+  position: relative;
+}
+
+.top-message h1{
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  font-size: 60px;
+  color: white;
+}
+
+@media(max-width:670px) {
+  .top-message h1 {
+    font-size: 26px;
+    position: absolute;
+    left: 28px;
+  }
+}
+
+.top-message h2{
+  position: absolute;
+  top: 120px;
+  left: 40px;
+  font-size: 60px;
+  color: white;
+}
+
+@media(max-width:670px) {
+  .top-message h2 {
+    font-size: 20px;
+    position: absolute;
+    top: 90px;
+    left: 30px;
+  }
+}
+
 /* top/info ================================ */  
 .top-info {
   display: grid;
