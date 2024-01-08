@@ -1,4 +1,4 @@
-/* blogs/index ================================ */
+/* blogs/show ================================ */
 .blogs-index-item {
   padding: 20px 20px;
   background-color: white;
@@ -15,20 +15,19 @@
   }
 }
 
-/* blogs/show ================================ */
 .blog-time {
   color: #8899a6;
   margin-bottom: 10px;
 }
 
 .blog-title {
-  font-size: 20px;
+  font-size: 16px;
   border-bottom: 1px solid #c1ced7;
 }
 
 @media(max-width:670px) {
   .blogs-title {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 

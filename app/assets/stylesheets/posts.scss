@@ -1,4 +1,4 @@
-/* posts/index ================================ */
+/* posts/show ================================ */
 .posts-index-item {
   padding: 20px 20px;
   background-color: white;
@@ -6,17 +6,16 @@
   box-shadow: 0 2px 6px #c1ced7;
   border-radius: 5px 5px;
   margin-bottom: 20px;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 16px;
 }
 
 @media(max-width:670px) {
   .posts-index-item {
     border-radius: 0 0;
+    font-size: 13px
   }
 }
 
-/* posts/show ================================ */
 .post-left {
   width: 20%;
   padding-left: 10px;
@@ -73,6 +72,7 @@
   border-bottom: none;
 }
 
+
 .post-content {
   border: 1px solid #c1ced7;
   border-right: none;
@@ -116,6 +116,7 @@
 }
 
 .post-length {
+  float: left;
   height: 20%;
   width: 100%;
   padding-left: 10px;
@@ -128,6 +129,7 @@
 }
 
 .post-weight {
+  float: left;
   width: 100%;
   height: 20%;
   border-bottom: 1px solid #c1ced7;
@@ -140,6 +142,7 @@
 }
 
 .post-lure {
+  float: left;
   width: 100%;
   height: 20%;
   border-bottom: 1px solid #c1ced7;
@@ -153,6 +156,7 @@
 }
 
 .post-lure-color {
+  float: left;
   width: 100%;
   height: 20%;
   border-bottom: 1px solid #c1ced7;
@@ -165,6 +169,7 @@
 }
 
 .post-catch-fish {
+  float: left;
   width: 100%;
   height: 20%;
   padding-left: 10px;
@@ -189,7 +194,7 @@
 }
 
 .posts-show-item .fa {
-  font-size: 14px;
+  font-size: 16px;
   margin-right: 3px;
 }
 
@@ -199,7 +204,7 @@
 
 .post-menus a, .post-menus input {
   text-decoration: underline;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 #map {

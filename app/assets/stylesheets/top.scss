@@ -74,20 +74,20 @@
 }
 
 .info-item a{
-  font-size: 14px;
+  font-size: 16px;
   line-height: 50px;
   display: block;
   text-align: center;
 }
     
 /* top/posts ================================ */  
-.top-contents{
+.posts-contents{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 10px;
 }
 
-.top-posts-item {
+.posts-item {
   padding: 10px;
   box-shadow: 0 1px 6px #c1ced7;
   border-radius: 5px;

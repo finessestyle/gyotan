@@ -17,7 +17,7 @@
   width: 25%;
   height: 200px;
   float: left;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 @media(max-width: 1000px) {
@@ -32,7 +32,7 @@
 
 @media(max-width: 670px) {
   .users-index-item a {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
     
@@ -52,14 +52,13 @@
 }
 
 .user-right {
-  font-weight: bold;
-  font-size: 10px;
+  font-size: 16px;
 }
 
 @media(max-width: 670px) {
   .user-right {
     font-weight: bold;
-    font-size: 10px;
+    font-size: 16px;
   }
 }
 
@@ -79,20 +78,19 @@
 }
   
 .user h2 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.2;
 }
   
 .user p {
-  font-size: 13px;
+  font-size: 16px;
   margin-bottom: 15px;
 }
   
 .user a {
   color: #8899a6;
   text-decoration: underline;
-  font-weight: 200;
 }
 
 .user-name-side a {

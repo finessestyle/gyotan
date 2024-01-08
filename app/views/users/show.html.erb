@@ -1,7 +1,7 @@
 <% breadcrumb :users_show %>
 
-<div class="container">
-  <h3 class="form-heading">ユーザー情報</h3>
+<div class="contents">
+  <div class="contents-title">ユーザー情報</div>
 
   <div class="user">
     <%= image_tag @user.image.url %>
@@ -34,36 +34,38 @@
 
   </div>
   
-  <h1 class="form-heading">釣果情報</h1>
-  <% @user.posts.each do |post| %>
-    <div class="posts-index-item">
-      <div class="user-post-datetime">
-        <span>投稿日：</span>
-        <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
-      </div>
-      
-      <div class="top-user-image">
-        <% if post.images.length < 2 %>
-          <% post.images.each do |image| %>
-            <%= image_tag image.to_s, class: "post-img"%>
-          <% end %>
-        <% else %>
-          <div class="swiper">
-            <div class= "swiper-wrapper ">
-              <% post.images.each do |image| %>
-                <%= image_tag image.to_s, class: "swiper-slide index-img" %>
-              <% end %>
+  <div class="contents-title">釣果情報</div>
+  
+  <div class="posts-contents">
+    <% @user.posts.each do |post| %>
+      <div class="posts-item">
+        <div class="user-post-datetime">
+          <span>投稿日：</span>
+          <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+        </div>
+        
+        <div class="top-user-image">
+          <% if post.images.length < 2 %>
+            <% post.images.each do |image| %>
+              <%= image_tag image.to_s, class: "post-img"%>
+            <% end %>
+          <% else %>
+            <div class="swiper">
+              <div class= "swiper-wrapper ">
+                <% post.images.each do |image| %>
+                  <%= image_tag image.to_s, class: "swiper-slide index-img" %>
+                <% end %>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-pagination"></div>
-          </div>
-        <% end %>
-      </div>
+          <% end %>
+        </div>
 
-      <div class="posts-index-right">
-        <%= link_to("👉釣果詳細はこちら","/posts/#{post.id}") %>
+        <div class="posts-index-right">
+          <%= link_to("👉釣果詳細はこちら","/posts/#{post.id}") %>
+        </div>
       </div>
-    </div>
-  <% end %> 
+    <% end %> 
 </div>

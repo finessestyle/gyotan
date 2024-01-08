@@ -1,6 +1,6 @@
 <% breadcrumb :posts_show %>
 <div class="container">
-  <h3 class="form-heading">釣果詳細</h3>
+  <div class="contents-title">釣果詳細</div>
   <div class="posts-index-item">
     <div class="post-left">
       <%= image_tag @user.image.url %>
@@ -10,8 +10,6 @@
       <%= link_to(@user.name, "/users/#{@user.id}") %><span> さん</sapan>
     </div>
     
-    
-
     <div class="top-user-image">
       <% if @post.images.length < 2 %>
         <% @post.images.each do |image| %>
@@ -90,6 +88,7 @@
         <% end %>
       </script>
     <% end %>
+    
     <div class="post-info">
       <div class="post-content">
         <p>～釣果状況～</p>
