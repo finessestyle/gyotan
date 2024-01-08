@@ -10,7 +10,7 @@
       <%= link_to(@user.name, "/users/#{@user.id}") %><span> さん</sapan>
     </div>
     
-    <div class="top-user-image">
+    <div class="post-image">
       <% if @post.images.length < 2 %>
         <% @post.images.each do |image| %>
           <%= image_tag image.to_s, class: "post-img"%>
