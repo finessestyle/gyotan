@@ -389,7 +389,7 @@ DEPENDENCIES
   google_drive
   gretel
   image_processing (~> 1.2)
-  impressionist (~> 1.6.1)
+  impressionist
   jbuilder (~> 2.7)
   jquery-rails
   kaminari
