@@ -23,7 +23,7 @@ crumb :cookie do
 end
 
 crumb :rule do
-  link "琵琶湖のルール", rule_path
+  link "琵琶湖バス釣りルール", rule_path
   parent :top
 end
 
@@ -69,7 +69,7 @@ crumb :posts_edit do
 end
 
 crumb :users do
-  link "ユーザー覧", users_index_path
+  link "ユーザーー覧", users_index_path
   parent :top
 end
 
