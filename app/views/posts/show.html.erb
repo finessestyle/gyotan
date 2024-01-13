@@ -141,6 +141,37 @@
       <% end %>
     <% end %>
   </div>
+  
+  <table border="1" style="border: 1px solid #c1ced7; border-collapse: collapse;">
+    <tr>
+      <td colspan="3">釣果日時</td>
+      <td colspan="3">天気</td>
+    </tr>
+    <tr>
+        <td colspan="3">釣果エリア</td>
+        <td colspan="3">釣果場所</td>
+    </tr>
+    <tr>
+      <td colspan="3">釣果状況</td>
+      <td>長さ</td>
+    </tr>
+    <tr>
+      <td rowspan="5" colspan="3">釣果内容</td>
+    </tr>
+    
+    <tr>
+      <td>重さ</td>
+    </tr>
+    <tr>
+      <td>ルアー</td>
+    </tr>
+    <tr>
+      <td>カラー</td>
+    </tr>
+    <tr>
+      <td>釣果数</td>
+    </tr>
+  </table>
 
   <div class="present">
     <% if @post.previous.present? %>

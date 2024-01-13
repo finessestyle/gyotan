@@ -23,14 +23,8 @@
       <% end %>
     <% end %>
 
-    <tr>
-      <th>フォロー中</th>
-      <th><%= link_to @user.followings.count, user_followings_path(@user) %></th>
-    </tr>
-    <tr>
-      <th>フォロワー</th>
-      <th><%= link_to @user.followers.count, user_followers_path(@user) %></th>
-    </tr>
+    <span>フォロー中</span><%= link_to @user.followings.count, user_followings_path(@user)%>
+    <span>フォロワー</span><%= link_to @user.followers.count, user_followers_path(@user) %>
 
   </div>
   

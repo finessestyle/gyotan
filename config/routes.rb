@@ -1,5 +1,6 @@
 Rails.application.routes.draw do    
   get "/", to: "home#top"
+  get "about", to: "home#about"
   
   post "users/:id/update", to: "users#update"
   patch "users/:id/update", to: "users#update"

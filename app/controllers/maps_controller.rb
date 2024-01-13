@@ -4,9 +4,9 @@ class MapsController < ApplicationController
   require 'mini_magick'
 
   def index
-    @maps1 = Map.where(area: "湖北")
-    @maps2 = Map.where(area: "湖東")
-    @maps3 = Map.where(area: "湖西")
+    @maps1 = Map.where(area: "北湖北")
+    @maps2 = Map.where(area: "北湖東")
+    @maps3 = Map.where(area: "北湖西")
     @maps4 = Map.where(area: "南湖東")
     @maps5 = Map.where(area: "南湖西")
   end

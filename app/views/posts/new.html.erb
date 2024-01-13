@@ -1,6 +1,7 @@
 <% breadcrumb :posts_create %>
 <div class="container">
   <div class="contents-title">釣果投稿</div>
+  
   <div class="form">
     <div class="form-body">
       <% @post.errors.full_messages.each do |message| %>
@@ -29,7 +30,7 @@
         <%= form.label "釣果エリア" %>
         <%= form.select :fish_area,
           [
-            ["湖北エリア"],["湖東エリア"],["湖西エリア"],["南湖東エリア"],["南湖西エリア"]
+            ["北湖北エリア"],["北湖東エリア"],["北湖西エリア"],["南湖東エリア"],["南湖西エリア"]
           ] ,
         prompt: "釣果エリアを選択してください" %>
 

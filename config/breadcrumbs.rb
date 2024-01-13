@@ -2,6 +2,11 @@ crumb :top do
   link "トップページ", "/"
 end
 
+crumb :about do 
+  link "Gyotanについて", about_path
+  parent :top
+end
+
 crumb :term do
   link "利用規約", term_path
   parent :top
