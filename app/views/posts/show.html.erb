@@ -42,10 +42,6 @@
       <% end %>
     </div>
 
-    <div class="post-weather">
-      <span>天気：</span><%= @post.weather %>
-    </div>
-
     <div class="post-fish-area">
       <span>釣果エリア：</span><%= @post.fish_area %>
     </div>
@@ -95,26 +91,31 @@
         <%= @post.content %>
       </div>
       <div class="post-fish-info">
+        <div class="post-weather">
+          <p>天気：</p>
+          <%= @post.weather %>
+        </div>
+        <div class="post-catch-fish">
+          <p>釣果数:</p>
+          <%= @post.catch_fish %><span>匹</span>
+        </div>
         <div class="post-length">
-          <p>長さ :</p>
-          <%= @post.length %><span> cm</span>
+          <p>長さ:</p>
+          <%= @post.length %><span>cm</span>
         </div>
         <div class="post-weight">
-          <p>重さ :</p>
-          <%= @post.weight %><span> g</span>
+          <p>重さ:</p>
+          <%= @post.weight %><span>g</span>
         </div>
         <div class="post-lure">
-          <p>ルアー : </p>
+          <p>ルアー: </p>
           <%= @post.lure %>
         </div>
         <div class="post-lure-color">
-          <p>カラー :</p>
+          <p>カラー:</p>
           <%= @post.lure_color %>
         </div>
-        <div class="post-catch-fish">
-          <p>釣果数 :</p>
-          <%= @post.catch_fish %><span> 匹</span>
-        </div>
+        
       </div>
     </div>
     <%= @post.impressions_count %><span>閲覧</span>
