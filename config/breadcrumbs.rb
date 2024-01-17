@@ -12,6 +12,11 @@ crumb :term do
   parent :top
 end
 
+crumb :manners do
+  link "バス釣りマナー", manners_path
+  parent :top
+end
+
 crumb :privacy do
   link "プライバシーポリシー", privacy_path
   parent :top

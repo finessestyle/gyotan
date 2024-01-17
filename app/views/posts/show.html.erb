@@ -152,5 +152,9 @@
       <%= link_to(" 次の記事 ", "/posts/#{@post.next.id}") %>
     <% end %>
   </div>
+  <div class="weather">
+    <div id="weather"></div>
+  </div>
+  <%= javascript_pack_tag 'weather_api' %>
 </div>
 
