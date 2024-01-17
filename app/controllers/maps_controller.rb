@@ -13,8 +13,6 @@ class MapsController < ApplicationController
 
   def show
     @map = Map.find_by(id: params[:id])
-    gon.lat = @map.latitude
-    gon.lon = @map.longitude
   end
 
   def new
