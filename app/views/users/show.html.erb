@@ -28,7 +28,7 @@
 
   </div>
   
-  <div class="contents-title">釣果情報</div>
+  <h3 class="contents-title">釣果一覧</h3>
   
   <div class="posts-contents">
     <% @user.posts.each do |post| %>
@@ -58,7 +58,7 @@
         </div>
 
         <div class="posts-index-right">
-          <%= link_to("👉釣果詳細はこちら","/posts/#{post.id}") %>
+          <%= link_to("👉釣果詳細","/posts/#{post.id}") %>
         </div>
       </div>
     <% end %> 

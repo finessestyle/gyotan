@@ -124,12 +124,12 @@ crumb :blogs_edit do
 end
 
 crumb :maps do
-  link "釣り場一覧", maps_index_path
+  link "ポイント一覧", maps_index_path
   parent :top
 end
 
 crumb :maps_show do
-  link "釣り場詳細", "/maps/:id"
+  link "ポイント詳細", "/maps/:id"
   parent :maps
 end
 
