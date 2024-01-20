@@ -36,6 +36,10 @@
     </script>
 
     <%= link_to("👉地理院地図(ブレイクラインを詳しく見る)", "#{@map.url}") %>
+
+    <div class="weather">
+      <div id="weather"></div>
+    </div>
     
     <div class="map-content">
       <%= @map.content %>
@@ -52,12 +56,6 @@
   </div>
   
   <div class="present">
-    <% if @map.previous.present? %>
-      <%= link_to(" 前の記事 ", "/maps/#{@map.previous.id}") %>
-    <% end %>
-    <%= link_to("| 一覧に戻る |", "/maps/index") %>
-    <% if @map.next.present? %>
-      <%= link_to(" 次の記事 ", "/maps/#{@map.next.id}") %>
-    <% end %>
+    <%= link_to("一覧に戻る", "/maps/index") %>
   </div>
 </div>

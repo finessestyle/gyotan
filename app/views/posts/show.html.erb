@@ -144,13 +144,7 @@
   </div>
 
   <div class="present">
-    <% if @post.previous.present? %>
-      <%= link_to(" 前の記事 ", "/posts/#{@post.previous.id}") %>
-    <% end %>
-    <%= link_to("| 一覧に戻る |", "/posts/index") %>
-    <% if @post.next.present? %>
-      <%= link_to(" 次の記事 ", "/posts/#{@post.next.id}") %>
-    <% end %>
+    <%= link_to("一覧に戻る", "/posts/index") %>
   </div>
 </div>
 

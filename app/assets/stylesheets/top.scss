@@ -51,7 +51,7 @@
   
 @media(max-width:670px) {
   .top-message h2 {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
@@ -92,6 +92,12 @@
   padding: 10px;
   box-shadow: 0 1px 6px #c1ced7;
   border-radius: 5px;
+}
+
+@media(max-width:670px) {
+  .posts-item {
+    border-radius: 0;
+  }
 }
   
 .top-left {

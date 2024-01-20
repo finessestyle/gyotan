@@ -1,7 +1,6 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user, {only: [:new, :create, :edit, :update, :destroy]}
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
-  impressionist actions: [:show]
   require 'mini_magick'
   
   def index
@@ -10,7 +9,6 @@ class BlogsController < ApplicationController
     
   def show
     @blog = Blog.find_by(id: params[:id])
-    impressionist(@blog, nil, unique: [:ip_address])
   end
 
   def new

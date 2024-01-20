@@ -26,11 +26,11 @@ gem 'dotenv-rails'
 gem 'google_drive'
 gem 'mysql2'
 gem 'fog-aws'
-gem 'impressionist'
 gem 'sitemap_generator'
 gem 'whenever'
 gem 'meta-tags'
 gem 'gretel'
+gem 'gon'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

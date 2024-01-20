@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user, {only: [:new, :create, :edit, :update, :destroy]}
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
-  impressionist actions: [:show]
   require 'exifr/jpeg'
   require "google_drive"
   require 'mini_magick'
@@ -12,7 +11,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    impressionist(@post, nil, unique: [:ip_address])
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
   end

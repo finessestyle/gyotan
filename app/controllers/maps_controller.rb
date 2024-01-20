@@ -13,6 +13,9 @@ class MapsController < ApplicationController
 
   def show
     @map = Map.find_by(id: params[:id])
+    gon.lat = @map.latitude
+    gon.lon = @map.longitude
+    gon.api = '927f1581d1d1a2a5e28a37a6a0a2d10e'
   end
 
   def new
