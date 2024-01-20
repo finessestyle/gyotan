@@ -118,8 +118,6 @@
         
       </div>
     </div>
-    <%= @post.impressions_count %><span>閲覧</span>
-
     <% if session[:user_id] %>
       <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
         <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
