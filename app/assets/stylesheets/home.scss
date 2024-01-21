@@ -245,6 +245,48 @@ main {
   font-size: 16px;
 }
 
+button {
+  width: 250px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: red;
+}
+
+@media(max-width:1000px) {
+  button {
+    width: 200px;
+    margin-top: 20px;
+
+  }
+}
+  
+@media(max-width:670px) {
+  button {
+    width: 150px;
+    margin-top: 10px;
+  }
+}
+
+button a {
+  color: white;
+  font-size: 20px;
+  display: block;
+}
+
+@media(max-width:1000px) {
+  button a {
+      
+  }
+}
+  
+@media(max-width:670px) {
+  button a {
+    font-size: 18px;
+  }
+}
+
 /* footer ================================ */
 footer{
   border-top: 1px solid #c1ced7;
