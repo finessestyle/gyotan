@@ -1,146 +1,5 @@
 /* maps/index ================================ */
-.maps-main {
-  padding-top: 50px;
-  width: 100%;
-  text-align: center;
-  color: black;
-  height: auto;
-  min-height: 100%;
-}
 
-iframe  {
-  width: 700px;
-  height: 800px;
-}
-
-@media(max-width:670px) {
-  iframe {
-    width: 100%;
-    height: 600px;
-  }
-}
-
-.maps-contents {
-  padding-top: 60px;
-  width: 600px;
-  margin: 0 auto;
-  min-height: 100%;
-}
-
-@media(max-width:670px) {
-  .maps-contents {
-    width: 100%;
-    height: 30px;
-  }
-}
-
-.maps-index-item {
-  padding: 20px 20px;
-  background-color: white;
-  overflow: auto;
-  box-shadow: 0 2px 6px #c1ced7;
-  border-radius: 5px 5px;
-  margin-bottom: 20px;
-}
-
-.map-image {
-  float: left;
-  padding-left: 5px;
-}
-
-.map-image img {
-  width: 100px;
-  height: 100px;
-}
-
-
-.map-title a { 
-  font-size: 16px;
-  float: left;
-}
-
-
-.map-time a {
-  float: left;
-}
-
-/* maps/show ================================ */
-.maps-show-item {
-  padding: 30px;
-  margin: 0 auto;
-  background-color: white;
-  box-shadow: 0 2px 6px #c1ced7;
-  overflow: hidden;
-}
-
-.map-name img {
-  width: 60px;
-  height: 60px;
-  border-radius: 40%;
-  box-shadow: 0 2px 6px #c1ced7;
-  vertical-align: middle;
-  object-fit: cover;
-}
-
-.map-title {
-  font-size: 16px;
-  border-bottom: 1px solid #c1ced7;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-@media(max-width:670px) {
-  .maps-title {
-    font-size: 16px;
-  }
-}
-
-.maps-show-item .map-user-name a {
-  vertical-align: middle;
-  font-size: 16px;
-  margin-left: 15px;
-}
-
-.map-user-image img {
-  width: 500px;
-  height: 300px;
-  margin: 0 auto;
-}
-
-.maps-show-item p {
-  font-size: 16px;
-  margin: 20px 0;
-}
-
-.map-time {
-  color: #8899a6;
-  margin-bottom: 10px;
-}
-
-.unliked-btn {
-  color: #8899a6;
-}
-
-.liked-btn {
-  color: #ff2581;
-}
-
-.maps-show-item .fa {
-  font-size: 16px;
-  margin-right: 3px;
-}
-
-.map-menus {
-  float: right;
-}
-
-.map-menus a, .post-menus input {
-  color: #8899a6;
-  text-decoration: underline;
-  font-size: 16px;
-}
-
-/*tabの形状*/
 .tab{
   display: flex;
   flex-wrap: wrap;
@@ -154,15 +13,9 @@ iframe  {
   margin-top: 20px;
 }
 
-@media(max-width:1000px) {
-  .tab {
-    width: 100%;
-  }
-}
-
 @media(max-width: 670px) {
-  .tab{
-    width: 100%;
+  .tab {
+    border-radius: 0;
   }
 }
 
@@ -193,7 +46,7 @@ iframe  {
 
 @media(max-width: 670px) {
   .tab li a{
-    font-size: 16px;
+    border-radius: 0;
   }
 }
 
@@ -209,37 +62,29 @@ iframe  {
   display: none;/*はじめは非表示*/
   opacity: 0;/*透過0*/
   background: #fff;
-  padding:50px 20px;
+  padding: 50px 20px;
   width: 100%;
   margin: 0 auto;
   margin-bottom: 20px;
   box-shadow: 0 2px 6px #c1ced7;
   border: 1px solid #dee7ec;
   border-radius: 0 0 10px 10px;
+  font-size: 16px;
 }
 
 @media(max-width:1000px) {
   .area {
-    width: 100%;
-    font-size: 16px;
     padding: 15px;    
   }
 }
 
 @media(max-width:670px) {
   .area {
-    width: 100%;
-    font-size: 15px;    
     padding: 15px;
     margin-bottom: 0px;
     border-radius: 0 0 ;
     border-bottom: none;
   }
-}
-
-.area img{
-  width:100%;
-  height: 400px;
 }
 
 /*areaにis-activeというクラスがついた時の形状*/
@@ -259,7 +104,9 @@ iframe  {
   }
 }
 
-.area h2{
-  font-size:1.3rem;
-  margin:0 0 20px 10px;
+.map-title {
+  font-size: 16px;
+  border-bottom: 1px solid #c1ced7;
+  margin-bottom: 10px;
+  width: 100%;
 }

@@ -3,7 +3,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process resize_to_fit: [800, 600]
   process :convert => 'jpg'
   
   if Rails.env.production?
@@ -46,9 +45,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
+  version :thumb do
+    process resize_to_fit: [800, 600]
+  end
+
+  version :medium_thumb, from_version: :thumb do
+    process resize_to_fit: [500, 500]
+  end
+
+  version :small_thumb, from_version: :medium_thumb do
+    process resize_to_fit: [300, 300]
+  end
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -58,7 +65,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
+    super.chomp(File.extname(super)) + '.jpg'
+  end
+
+  def filename 
+    if original_filename.present?
+      time = Time.now
+      name = time.striftime('%Y%m%d%H%M%S') + '.jpg'
+      name.downcase
+    end
   end
 
   # Override the filename of the uploaded files:
