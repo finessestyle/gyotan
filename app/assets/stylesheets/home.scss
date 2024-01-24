@@ -245,46 +245,16 @@ main {
   font-size: 16px;
 }
 
-button {
-  width: 250px;
-  height: 50px;
+.go-home {
+  width: 100%;
+  margin: 30px auto;
+}
+
+.go-home a {
+  color: rgb(23, 167, 233);
+  font-size: 16px;
   display: block;
-  margin: 0 auto;
-  margin-top: 50px;
-  background-color: red;
-}
-
-@media(max-width:1000px) {
-  button {
-    width: 200px;
-    margin-top: 20px;
-
-  }
-}
-  
-@media(max-width:670px) {
-  button {
-    width: 150px;
-    margin-top: 10px;
-  }
-}
-
-button a {
-  color: white;
-  font-size: 20px;
-  display: block;
-}
-
-@media(max-width:1000px) {
-  button a {
-      
-  }
-}
-  
-@media(max-width:670px) {
-  button a {
-    font-size: 18px;
-  }
+  text-align: center;
 }
 
 /* footer ================================ */
@@ -334,16 +304,24 @@ small{
   display: flex;
   justify-content:center;
   align-items:center;
-  background:#942D2F;
-  border-radius: 5px;
-  width: 60px;
-  height: 60px;
+  background: red;
+  border-radius: 100px;
+  box-shadow: 0 2px 6px #c1ced7;
+  width: 150px;
+  height: 150px;
   color: #fff;
   text-align: center;
   text-transform: uppercase; 
   text-decoration: none;
   font-size: 1.00rem;
   transition:all 0.3s;
+}
+
+@media(max-width:670px) {
+  #page-top a {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 #page-top a:hover{
@@ -353,7 +331,7 @@ small{
 /*リンクを右下に固定*/
 #page-top {
   position: fixed;
-  right: 10px;
+  right: 15px;
   z-index: 2;
     /*はじめは非表示*/
   opacity: 0;

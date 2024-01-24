@@ -79,20 +79,26 @@
         <div class="top-message">
           <h1>琵琶湖バス釣り情報サイト"Gyotan"</h1>
           <h2>
-            釣果情報・ポイント情報・バス釣りブログで情報を
+            釣果情報・ポイント情報・バス釣りブログで
             <br>
-            共有して琵琶湖にバス釣りに行こう！！
+            情報を共有して琵琶湖にバス釣りに行こう！！
           </h2>
         </div>
-        <button>
-          <%= link_to("釣果を投稿する", "/posts/new") %>
-        </button>
       </div>
       <%= yield %>
     </main>
 
+    <div class="go-home">
+      <%= link_to("<ページの上へ戻る>", "#top") %>
+    </div>
+    
     <footer id="footer">
-      <p id="page-top"><a href="#">Page Top</a></p> 
+      <% if @current_user %>
+        <p id="page-top"><%= link_to("釣果を投稿する","/posts/new") %></p>
+      <% else %>
+        <p id="page-top"><%= link_to("新規登録する","/signup") %></p>
+      <% end %>
+
       <div class="gyotan-info">
         <div class="gyotan-item"><%= link_to("利用規約", "/term") %></div>
         <div class="gyotan-item"><%= link_to("プライバシーポリシー", "/privacy") %></div>
