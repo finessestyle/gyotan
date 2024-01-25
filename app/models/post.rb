@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   mount_uploaders :images, ImageUploader
   serialize :images, JSON
   
+  scope :created_day, ->(n) {where(created_at: n.days.ago.all_day)}
+
   def user
     return User.find_by(id: self.user_id)
   end
