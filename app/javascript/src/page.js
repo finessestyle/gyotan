@@ -1,6 +1,5 @@
 //スクロールした際の動きを関数でまとめる
 function PageTopAnime() {
-
   let scroll = $(window).scrollTop(); //スクロール値を取得
   if (scroll >= 0){//200pxスクロールしたら
     $('#page-top').removeClass('DownMove');   // DownMoveというクラス名を除去して
@@ -29,15 +28,15 @@ $(window).scroll(function () {
 PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
 });
 
-// ページが読み込まれたらすぐに動かしたい場合の記述
-$(window).on('load', function () {
-PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
-});
+// // ページが読み込まれたらすぐに動かしたい場合の記述
+// $(window).on('load', function () {
+// PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+// });
 
-// #page-topをクリックした際の設定
-$('#page-top').click(function () {
-  $('body,html').animate({
-      scrollTop: 0//ページトップまでスクロール
-  }, 500);//ページトップスクロールの速さ。数字が大きいほど遅くなる
-  return false;//リンク自体の無効化
-});
+// // #page-topをクリックした際の設定
+// $('#page-top').click(function () {
+//   $('body,html').animate({
+//       scrollTop: 0//ページトップまでスクロール
+//   }, 500);//ページトップスクロールの速さ。数字が大きいほど遅くなる
+//   return false;//リンク自体の無効化
+// });

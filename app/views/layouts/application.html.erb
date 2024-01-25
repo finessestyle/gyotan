@@ -93,9 +93,11 @@
     </div>
     
     <footer id="footer">
-      <% if @current_user %>
+      <% if @current_user && @posts or @post %>
         <p id="page-top"><%= link_to("釣果を投稿する","/posts/new") %></p>
-      <% else %>
+      <% end %>
+      
+      <% if @current_user == nil %>
         <p id="page-top"><%= link_to("新規登録する","/signup") %></p>
       <% end %>
 
