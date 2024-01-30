@@ -9,7 +9,7 @@
           <%= link_to(blog.title, "/blogs/#{blog.id}") %>
         </div>
         <div class="top-user-image">
-          <%= image_tag blog.image.url%>
+          <%= image_tag blog.image.url, alt: "投稿されたブログ画像" %>
         </div>
         <div class="user-post-datetime">
           <span>投稿日：</span>
