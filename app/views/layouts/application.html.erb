@@ -44,9 +44,9 @@
               <% if @current_user.admin? %>
                 <li class="nav_menu_li"><%= link_to("ブログ投稿", "/blogs/new") %></li>
               <% end %>
-              <li class="nav_menu_li"><%= link_to("ポイント情報","/maps/index") %></li>
+              <li class="nav_menu_li"><%= link_to("釣り場情報","/maps/index") %></li>
               <% if @current_user.admin? %>
-                <li class="nav_menu_li"><%= link_to("ポイント投稿", "/maps/new") %></li>
+                <li class="nav_menu_li"><%= link_to("釣り場投稿", "/maps/new") %></li>
               <% end %>
               <li class="nav_menu_li"><%= link_to("ログアウト", "/logout", {method: "post"}) %></li>
             </ul>
@@ -79,7 +79,7 @@
         <div class="top-message">
           <h1>琵琶湖バス釣り情報サイト"Gyotan"</h1>
           <h2>
-            釣果情報・ポイント情報・バス釣りブログで
+            釣果情報・釣り場情報・バス釣りブログで
             <br>
             情報を共有して琵琶湖にバス釣りに行こう！！
           </h2>
