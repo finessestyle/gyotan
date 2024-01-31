@@ -124,22 +124,22 @@ crumb :blogs_edit do
 end
 
 crumb :maps do
-  link "ポイント一覧", maps_index_path
+  link "釣り場一覧", maps_index_path
   parent :top
 end
 
 crumb :maps_show do
-  link "ポイント詳細", "/maps/:id"
+  link "釣り場詳細", "/maps/:id"
   parent :maps
 end
 
 crumb :maps_create do
-  link "釣果投稿", maps_create_path
+  link "釣り場投稿", maps_create_path
   parent :maps
 end
 
 crumb :maps_edit do
-  link "釣果編集", "/maps/:id/edit"
+  link "釣り場編集", "/maps/:id/edit"
   parent :maps
 end
 
