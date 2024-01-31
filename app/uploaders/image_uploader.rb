@@ -1,7 +1,5 @@
 class ImageUploader < CarrierWave::Uploader::Base
   attr_accessor :latitude, :longitude, :datetime
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   process :convert => 'jpg'
   
@@ -74,6 +72,17 @@ class ImageUploader < CarrierWave::Uploader::Base
       name = time.strftime('%Y-%m-%d-%H-%M-%S') + '.jpg'
       name.downcase
     end
+  end
+
+  def mimetype
+    IO.popen(["file", "--brief", "--mime-type", path], in: :close, err: :close) { |io| io.read.chomp.sub(/image\//, "") }
+  end
+  
+  
+  def custom_optimize
+    case mimetype
+    when "png" then pngquant
+    when "jpeg", "gif" then optimize(quality: 90)
   end
 
   # Override the filename of the uploaded files:
