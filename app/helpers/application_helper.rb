@@ -2,11 +2,11 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'Gyotan',
-      title: '琵琶湖バス釣り情報サイト',
+      title: '琵琶湖バス釣り釣果情報サイト',
       reverse: true,
       charset: 'utf-8',
       separator: '|',
-      description: '琵琶湖バス釣り情報サイト Gyotan 。釣果情報を投稿・共有や陸っぱり釣り場情報、バス釣りブログで初心者向けに釣り方も紹介しています。',
+      description: '琵琶湖バス釣り釣果情報サイト Gyotan 。釣果情報を投稿・共有や陸っぱり釣り場情報、バス釣りブログで初心者向けに釣り方も紹介しています。',
       keywords: '琵琶湖,バス釣り,初心者,陸っぱり釣り場,釣果,北湖,南湖,バス釣りブログ',
       canonical: request.original_url,
       noindex: ! Rails.env.production?,
