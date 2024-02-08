@@ -7,6 +7,11 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all.order(created_at: :desc) #or :asc
+    @post1 = Post.where(fish_area: "北湖北エリア")
+    @post2 = Post.where(fish_area: "北湖東エリア")
+    @post3 = Post.where(fish_area: "北湖西エリア")
+    @post4 = Post.where(fish_area: "南湖東エリア")
+    @post5 = Post.where(fish_area: "南湖西エリア")
   end
 
   def show
