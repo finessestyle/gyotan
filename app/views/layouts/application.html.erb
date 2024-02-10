@@ -87,14 +87,6 @@
     </main>
     
     <footer id="footer">
-      <% if @current_user && @posts or @post %>
-        <p id="page-top"><%= link_to("釣果を投稿する","/posts/new") %></p>
-      <% end %>
-      
-      <% if @current_user == nil %>
-        <p id="page-top"><%= link_to("新規登録する","/signup") %></p>
-      <% end %>
-
       <div class="gyotan-info">
         <div class="gyotan-item"><%= link_to("利用規約", "/term") %></div>
         <div class="gyotan-item"><%= link_to("プライバシーポリシー", "/privacy") %></div>

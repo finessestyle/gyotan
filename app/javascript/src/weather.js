@@ -62,8 +62,8 @@ function buildHTML(weather, i) {
 
   const html =
     '<div class="weather__content--report">' +
-      '<img src="https://openweathermap.org/img/w/' + icon + '.png">' +
       '<p class="weather__content--report-date">' + day + "</p>" +
+      '<img src="https://openweathermap.org/img/w/' + icon + '.png">' +
       '<p class="weather__content--report-wind_deg">' + wind_deg + "</p>" +
       '<p class="weather__content--report-wind_speed">' + wind_speed + "m</p>" +
       '<div class="weather__content--report-temp-max">' + '最高：' + Math.round(weather.daily[i].temp.max) + "℃</div>" +

@@ -4,6 +4,9 @@
   <div class="blogs-index-item">
     <div class="map-title">
       <%= @map.title %>
+      <div class="map-season">
+        【<%= @map.season %>】
+      </div>
     </div>
 
     <div class="map">
@@ -35,15 +38,16 @@
       });
     </script>
 
-    <%= link_to("👉地理院地図(ブレイクラインを詳しく見る)", "#{@map.url}", target: :_blank, rel: :noopner ) %>
-
+    <%= link_to("👉地理院地図(ブレイクラインを見る)", "#{@map.url}", target: :_blank, rel: :noopner ) %>
+    
     <div class="weather">
       <div id="weather"></div>
     </div>
-    
+
     <div class="map-content">
       <%= @map.content %>
     </div>
+
     <% if session[:user_id] %>
       <% if @map.user_id == @current_user.id %>
         <div class="post-menus">

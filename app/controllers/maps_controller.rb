@@ -66,7 +66,7 @@ class MapsController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def map_params
-      params.require(:map).permit(:title, :content, :image, :area, :latitude, :longitude, :url).merge(:user_id => @current_user.id)
+      params.require(:map).permit(:title, :content, :image, :area, :latitude, :longitude, :url, :season).merge(:user_id => @current_user.id)
     end
 
 end

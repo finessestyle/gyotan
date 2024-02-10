@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2023_11_03_001404) do
     t.float "latitude"
     t.float "longitude"
     t.string "url"
+    t.string "season"
   end
 
   create_table "posts", force: :cascade do |t|

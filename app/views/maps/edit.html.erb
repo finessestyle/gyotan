@@ -21,6 +21,13 @@
           ["北湖北"],["北湖東"],["北湖西"],["南湖東"],["南湖西"]
         ] ,
         prompt: "エリアを選択してください", value: @map.area %>
+
+        <%= form.label "季節" %>
+        <%= form.select :season,
+        [
+          ["春ポイント"],["夏ポイント"],["秋ポイント"],["冬ポイント"]
+        ] ,
+        prompt: "季節を選択してください", value: @map.season %>
         
         <%= form.label "緯度" %>
         <%= form.text_field :latitude, value: @map.latitude %>

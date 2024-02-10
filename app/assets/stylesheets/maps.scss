@@ -30,12 +30,6 @@
   }
 }
 
-@media(max-width: 670px) {
-  .tab li {
-    width: 20%;
-  }
-}
-
 .tab li a{
   display: block;
   border-radius: 5px 5px 0 0;
@@ -110,3 +104,21 @@
   margin-bottom: 10px;
   width: 100%;
 }
+
+.map-season {
+  float: right;
+}
+
+.weather__content--report {
+  font-size: 14px;
+  width: 50%;
+  text-align: center;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+
+
+
+
+
