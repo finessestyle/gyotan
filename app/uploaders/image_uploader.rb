@@ -3,15 +3,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process :convert_to_webp
   
   if Rails.env.production?
-    storage :fog # 本番環境のみ
+    storage :fog 
   else
-    storage :file # 本番環境以外
+    storage :file
   end
 
   process :get_exif_info
+
   def get_exif_info
     begin
     require 'exifr/jpeg'
@@ -86,6 +86,8 @@ class ImageUploader < CarrierWave::Uploader::Base
       when "jpeg", "gif" then optimize(quality: 90)
     end
   end
+
+  process :convert_to_webp
 
   def convert_to_webp
     manipulate! do |img|
