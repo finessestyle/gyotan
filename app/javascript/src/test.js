@@ -1,7 +1,7 @@
 'use strict'
 
 //任意のタブにURLからリンクするための設定
-function GethashID (hashIDName){
+$(document).on('turbolinks:load', function GethashID (hashIDName){
 	if(hashIDName){
 		//タブ設定
 		$('.tab li').find('a').each(function() { //タブ内のaタグ全てを取得
@@ -16,20 +16,20 @@ function GethashID (hashIDName){
 			}
 		});
 	}
-}
+});
 
 //タブをクリックしたら
-$('.tab a').on('click', function() {
-	var idName = $(this).attr('href'); //タブ内のリンク名を取得	
-	GethashID (idName);//設定したタブの読み込みと
-	return false;//aタグを無効にする
-});
+// $('.tab a').on('click', function() {
+// 	var idName = $(this).attr('href'); //タブ内のリンク名を取得	
+// 	GethashID (idName);//設定したタブの読み込みと
+// 	return false;//aタグを無効にする
+// });
 
 
-// 上記の動きをページが読み込まれたらすぐに動かす
-$(window).on('load', function () {
-    $('.tab li:first-of-type').addClass("active"); //最初のliにactiveクラスを追加
-    $('.area:first-of-type').addClass("is-active"); //最初の.areaにis-activeクラスを追加
-	var hashName = location.hash; //リンク元の指定されたURLのハッシュタグを取得
-	GethashID (hashName);//設定したタブの読み込み
-});
+// // 上記の動きをページが読み込まれたらすぐに動かす
+// $(window).on('turbolinks:load', function () {
+//     $('.tab li:first-of-type').addClass("active"); //最初のliにactiveクラスを追加
+//     $('.area:first-of-type').addClass("is-active"); //最初の.areaにis-activeクラスを追加
+// 	var hashName = location.hash; //リンク元の指定されたURLのハッシュタグを取得
+// 	GethashID (hashName);//設定したタブの読み込み
+// });

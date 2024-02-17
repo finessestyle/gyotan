@@ -3,7 +3,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process :convert => 'jpg'
+  process :convert_to_webp
   
   if Rails.env.production?
     storage :fog # 本番環境のみ
@@ -14,8 +14,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   process :get_exif_info
   def get_exif_info
     begin
-    require 'exifr/jpeg'
-      exif = EXIFR::JPEG::new(self.file.file)
+    require 'exifr/webp'
+      exif = EXIFR::WEBP::new(self.file.file)
       @latitude = exif.gps.latitude
       @longitude = exif.gps.longitude
       @datetime = exif.datetime
@@ -61,17 +61,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
 
   def extension_allowlist
-    %w(jpg jpeg gif png heic heif HEIC HEIF)
+    %w(jpg jpeg gif png heic webp)
   end
 
   def filename
-    super.chomp(File.extname(super)) + '.jpg'
+    super.chomp(File.extname(super)) + '.webp' if original_filename.present?
   end
 
   def filename 
     if original_filename.present?
       time = Time.now
-      name = time.strftime('%Y-%m-%d-%H-%M-%S') + '.jpg'
+      name = time.strftime('%Y-%m-%d-%H-%M-%S') + '.webp'
       name.downcase
     end
   end
@@ -84,6 +84,13 @@ class ImageUploader < CarrierWave::Uploader::Base
     case mimetype
       when "png" then pngquant
       when "jpeg", "gif" then optimize(quality: 90)
+    end
+  end
+
+  def convert_to_webp
+    manipulate! do |img|
+      img.format 'webp'
+      img
     end
   end
 
