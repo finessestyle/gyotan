@@ -1,19 +1,14 @@
 'use strict';
 
-document.addEventListener("turbolinks:load", function(){
-  let mySwiper = new Swiper('.swiper', {
-    // Optional parameters
+document.addEventListener("turbolinks:load", function() {
+  var mySwiper = new Swiper('.swiper', {
     loop: true,
-
-    // If we need pagination
     pagination: {
       el: '.swiper-pagination',
     },
-
-    // Navigation arrows
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-  })
+  });
 });

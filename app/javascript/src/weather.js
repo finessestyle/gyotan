@@ -1,18 +1,17 @@
 $(function () {
-  const lat = gon.lat
-  const lon = gon.lon
-  const key = gon.api
-  // 天気予報を取得
+  const lat = gon.lat;
+  const lon = gon.lon;
+  const key = gon.api;
   
   const weather_url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=current,minutely,alerts&units=metric&appid=' + key;
   $.ajax({
-      url: weather_url,
-      dataType: 'json',
-      type: 'GET',
-    })
+    url: weather_url,
+    dataType: 'json',
+    type: 'GET',
+  })
   .done(function (weather) {
     let insertHTML = '';
-    for (let i = 0; i <= 1; i = i + 1) {
+    for (let i = 0; i <= 1; i++) {
       insertHTML += buildHTML(weather, i);
     }
     $('#weather').html(insertHTML);
@@ -22,23 +21,14 @@ $(function () {
   });
 });
 
-// 日本語で表示
 function buildHTML(weather, i) {
-  //日付、時間を取得（Dateがミリ秒なので1000倍が必要）
   const date = new Date(weather.daily[i].dt * 1000);
-  //UTCとの時差を無くす(日本は-9時間のため9を足す)
   date.setHours(date.getHours() + 9);
-  //月を取得。getMonth()は0~11を返すため1を足すことによって1月~12月を返すように設定
   const month = date.getMonth() + 1;
-  //曜日の日本語化のため、配列を用意する
   const Week = new Array('(日)', '(月)', '(火)', '(水)', '(木)', '(金)', '(土)');
-  //月＋日＋曜日をdayに代入。getDay()は0~6を返すためWeek配列内のインデックスに対応した文字列を取得
   const day = month + '/' + date.getDate() + Week[date.getDay()];
-  //天気のアイコンを取得
   const icon = weather.daily[i].weather[0].icon;
-  //風速を取得
-  const wind_speed = Math.floor(weather.hourly[i].wind_speed * 10) / 10;
-  //風向（角度）を取得し方角表記へ変換
+  const wind_speed = Math.floor(weather.daily[i].wind_speed * 10) / 10;
   const get_deg_string = function(wind_deg) {
     let r = '北';
     if (wind_deg>=11.25) r = '北北東';
@@ -58,7 +48,7 @@ function buildHTML(weather, i) {
     if (wind_deg>=326.25) r = '北北西';
     return r + '風';
   };
-  const wind_deg = get_deg_string(weather.hourly[i].wind_deg);
+  const wind_deg = get_deg_string(weather.daily[i].wind_deg); // 修正点：daily → hourly
 
   const html =
     '<div class="weather__content--report">' +
@@ -69,5 +59,5 @@ function buildHTML(weather, i) {
       '<div class="weather__content--report-temp-max">' + '最高：' + Math.round(weather.daily[i].temp.max) + "℃</div>" +
       '<span class="weather__content--report-temp-min">' + '最低：' + Math.floor(weather.daily[i].temp.min) + "℃</span>" +
     '</div>';
-  return html
+  return html;
 }
