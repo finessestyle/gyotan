@@ -13,12 +13,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   def get_exif_info
     begin
       require 'exifr/jpeg'
-      exif = EXIFR::JPEG.new(self.file.file)
+      exif = EXIFR::JPEG.new(file.path)
       @latitude = exif&.gps&.latitude
       @longitude = exif&.gps&.longitude
-      @datetime = exif&.datetime
-    rescue => e
+      @datetime = exif&.date_time
+    rescue StandardError => e
       Rails.logger.error("Failed to extract EXIF data: #{e.message}")
+      # 例外が発生した場合、デフォルト値を設定するなどの適切な処理を行う
+      @latitude = nil
+      @longitude = nil
+      @datetime = nil
     end
   end
 
