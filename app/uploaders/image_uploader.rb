@@ -42,7 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    super.chomp(File.extname(super)) + '.jpg'
+    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
   end
 
   def filename 
