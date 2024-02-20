@@ -45,13 +45,13 @@ class ImageUploader < CarrierWave::Uploader::Base
     super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
   end
 
-  def filename 
-    if original_filename.present?
-      time = Time.now
-      name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
-      name.downcase
-    end
-  end
+  # def filename 
+  #   if original_filename.present?
+  #     time = Time.now
+  #     name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
+  #     name.downcase
+  #   end
+  # end
 
   def mimetype
     IO.popen(["file", "--brief", "--mime-type", path], in: :close, err: :close) { |io| io.read.chomp.sub(/image\//, "") }
