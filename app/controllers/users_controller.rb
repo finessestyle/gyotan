@@ -21,13 +21,13 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
-
+    
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
-      redirect_to("/users/#{@user.id}")
+      redirect_to user_path(@user)
     else
-      render("users/new")
+      render :new
     end
   end
   
@@ -46,7 +46,18 @@ class UsersController < ApplicationController
       render("users/edit")
     end
   end
-  
+
+  def destroy
+    @user = User.find_by(id: params[:id])
+    if @user
+      @user.destroy
+      flash[:notice] = "退会しました"
+    else
+      flash[:alert] = "ユーザーが見つかりませんでした"
+    end
+    redirect_to "/"
+  end
+
   def login_form
   end
   
@@ -85,6 +96,6 @@ class UsersController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :image, :password, :profile)
+      params.require(:user).permit(:name, :email, :image, :password, :profile,)
     end
 end

@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   post "logout", to: "users#logout"
   get "login", to: "users#login_form"
   get "users/:id/likes", to: "users#likes"
-  
+  delete "users/:id", to: 'users#destroy', as: 'delete_user'
+
   get "posts/index", to: "posts#index"
   get "posts/new", to: "posts#new"
   get "posts/:id", to: "posts#show"

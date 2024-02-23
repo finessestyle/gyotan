@@ -1,28 +1,35 @@
 class ImageUploader < CarrierWave::Uploader::Base
   attr_accessor :latitude, :longitude, :datetime
   include CarrierWave::MiniMagick
-  process :convert => 'jpg'
-  
+  process :convert_to_jpg
+  process :get_exif_info
+
   if Rails.env.production?
-    storage :fog # 本番環境のみ
+    storage :fog
   else
-    storage :file # 本番環境以外
+    storage :file
   end
 
-  process :get_exif_info
-  def get_exif_info
-    begin
-    require 'exifr/jpeg'
-      exif = EXIFR::JPEG::new(self.file.file)
-      @latitude = exif.gps.latitude
-      @longitude = exif.gps.longitude
-      @datetime = exif.datetime
-    rescue
+  def convert_to_jpg
+    manipulate! do |img|
+      img.format('jpg') do |c|
+        c.background 'white'
+        c.alpha 'remove'
+      end
+      img
     end
   end
 
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  def get_exif_info
+    begin
+      require 'exifr'
+      exif = EXIFR::JPEG.new(current_path)
+      @latitude = exif&.gps&.latitude
+      @longitude = exif&.gps&.longitude
+      @datetime = exif&.date_time
+    rescue => e
+      Rails.logger.error "EXIF data extraction failed: #{e.message}"
+    end
   end
 
   version :thumb do
@@ -37,30 +44,36 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [300, 300]
   end
 
+  version :webp do
+    process convert_to_webp: [{ quality: 90 }]
+  end
+
+  def convert_to_webp(options = {})
+    manipulate! do |img|
+      img.format('webp') do |c|
+        c.quality(options[:quality] || 85)
+        c.alpha 'remove'
+      end
+      img
+    end
+  end
+
   def extension_allowlist
-    %w(jpg jpeg gif png heic heif)
+    %w[jpg jpeg gif png heic heif]
   end
 
   def filename
     super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
   end
 
-  # def filename 
-  #   if original_filename.present?
-  #     time = Time.now
-  #     name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
-  #     name.downcase
-  #   end
-  # end
-
   def mimetype
-    IO.popen(["file", "--brief", "--mime-type", path], in: :close, err: :close) { |io| io.read.chomp.sub(/image\//, "") }
+    IO.popen(['file', '--brief', '--mime-type', path], in: :close, err: :close) { |io| io.read.chomp.sub(/image\//, '') }
   end
 
   def custom_optimize
     case mimetype
-      when "png" then pngquant
-      when "jpeg", "gif" then optimize(quality: 90)
+    when 'png' then pngquant
+    when 'jpeg', 'gif' then optimize(quality: 90)
     end
   end
 end
