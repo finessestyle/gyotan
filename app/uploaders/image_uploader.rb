@@ -33,10 +33,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [500, 500]
   end
 
-  version :small_thumb, from_version: :medium_thumb do
-    process resize_to_fit: [300, 300]
-  end
-
   def extension_allowlist
     %w(jpg jpeg gif png heic heif)
   end
