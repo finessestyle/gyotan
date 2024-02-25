@@ -14,6 +14,7 @@
     <% @maps1.each do |map| %>
       <div class="post-user-name">
         <%= link_to(map.title, "/maps/#{map.id}/", data: {"turbolinks" => false}) %>
+        【<%= map.season %>】
       </div>
     <% end %>
   </div>
@@ -49,58 +50,7 @@
       </div>
     <% end %>
   </div>
-
-  <h3 class="contents-title">シーズン別ポイント</h3>
-    
-  <ul class="tab">
-    <li><a href="#spring">春</a></li>
-    <li><a href="#summer">夏</a></li>
-    <li><a href="#autumn">秋</a></li>
-    <li><a href="#winter">冬</a></li>
-    <li><a href="#fullseason">年中</a></li>
-  </ul>
-
-  <div id="spring" class="area" >
-    <% @maps6.each do |map| %>
-      <div class="post-user-name">
-        <%= link_to(map.title, "/maps/#{map.id}/", data: {"turbolinks" => false}) %>
-      </div>
-    <% end %>
-  </div>
-
-  <div id="summer" class="area" >
-    <% @maps7.each do |map| %>
-      <div class="post-user-name">
-        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
-      </div>
-    <% end %>
-  </div>
-
-  <div id="autumn" class="area" >
-    <% @maps8.each do |map| %>
-      <div class="post-user-name">
-        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
-      </div>
-    <% end %>
-  </div>
-
-  <div id="winter" class="area" >
-    <% @maps9.each do |map| %>
-      <div class="post-user-name">
-        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
-      </div>
-    <% end %>
-  </div>
   
-  <div id="fullseason" class="area" >
-    <% @maps10.each do |map| %>
-      <div class="post-user-name">
-        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
 <div class="go-home">
   <%= link_to("<ページの上へ戻る>", "#top") %>
 </div>
