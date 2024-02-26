@@ -22,10 +22,10 @@
 
 <div class="present">
   <% if @blog.previous.present? %>
-    <%= link_to(" 前の記事 ", "/blogs/#{@blog.previous}") %>
+    <%= link_to("前の記事", blog_path(@blog.previous)) %>
   <% end %>
-  <%= link_to("| 一覧に戻る |", "/blogs/index") %>
+  <%= link_to("一覧に戻る", blogs_index_path) %>
   <% if @blog.next.present? %>
-    <%= link_to("次の記事", "/blogs/#{@blog.next}") %>
+    <%= link_to("次の記事", blog_path(@blog.next)) %>
   <% end %>
 </div>
