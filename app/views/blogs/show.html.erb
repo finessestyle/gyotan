@@ -20,6 +20,12 @@
   </div>
 </div>
 
-<div class="go-home">
-  <%= link_to("<ブログ一覧に戻る>","/blogs/index") %></li>
+<div class="present">
+  <% if @blog.previous.present? %>
+    <%= link_to(" 前の記事 ", "/blogs/#{@blog.previous.id}") %>
+  <% end %>
+  <%= link_to("| 一覧に戻る |", "/blogs/index") %>
+  <% if @blog.next.present? %>
+    <%= link_to("次の記事", "/blogs/#{@blog.next.id}") %>
+  <% end %>
 </div>

@@ -60,8 +60,14 @@
   </div>
 </div>
 
-<div class="go-home">
-  <%= link_to("<釣り場一覧に戻る>","/maps/index") %></li>
+<div class="present">
+  <% if @map.previous.present? %>
+    <%= link_to(" 前の記事 ", "/maps/#{@map.previous.id}") %>
+  <% end %>
+  <%= link_to("| 一覧に戻る |", "/maps/index") %>
+  <% if @map.next.present? %>
+    <%= link_to(" 次の記事 ", "/maps/#{@map.next.id}") %>
+  <% end %>
 </div>
 
 <!--Google Maps APIの読み込み-->
