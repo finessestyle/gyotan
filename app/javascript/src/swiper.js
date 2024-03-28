@@ -1,6 +1,6 @@
 'use strict';
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener('turbolinks:load', function() {
   var mySwiper = new Swiper('.swiper', {
     loop: true,
     pagination: {
