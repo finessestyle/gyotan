@@ -3,8 +3,8 @@ class Post < ApplicationRecord
   validates :images, length: {maximum: 3}
   mount_uploaders :images, ImageUploader
   belongs_to :user
-  # serialize :images, JSON
-  
+  serialize :images, JSON
+
   scope :created_day, ->(n) {where(created_at: n.days.ago.all_day)}
 
   def user
