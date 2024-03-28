@@ -41,7 +41,6 @@ Rails.application.routes.draw do
   get "cookie", to: "home#cookie"
   get "profile", to: "home#profile"
   get "rule", to: "home#rule"
-  get "manners", to: "home#manners"
 
   get "contacts/new", to: "contacts#new"
   post "contacts/create", to: "contacts#create"

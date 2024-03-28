@@ -2,18 +2,13 @@ crumb :top do
   link "トップページ", "/"
 end
 
-crumb :about do 
+crumb :about do
   link "Gyotanについて", about_path
   parent :top
 end
 
 crumb :term do
   link "利用規約", term_path
-  parent :top
-end
-
-crumb :manners do
-  link "バス釣りマナー", manners_path
   parent :top
 end
 
