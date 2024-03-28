@@ -3,14 +3,12 @@ class ApplicationRecord < ActiveRecord::Base
 
   def previous
     user.posts.order('created_at desc, id desc').where('created_at <= ? and id < ?', created_at, id).first
-    user.blogs.order('created_at desc, id desc').where('created_at <= ? and id < ?', created_at, id).first
     user.maps.order('created_at desc, id desc').where('created_at <= ? and id < ?', created_at, id).first
   end
 
   def next
     user.posts.order('created_at desc, id desc').where('created_at >= ? and id > ?', created_at, id).reverse.first
-    user.blogs.order('created_at desc, id desc').where('created_at >= ? and id > ?', created_at, id).reverse.first
-    user.maps.order('created_at desc, id desc').where('created_at >= ? and id > ?', created_at, id).reverse.first 
+    user.maps.order('created_at desc, id desc').where('created_at >= ? and id > ?', created_at, id).reverse.first
   end
-  
+
 end

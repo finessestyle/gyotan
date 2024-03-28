@@ -40,10 +40,6 @@
               <li class="nav_menu_li"><%= link_to("ユーザー一覧", "/users/index") %></li>
               <li class="nav_menu_li"><%= link_to("釣果情報", "/posts/index") %></li>
               <li class="nav_menu_li"><%= link_to("釣果投稿", "/posts/new") %></li>
-              <li class="nav_menu_li"><%= link_to("バス釣りブログ","/blogs/index") %></li>
-              <% if @current_user.admin? %>
-                <li class="nav_menu_li"><%= link_to("ブログ投稿", "/blogs/new") %></li>
-              <% end %>
               <li class="nav_menu_li"><%= link_to("釣り場情報","/maps/index") %></li>
               <% if @current_user.admin? %>
                 <li class="nav_menu_li"><%= link_to("釣り場投稿", "/maps/new") %></li>
@@ -85,10 +81,10 @@
       </div>
       <%= yield %>
     </main>
-    
+
     <aside>
     </aside>
-    
+
     <footer id="footer">
       <div class="gyotan-info">
         <div class="gyotan-item"><%= link_to("利用規約", "/term") %></div>
@@ -102,7 +98,7 @@
       </div>
       <small>&copy; Gyotan.jp</small>
     </footer>
-    
+
     <!--jqueryの読み込み-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!--swiperの読み込み-->

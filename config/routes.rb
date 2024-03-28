@@ -1,7 +1,7 @@
-Rails.application.routes.draw do    
+Rails.application.routes.draw do
   get "/", to: "home#top"
   get "about", to: "home#about"
-  
+
   post "users/:id/update", to: "users#update"
   patch "users/:id/update", to: "users#update"
   get "users/:id/edit", to: "users#edit"
@@ -23,15 +23,6 @@ Rails.application.routes.draw do
   post "posts/:id/update", to: "posts#update"
   patch "posts/:id/update", to: "posts#update"
   post "posts/:id/destroy", to: "posts#destroy"
-
-  get "blogs/index", to:  "blogs#index"
-  get "blogs/new", to: "blogs#new"
-  get "blogs/:id", to: "blogs#show"
-  post "blogs/create", to: "blogs#create"
-  get "blogs/:id/edit", to: "blogs#edit"
-  post "blogs/:id/update", to: "blogs#update"
-  patch "blogs/:id/update", to: "blogs#update"
-  post "blogs/:id/destroy", to: "blogs#destroy"
 
   get "maps/index", to: "maps#index"
   get "maps/new", to: "maps#new"
