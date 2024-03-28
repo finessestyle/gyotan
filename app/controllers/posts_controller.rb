@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   require 'exifr/jpeg'
   require "google_drive"
   require 'mini_magick'
-  
+
   def index
     @posts = Post.all.order(created_at: :desc) #or :asc
     @post1 = Post.where(fish_area: "北湖北エリア")
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
-  
+
   def create
     @post = Post.new(post_params)
     if @post.save
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find_by(id: params[:id])
   end
-  
+
   def update
     @post = Post.find_by(id: params[:id])
     @post.update(post_params)
@@ -49,14 +49,14 @@ class PostsController < ApplicationController
       render("posts/edit")
     end
   end
-  
+
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
-  
+
   def ensure_correct_user
     @post = Post.find_by(id: params[:id])
     if @post.user_id != @current_user.id

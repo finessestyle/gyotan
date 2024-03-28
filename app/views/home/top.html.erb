@@ -10,192 +10,38 @@
 
   <h3 class="contents-title">最新釣果情報</h3>
 
-  <ul class="tab">
-    <li><a href="#kohoku">北湖北</a></li>
-    <li><a href="#kotou">北湖東</a></li>
-    <li><a href="#kosai">北湖西</a></li>
-    <li><a href="#nankotougan">南湖東</a></li>
-    <li><a href="#nankoseigan">南湖西</a></li>
-  </ul>
-
-  <div id="kohoku" class="area" >
-    <div class="posts-contents">
-      <% @post1.each do |post| %>
-        <div class="posts-item">
-          <div class="top-left">
-            <%= image_tag post.user.image.url, alt: "ユーザー画像" %>
-          </div>
-          <div class="top-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
-          </div>
-          <div class="top-user-image">
-            <% if post.images.length < 2 %>
-              <% post.images.each do |image| %>
-                <%= image_tag image.to_s, alt: "投稿された釣果画像(単枚)" %>
-              <% end %>
-            <% else %>
-              <div class="swiper">
-                <div class= "swiper-wrapper ">
-                  <% post.images.each do |image| %>
-                    <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
-                  <% end %>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
-              </div>
+  <div class="posts-contents">
+    <% @posts.each do |post| %>
+      <div class="posts-item">
+        <div class="top-left">
+          <%= image_tag post.user.image.url, alt: "ユーザー画像" %>
+        </div>
+        <div class="top-user-name">
+          <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
+        </div>
+        <div class="top-user-image">
+          <% if post.images.length < 2 %>
+            <% post.images.each do |image| %>
+              <%= image_tag image.to_s, alt: "投稿された釣果画像(単枚)" %>
             <% end %>
-            <div class="posts-index-right">
-              <%= link_to("👉釣果詳細","/posts/#{post.id}", data: {"turbolinks" => false}) %>
+          <% else %>
+            <div class="swiper">
+              <div class= "swiper-wrapper ">
+                <% post.images.each do |image| %>
+                  <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
+                <% end %>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
             </div>
+          <% end %>
+          <div class="posts-index-right">
+            <%= link_to("👉釣果詳細","/posts/#{post.id}", data: {"turbolinks" => false}) %>
           </div>
         </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div id="kotou" class="area" >
-    <div class="posts-contents">
-      <% @post2.each do |post| %>
-        <div class="posts-item">
-          <div class="top-left">
-            <%= image_tag post.user.image.url, alt: "ユーザー画像" %>
-          </div>
-          <div class="top-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
-          </div>
-          <div class="top-user-image">
-            <% if post.images.length < 2 %>
-              <% post.images.each do |image| %>
-                <%= image_tag image.to_s, alt: "投稿された釣果画像(単枚)" %>
-              <% end %>
-            <% else %>
-              <div class="swiper">
-                <div class= "swiper-wrapper ">
-                  <% post.images.each do |image| %>
-                    <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
-                  <% end %>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
-              </div>
-            <% end %>
-            <div class="posts-index-right">
-              <%= link_to("👉釣果詳細","/posts/#{post.id}", data: {"turbolinks" => false}) %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div id="kosai" class="area" >
-    <div class="posts-contents">
-      <% @post3.each do |post| %>
-        <div class="posts-item">
-          <div class="top-left">
-            <%= image_tag post.user.image.url, alt: "ユーザー画像" %>
-          </div>
-          <div class="top-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
-          </div>
-          <div class="top-user-image">
-            <% if post.images.length < 2 %>
-              <% post.images.each do |image| %>
-                <%= image_tag image.to_s, alt: "投稿された釣果画像(単枚)" %>
-              <% end %>
-            <% else %>
-              <div class="swiper">
-                <div class= "swiper-wrapper ">
-                  <% post.images.each do |image| %>
-                    <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
-                  <% end %>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
-              </div>
-            <% end %>
-            <div class="posts-index-right">
-              <%= link_to("👉釣果詳細","/posts/#{post.id}", data: {"turbolinks" => false}) %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div id="nankotougan" class="area" >
-    <div class="posts-contents">
-      <% @post4.each do |post| %>
-        <div class="posts-item">
-          <div class="top-left">
-            <%= image_tag post.user.image.url, alt: "ユーザー画像" %>
-          </div>
-          <div class="top-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
-          </div>
-          <div class="top-user-image">
-            <% if post.images.length < 2 %>
-              <% post.images.each do |image| %>
-                <%= image_tag image.to_s, alt: "投稿された釣果画像(単枚)" %>
-              <% end %>
-            <% else %>
-              <div class="swiper">
-                <div class= "swiper-wrapper ">
-                  <% post.images.each do |image| %>
-                    <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
-                  <% end %>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
-              </div>
-            <% end %>
-            <div class="posts-index-right">
-              <%= link_to("👉釣果詳細","/posts/#{post.id}", data: {"turbolinks" => false}) %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div id="nankoseigan" class="area" >
-    <div class="posts-contents">
-      <% @post5.each do |post| %>
-        <div class="posts-item">
-          <div class="top-left">
-            <%= image_tag post.user.image.url, alt: "ユーザー画像" %>
-          </div>
-          <div class="top-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %><span> さん</span>
-          </div>
-          <div class="top-user-image">
-            <% if post.images.length < 2 %>
-              <% post.images.each do |image| %>
-                <%= image_tag image.to_s, alt: "投稿された釣果画像(単枚)" %>
-              <% end %>
-            <% else %>
-              <div class="swiper">
-                <div class= "swiper-wrapper ">
-                  <% post.images.each do |image| %>
-                    <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
-                  <% end %>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
-              </div>
-            <% end %>
-            <div class="posts-index-right">
-              <%= link_to("👉釣果詳細","/posts/#{post.id}", data: {"turbolinks" => false}) %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
