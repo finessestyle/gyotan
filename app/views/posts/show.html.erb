@@ -5,11 +5,11 @@
     <div class="post-left">
       <%= image_tag @user.image.url, alt: "ユーザー画像" %>
     </div>
-    
+
     <div class="post-user-name">
       <%= link_to(@user.name, "/users/#{@user.id}") %><span> さん</sapan>
     </div>
-    
+
     <div class="post-image">
       <% if @post.images.length < 2 %>
         <% @post.images.each do |image| %>
@@ -45,8 +45,8 @@
     <div class="post-fish-area">
       <span>釣果エリア：</span><%= @post.fish_area %>
     </div>
-    
-    
+
+
     <div class="map">
       <div id="map">
       </div>
@@ -54,7 +54,7 @@
     <script>
       let circleBlue;
       let nRadiusHalfKm = 300;
-      
+
       document.addEventListener('turbolinks:load', function() {
         initMap();
       });
@@ -116,7 +116,7 @@
           <p>カラー:</p>
           <%= @post.lure_color %>
         </div>
-        
+
       </div>
     </div>
     <% if session[:user_id] %>
@@ -148,5 +148,5 @@
 </div>
 
 <!--Google Maps APIの読み込み-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMsepPczbmm4sb6Fwmp8SjRaDspafFqlc&callback=initMap&v=weekly"defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwAFxkqesA8SEuOrXD6_InNT4rBCKkBoU&callback=initMap" async defer></script>
 
