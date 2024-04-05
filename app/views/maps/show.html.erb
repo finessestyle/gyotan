@@ -28,6 +28,31 @@
           mapTypeControl: false,
           mapTypeId: google.maps.MapTypeId.HYBRID,
           zoomControl: true
+        });
+
+        circleBlue = new google.maps.Circle({
+          strokeColor: "#3333FF",
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+          fillColor: "#3333FF",
+          fillOpacity: 0.35,
+          map: map,
+          draggable: false,
+          center: {lat: <%= @map.latitude %>, lng: <%= @map.longitude %> },
+          radius: nRadiusHalfKm
+        });
+      });
+
+      window.addEventListener("turbolinks:load", function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: <%= @map.latitude %>, lng: <%= @map.longitude %> },
+          zoom: 15,
+          fullscreenControl: false,
+          streetViewControl: true, //ストリートビューに切り替えるボタンを非表示
+          scaleControl: true, //地図のスケールを表示（デフォルトは非表示）
+          mapTypeControl: false,
+          mapTypeId: google.maps.MapTypeId.HYBRID,
+          zoomControl: true
         })
 
         circleBlue = new google.maps.Circle({
@@ -42,6 +67,7 @@
           radius: nRadiusHalfKm
         })
       });
+
     </script>
 
     <%= link_to("👉地理院地図(ブレイクラインを見る)", "#{@map.url}", target: :_blank, rel: :noopner ) %>

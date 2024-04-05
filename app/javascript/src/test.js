@@ -1,6 +1,6 @@
 'use strict'
 
-$(document).on('turbolinks:load', function() {
+$(window).on('turbolinks:load', function() {
   function GethashID(hashIDName) {
     if (hashIDName) {
       $('.tab li').find('a').each(function() {
