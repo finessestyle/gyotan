@@ -1,7 +1,11 @@
+<head>
+  <!--Googleアドセンスの読み込み-->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758"crossorigin="anonymous"></script>
+</head>
 <% breadcrumb :maps %>
 <div class="contents">
   <h3 class="contents-title">釣り場一覧</h3>
-    
+
   <ul class="tab">
     <li><a href="#kohoku">北湖北</a></li>
     <li><a href="#kosai">北湖西</a></li>
@@ -13,7 +17,7 @@
   <div id="kohoku" class="area" >
     <% @maps1.each do |map| %>
       <div class="post-user-name">
-       【<%= map.season %>】 
+       【<%= map.season %>】
         <%= link_to(map.title, "/maps/#{map.id}/", data: {"turbolinks" => false}) %>
       </div>
     <% end %>
@@ -23,7 +27,7 @@
     <% @maps3.each do |map| %>
       <div class="post-user-name">
        【<%= map.season %>】
-        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %> 
+        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
       </div>
     <% end %>
   </div>
@@ -32,7 +36,7 @@
     <% @maps2.each do |map| %>
       <div class="post-user-name">
        【<%= map.season %>】
-        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %> 
+        <%= link_to(map.title, "/maps/#{map.id}", data: {"turbolinks" => false}) %>
       </div>
     <% end %>
   </div>
