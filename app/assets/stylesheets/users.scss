@@ -10,7 +10,7 @@
     margin: 0 auto;
   }
 }
-  
+
 .users-index-item {
   padding: 10px;
   text-align: center;
@@ -35,7 +35,7 @@
     font-size: 16px;
   }
 }
-    
+
 .user-left img {
   width: 100px;
   height: 100px;
@@ -67,7 +67,7 @@
   margin-bottom: 20px;
   text-align: center;
 }
-  
+
 .user img {
   width: 80px;
   height: 80px;
@@ -76,18 +76,18 @@
   margin: 20px 0 10px;
   object-fit: cover;
 }
-  
+
 .user h2 {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.2;
 }
-  
+
 .user p {
   font-size: 16px;
   margin-bottom: 15px;
 }
-  
+
 .user a {
   color: #8899a6;
   text-decoration: underline;
@@ -96,7 +96,7 @@
 .user-name-side a {
   padding-left: 10px;
   line-height: 5px;
-  
+
 }
 
 .user-post-left img {
@@ -137,4 +137,16 @@
 /* users/new, users/edit ================================ */
 .users-form input {
   margin-bottom: 15px;
+}
+
+.profile-link {
+  font-family: "FontAwesome";
+  display: inline-block;
+  padding-right: 10px;
+  /*Twitter*/
+  .fa-twitter{color:#1da1f2;}
+  /*Facebook*/
+  .fa-youtube{color:#e1306c;}
+  /*instagram*/
+  .fa-instagram{color:#e1306c;}
 }

@@ -32,6 +32,7 @@ gem 'whenever'
 gem 'meta-tags'
 gem 'gretel'
 gem 'gon'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

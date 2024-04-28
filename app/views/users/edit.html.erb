@@ -17,6 +17,12 @@
         <%= form.file_field :image, value: @user.image %>
         <%= form.label "プロフィール" %>
         <%= form.text_field :profile, value: @user.profile %>
+        <%= form.label "YouTube" %>
+        <%= form.text_field :youtube, value: @user.youtube %>
+        <%= form.label "Twitter" %>
+        <%= form.text_field :twitter, value: @user.twitter %>
+        <%= form.label "Instagram" %>
+        <%= form.text_field :instagram, value: @user.instagram %>
         <%= form.submit "登録" %>
       <% end %>
     </div>

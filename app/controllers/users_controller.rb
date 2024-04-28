@@ -10,18 +10,18 @@ class UsersController < ApplicationController
   def index
     @users = User.all.order(created_at: :asc)
   end
-  
+
   def show
     @user = User.find_by(id: params[:id])
   end
-  
+
   def new
     @user = User.new
   end
-  
+
   def create
     @user = User.new(user_params)
-    
+
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
@@ -30,11 +30,11 @@ class UsersController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
     @user = User.find_by(id: params[:id])
   end
-  
+
   def update
     @user = User.find_by(id: params[:id])
     @user.update(user_params)
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
 
   def login_form
   end
-  
+
   def login
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
@@ -74,18 +74,18 @@ class UsersController < ApplicationController
       render("users/login_form")
     end
   end
-  
+
   def logout
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
     redirect_to("/")
   end
-  
+
   def likes
     @user = User.find_by(id: params[:id])
     @likes = Like.where(user_id: @user.id)
   end
-  
+
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:notice] = "権限がありません"
@@ -96,6 +96,6 @@ class UsersController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :image, :password, :profile,)
+      params.require(:user).permit(:name, :email, :image, :password, :profile, :youtube, :twitter, :instagram)
     end
 end

@@ -10,6 +10,31 @@
       <p><%= @user.email %></p>
     <% end %>
     <p><%= @user.profile %></p>
+    <div class = "sns-link">
+      <ul class="profile-links">
+        <% if @user.youtube.present? %>
+          <li class="profile-link">
+            <%= link_to @user.youtube, target: :_blank do %>
+              <i class="fab fa-youtube fa-2x"></i>
+            <% end %>
+          </li>
+        <% end %>
+        <% if @user.twitter.present? %>
+          <li class="profile-link">
+            <%= link_to @user.twitter, target: :_blank do %>
+              <i class="fab fa-twitter fa-2x"></i>
+            <% end %>
+          </li>
+        <% end %>
+        <% if @user.instagram.present? %>
+          <li class="profile-link">
+            <%= link_to @user.instagram, target: :_blank do %>
+              <i class="fab fa-instagram fa-2x"></i>
+            <% end %>
+          </li>
+        <% end %>
+        </ul>
+    </div>
     <% if @user.id == @current_user.id %>
       <div class="user-edit">
         <%= link_to("編集する", "/users/#{@user.id}/edit") %>
@@ -22,7 +47,7 @@
         </script>
         <%= link_to '退会する', user_path(@user), method: :delete, data: { confirm: '本当に退会しますか？' } %>
       </div>
-    <% end %> 
+    <% end %>
     <% if @current_user != @user %>
       <% if @current_user.following?(@user) %>
         <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete %>
@@ -33,11 +58,10 @@
 
     <span>フォロー中</span><%= link_to @user.followings.count, user_followings_path(@user)%>
     <span>フォロワー</span><%= link_to @user.followers.count, user_followers_path(@user) %>
-
   </div>
-  
+
   <h3 class="contents-title">釣果一覧</h3>
-  
+
   <div class="posts-contents">
     <% @user.posts.each do |post| %>
       <div class="posts-item">
@@ -45,7 +69,7 @@
           <span>投稿日：</span>
           <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
         </div>
-        
+
         <div class="top-user-image">
           <% if post.images.length < 2 %>
             <% post.images.each do |image| %>
@@ -69,7 +93,7 @@
           <%= link_to("👉釣果詳細","/posts/#{post.id}") %>
         </div>
       </div>
-    <% end %> 
+    <% end %>
   </div>
 </div>
 

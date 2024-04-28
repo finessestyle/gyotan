@@ -5,6 +5,7 @@ import "channels"
 import "jquery"
 import "trix"
 import "@rails/actiontext"
+import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()
 Turbolinks.start()
