@@ -24,6 +24,15 @@ Rails.application.routes.draw do
   patch "posts/:id/update", to: "posts#update"
   post "posts/:id/destroy", to: "posts#destroy"
 
+  get "blogs/index", to:  "blogs#index"
+  get "blogs/new", to: "blogs#new"
+  get "blogs/:id", to: "blogs#show"
+  post "blogs/create", to: "blogs#create"
+  get "blogs/:id/edit", to: "blogs#edit"
+  post "blogs/:id/update", to: "blogs#update"
+  patch "blogs/:id/update", to: "blogs#update"
+  post "blogs/:id/destroy", to: "blogs#destroy"
+
   get "maps/index", to: "maps#index"
   get "maps/new", to: "maps#new"
   get "maps/:id", to: "maps#show"

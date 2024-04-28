@@ -1,0 +1,25 @@
+<% breadcrumb :blogs_show %>
+<div class="container">
+  <h3 class="contents-title">ブログ詳細</h3>
+  <div class="blogs-index-item">
+    <div class="blog-title">
+      <%= @blog.title %>
+    </div>
+    <div class="blog-content">
+      <%= @blog.content %>
+    </div>
+    <% if session[:user_id] %>
+      <% if @blog.user_id == @current_user.id %>
+        <div class="post-menus">
+          <%= link_to("投稿", "/blogs/new") %>
+          <%= link_to("編集", "/blogs/#{@blog.id}/edit") %>
+          <%= link_to("削除", "/blogs/#{@blog.id}/destroy", {method: "post"}) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="go-home">
+  <%= link_to("<ブログ一覧に戻る>","/blogs/index") %>
+</div>

@@ -92,6 +92,26 @@ crumb :followings do
   parent :users
 end
 
+crumb :blogs do
+  link "ブログ一覧", blogs_index_path
+  parent :top
+end
+
+crumb :blogs_show do
+  link "ブログ詳細", "/blogs/:id"
+  parent :blogs
+end
+
+crumb :blogs_create do
+  link "ブログ投稿", blogs_create_path
+  parent :blogs
+end
+
+crumb :blogs_edit do
+  link "ブログ編集", "/blogs/:id/edit"
+  parent :blogs
+end
+
 crumb :maps do
   link "釣り場一覧", maps_index_path
   parent :top
