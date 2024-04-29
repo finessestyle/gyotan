@@ -9,6 +9,11 @@ class MapsController < ApplicationController
     @maps3 = Map.where(area: "北湖西")
     @maps4 = Map.where(area: "南湖東")
     @maps5 = Map.where(area: "南湖西")
+    @maps6 = Map.where(season: "春")
+    @maps7 = Map.where(season: "夏")
+    @maps8 = Map.where(season: "秋")
+    @maps9 = Map.where(season: "冬")
+    @maps10 = Map.where(season: "通年")
   end
 
   def show
@@ -21,7 +26,7 @@ class MapsController < ApplicationController
   def new
     @map = Map.new
   end
-  
+
   def create
     @map = Map.new(map_params)
     if @map.save
@@ -35,11 +40,11 @@ class MapsController < ApplicationController
   def edit
     @map = Map.find_by(id: params[:id])
   end
-  
+
   def update
     @map = Map.find_by(id: params[:id])
     @map.update(map_params)
-    
+
     if @map.save
       flash[:notice] = "投稿を編集しました"
       redirect_to("/maps/index")
@@ -47,7 +52,7 @@ class MapsController < ApplicationController
       render("maps/edit")
     end
   end
-  
+
   def destroy
     @map = Map.find_by(id: params[:id])
     @map.destroy
