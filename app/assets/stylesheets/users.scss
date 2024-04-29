@@ -139,14 +139,17 @@
   margin-bottom: 15px;
 }
 
-.profile-link {
-  font-family: "FontAwesome";
-  display: inline-block;
-  padding-right: 10px;
-  /*Twitter*/
-  .fa-twitter{color:#1da1f2;}
-  /*Facebook*/
-  .fa-youtube{color:#e1306c;}
-  /*instagram*/
-  .fa-instagram{color:#e1306c;}
+.profile-links {
+  list-style: none;
+  .profile-link {
+    font-family: "FontAwesome";
+    display: inline-block;
+    padding-right: 10px;
+    /*Twitter*/
+    .fa-twitter{color:#1da1f2;}
+    /*YouTube*/
+    .fa-youtube{color:#ff0000;}
+    /*instagram*/
+    .fa-instagram{color:#e1306c;}
+  }
 }

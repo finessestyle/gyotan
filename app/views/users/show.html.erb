@@ -10,31 +10,31 @@
       <p><%= @user.email %></p>
     <% end %>
     <p><%= @user.profile %></p>
-    <div class = "sns-link">
-      <ul class="profile-links">
-        <% if @user.youtube.present? %>
-          <li class="profile-link">
-            <%= link_to @user.youtube, target: :_blank do %>
-              <i class="fab fa-youtube fa-2x"></i>
-            <% end %>
-          </li>
-        <% end %>
-        <% if @user.twitter.present? %>
-          <li class="profile-link">
-            <%= link_to @user.twitter, target: :_blank do %>
-              <i class="fab fa-twitter fa-2x"></i>
-            <% end %>
-          </li>
-        <% end %>
-        <% if @user.instagram.present? %>
-          <li class="profile-link">
-            <%= link_to @user.instagram, target: :_blank do %>
-              <i class="fab fa-instagram fa-2x"></i>
-            <% end %>
-          </li>
-        <% end %>
-        </ul>
-    </div>
+
+    <ul class="profile-links">
+      <% if @user.youtube.present? %>
+        <li class="profile-link">
+          <%= link_to @user.youtube, target: :_blank do %>
+            <i class="fab fa-youtube fa-2x"></i>
+          <% end %>
+        </li>
+      <% end %>
+      <% if @user.twitter.present? %>
+        <li class="profile-link">
+          <%= link_to @user.twitter, target: :_blank do %>
+            <i class="fab fa-twitter fa-2x"></i>
+          <% end %>
+        </li>
+      <% end %>
+      <% if @user.instagram.present? %>
+        <li class="profile-link">
+          <%= link_to @user.instagram, target: :_blank do %>
+            <i class="fab fa-instagram fa-2x"></i>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
     <% if @user.id == @current_user.id %>
       <div class="user-edit">
         <%= link_to("編集する", "/users/#{@user.id}/edit") %>
