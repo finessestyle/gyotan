@@ -9,11 +9,6 @@ class MapsController < ApplicationController
     @maps3 = Map.where(area: "北湖西")
     @maps4 = Map.where(area: "南湖東")
     @maps5 = Map.where(area: "南湖西")
-    @maps6 = Map.where(season: "春")
-    @maps7 = Map.where(season: "夏")
-    @maps8 = Map.where(season: "秋")
-    @maps9 = Map.where(season: "冬")
-    @maps10 = Map.where(season: "通年")
   end
 
   def show

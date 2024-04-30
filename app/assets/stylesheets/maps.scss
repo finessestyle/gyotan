@@ -7,7 +7,7 @@
   margin: 0 auto;
   border: 1px solid #dee7ec;
   border-bottom: none;
-  border-radius: 10px 10px 0 0; 
+  border-radius: 10px 10px 0 0;
   box-shadow: 0 2px 6px #c1ced7;
   flex-wrap: wrap;
   margin-top: 20px;
@@ -59,7 +59,6 @@
   padding: 50px 20px;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: 20px;
   box-shadow: 0 2px 6px #c1ced7;
   border: 1px solid #dee7ec;
   border-radius: 0 0 10px 10px;
@@ -68,13 +67,12 @@
 
 @media(max-width:1000px) {
   .area {
-    padding: 15px;    
+    padding: 15px;
   }
 }
 
 @media(max-width:670px) {
   .area {
-    padding: 15px;
     margin-bottom: 0px;
     border-radius: 0 0 ;
     border-bottom: none;
@@ -84,8 +82,8 @@
 /*areaにis-activeというクラスがついた時の形状*/
 .area.is-active {
   display: block;/*表示*/
-  animation-name: displayAnime;/*ふわっと表示させるためのアニメーション*/
-  animation-duration: 2s;
+  animation-name: displayAnime; /*ふわっと表示させるためのアニメーション*/
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
 

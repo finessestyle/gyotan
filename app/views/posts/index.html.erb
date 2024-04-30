@@ -9,7 +9,7 @@
     <canvas id="myChart"></canvas>
   </div>
   <script>
-    document.addEventListener('turbolinks:load', function() {
+    document.addEventListener('turbolinks:load', () => {
       const ctx = document.getElementById("myChart"); // canvasで指定したidを取得し ctxに代入
       if (ctx) { // canvasが存在する場合のみChartを初期化する
         new Chart(ctx, {
@@ -46,7 +46,7 @@
         });
       }
     });
-    window.addEventListener('turbolinks:load', function() {
+    window.addEventListener('turbolinks:load', () => {
       const ctx = document.getElementById("myChart"); // canvasで指定したidを取得し ctxに代入
       if (ctx) { // canvasが存在する場合のみChartを初期化する
         new Chart(ctx, {

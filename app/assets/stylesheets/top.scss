@@ -60,18 +60,27 @@
 /* top/info ================================ */
 .top-info {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 10px;
 }
 
+@media(max-width:670px) {
+  .top-info {
+    gap: 0;
+  }
+}
+
 .info-item {
-  box-shadow: 0 1px 3px #c1ced7;
-  border-radius: 5px;
+  border-radius: 5px 5px ;
+  box-shadow: 0 1px 6px #c1ced7;
+  margin-top: 10px;
  }
 
  @media(max-width:670px) {
   .info-item {
+    margin-top: 0;
     border-radius: 0;
+    box-shadow:  1px 1px #c1ced7;
   }
 }
 
