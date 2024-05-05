@@ -1,14 +1,8 @@
 <% breadcrumb :maps_show %>
 <div class="container">
-  <h3 class="contents-title">釣り場詳細</h3>
+  <h3 class="contents-title">
+    <%= @map.title %></h3>
   <div class="blogs-index-item">
-    <div class="map-title">
-      <%= @map.title %>
-      <div class="map-season">
-        【<%= @map.season %>】
-      </div>
-    </div>
-
     <div class="map">
       <div id="map">
       </div>

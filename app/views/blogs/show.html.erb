@@ -1,10 +1,9 @@
 <% breadcrumb :blogs_show %>
 <div class="container">
-  <h3 class="contents-title">ブログ詳細</h3>
+  <h3 class="contents-title">
+    <%= @blog.title %>
+  </h3>
   <div class="blogs-index-item">
-    <div class="blog-title">
-      <%= @blog.title %>
-    </div>
     <div class="blog-content">
       <%= @blog.content %>
     </div>

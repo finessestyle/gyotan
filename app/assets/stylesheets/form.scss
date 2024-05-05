@@ -1,6 +1,6 @@
 /* form ================================ */
 .form {
-  max-width: 700px;
+  max-width: 600px;
   margin: 20px auto;
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
@@ -92,7 +92,7 @@
   }
 }
 
-.form-body:after { 
+.form-body:after {
   content: '';
   display: table;
   clear: both;
