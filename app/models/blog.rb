@@ -1,5 +1,6 @@
 class Blog < ApplicationRecord
   validates :user_id, {presence: true}
+  validates :image, presence: true
   has_rich_text :content
   mount_uploader :image, ImageUploader
 
