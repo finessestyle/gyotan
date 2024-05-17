@@ -2,21 +2,28 @@ class ImageUploader < CarrierWave::Uploader::Base
   attr_accessor :latitude, :longitude, :datetime
   include CarrierWave::MiniMagick
   process :convert => 'jpg'
-  
+
   if Rails.env.production?
     storage :fog # 本番環境のみ
   else
     storage :file # 本番環境以外
   end
 
-  process :get_exif_info
   def get_exif_info
     begin
-    require 'exifr/jpeg'
-      exif = EXIFR::JPEG::new(self.file.file)
-      @latitude = exif.gps.latitude
-      @longitude = exif.gps.longitude
-      @datetime = exif.datetime
+      require 'exifr/jpeg'
+      require 'exifr/heic'
+
+      case file.extension.downcase
+      when 'heic', 'heif'
+        exif = EXIFR::HEIC::new(self.file.file)
+      else
+        exif = EXIFR::JPEG::new(self.file.file)
+      end
+
+      @latitude = exif.gps.latitude if exif&.gps
+      @longitude = exif.gps.longitude if exif&.gps
+      @datetime = exif.date_time if exif&.date_time
     rescue
     end
   end
@@ -41,7 +48,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
   end
 
-  # def filename 
+  # def filename
   #   if original_filename.present?
   #     time = Time.now
   #     name = time.strftime('%Y%m%d%H%M%S') + '.jpg'

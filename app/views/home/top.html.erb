@@ -21,6 +21,56 @@
       <a href="https://px.a8.net/svt/ejp?a8mat=3BBXGL+1ZG1DE+49AW+5YJRM" rel="nofollow">釣具買取</a>
     </div>
   </div>
+
+  <h3 class="contents-title">最大釣果ランキング</h3>
+  <div class="posts-contents">
+    <% @monthly_top_catches.each do |month, catches| %>
+      <% catches.each_with_index do |catch, index| %>
+        <div class="posts-item">
+          <% case index %>
+            <% when 0 %>
+              １位
+            <% when 1 %>
+              ２位
+            <% when 2 %>
+              ３位
+            <% else %>
+              <%= index + 1 %>位
+          <% end %>
+          長さ: <%= catch.length %>cm (投稿日: <%= catch.created_at.strftime("%Y-%m-%d") %>)
+          <div class="top-left">
+            <%= image_tag catch.user.image.url, alt: "ユーザー画像" %>
+          </div>
+          <div class="top-user-name">
+            <%= link_to(catch.user.name, "/users/#{catch.user.id}") %><span> さん</span>
+          </div>
+          <div class="top-user-image">
+            <% if catch.images.length < 2 %>
+              <% catch.images.each do |image| %>
+                <%= image_tag image.to_s, alt: "投稿された釣果画像(単枚)" %>
+              <% end %>
+            <% else %>
+              <div class="swiper">
+                <div class= "swiper-wrapper ">
+                  <% post.images.each do |image| %>
+                    <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
+                  <% end %>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+              </div>
+            <% end %>
+            <div class="posts-index-right">
+              <%= link_to("👉釣果詳細","/posts/#{catch.id}", data: {"turbolinks" => false}) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
   <h3 class="contents-title">最新釣果情報</h3>
   <div class="posts-contents">
     <% @posts.each do |post| %>

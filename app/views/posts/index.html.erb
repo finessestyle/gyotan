@@ -1,11 +1,54 @@
-<head>
-  <!--Googleアドセンスの読み込み-->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8945963860738758"crossorigin="anonymous"></script>
-</head>
 <% breadcrumb :posts %>
 <div class="contents">
-  <h3 class="contents-title">釣果一覧</h3>
+  <h3 class="contents-title">今月のランキング</h3>
+  <div class="posts-contents">
+    <% @monthly_top_catches.each do |month, catches| %>
+      <% catches.each_with_index do |catch, index| %>
+        <div class="posts-item">
+          <% case index %>
+            <% when 0 %>
+              １位
+            <% when 1 %>
+              ２位
+            <% when 2 %>
+              ３位
+            <% else %>
+              <%= index + 1 %>位
+          <% end %>
+          長さ: <%= catch.length %>cm (投稿日: <%= catch.created_at.strftime("%Y-%m-%d") %>)
+          <div class="top-left">
+            <%= image_tag catch.user.image.url, alt: "ユーザー画像" %>
+          </div>
+          <div class="top-user-name">
+            <%= link_to(catch.user.name, "/users/#{catch.user.id}") %><span> さん</span>
+          </div>
+          <div class="top-user-image">
+            <% if catch.images.length < 2 %>
+              <% catch.images.each do |image| %>
+                <%= image_tag image.to_s, alt: "投稿された釣果画像(単枚)" %>
+              <% end %>
+            <% else %>
+              <div class="swiper">
+                <div class= "swiper-wrapper ">
+                  <% post.images.each do |image| %>
+                    <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
+                  <% end %>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+              </div>
+            <% end %>
+            <div class="posts-index-right">
+              <%= link_to("👉釣果詳細","/posts/#{catch.id}", data: {"turbolinks" => false}) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
+  <h3 class="contents-title">釣果一覧</h3>
   <ul class="tab">
     <li><a href="#kohoku">北湖北</a></li>
     <li><a href="#kotou">北湖東</a></li>
@@ -207,8 +250,6 @@
   <%= link_to("<ページの上へ戻る>", "#top") %>
 </div>
 
-<!--グラフの読み込み-->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-4-1/js/5-4-1.js"></script>
 
 
