@@ -52,7 +52,7 @@
             <% else %>
               <div class="swiper">
                 <div class= "swiper-wrapper ">
-                  <% post.images.each do |image| %>
+                  <% catch.images.each do |image| %>
                     <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
                   <% end %>
                 </div>
