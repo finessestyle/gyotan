@@ -12,11 +12,9 @@ class HomeController < ApplicationController
     while current_date <= end_date
       month_start = current_date.beginning_of_month
       month_end = current_date.end_of_month
-      top_catches = Post.where(created_at: month_start..month_end).order(length: :desc).limit(3)
-      top_catches = Post.where(created_at: month_start..month_end).order(weight: :desc).limit(3)
+      top_catches = Post.where(created_at: month_start..month_end).order(length: :desc).limit(9)
       @monthly_top_catches[month_start.strftime("%Y年%m月ランキング")] = top_catches
       current_date = current_date.next_month
     end
-    @posts = Post.all.order(created_at: :desc).limit(9)
   end
 end
