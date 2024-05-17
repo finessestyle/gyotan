@@ -28,26 +28,26 @@
       <% catches.each_with_index do |catch, index| %>
         <div class="posts-item">
           <% case index %>
-            <% when 0 %>
-              １位
-            <% when 1 %>
-              ２位
-            <% when 2 %>
-              ３位
-            <% when 3 %>
-              ４位
-            <% when 4 %>
-              ５位
-            <% when 5 %>
-              ６位
-            <% when 6 %>
-              ７位
-            <% when 7 %>
-              ８位
-            <% when 8 %>
-              ９位
-            <% else %>
-              <%= index + 1 %>位
+          <% when 0 %>
+            １位
+          <% when 1 %>
+            ２位
+          <% when 2 %>
+            ３位
+          <% when 3 %>
+            ４位
+          <% when 4 %>
+            ５位
+          <% when 5 %>
+            ６位
+          <% when 6 %>
+            ７位
+          <% when 7 %>
+            ８位
+          <% when 8 %>
+            ９位
+          <% else %>
+            <%= index + 1 %>位
           <% end %>
           長さ: <%= catch.length %>cm (投稿日: <%= catch.created_at.strftime("%Y-%m-%d") %>)
           <div class="top-left">
@@ -63,7 +63,7 @@
               <% end %>
             <% else %>
               <div class="swiper">
-                <div class= "swiper-wrapper ">
+                <div class="swiper-wrapper">
                   <% catch.images.each do |image| %>
                     <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
                   <% end %>
@@ -74,14 +74,13 @@
               </div>
             <% end %>
             <div class="posts-index-right">
-              <%= link_to("👉釣果詳細","/posts/#{catch.id}", data: {"turbolinks" => false}) %>
+              <%= link_to("👉釣果詳細", "/posts/#{catch.id}", data: { "turbolinks" => false }) %>
             </div>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
-
 </div>
 
 <% if @current_user && @posts or @post %>
