@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   require 'mini_magick'
 
   def top
+    @top_catches = Post.order(length: :desc).limit(9)
     @monthly_top_catches = {}
     # 今月の期間を取得
     month_start = Time.now.beginning_of_month

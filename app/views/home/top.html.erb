@@ -24,6 +24,42 @@
 
   <h3 class="contents-title">最大釣果ランキング</h3>
   <div class="posts-contents">
+    <% @top_catches.each_with_index do |catch, index| %>
+      <div class="posts-item">
+        <%= "#{index + 1}位" %> 長さ: <%= catch.length %>cm (投稿日: <%= catch.created_at.strftime("%Y-%m-%d") %>)
+        <div class="top-left">
+          <%= image_tag catch.user.image.url, alt: "ユーザー画像" %>
+        </div>
+        <div class="top-user-name">
+          <%= link_to(catch.user.name, "/users/#{catch.user.id}") %><span> さん</span>
+        </div>
+        <div class="top-user-image">
+          <% if catch.images.length < 2 %>
+            <% catch.images.each do |image| %>
+              <%= image_tag image.to_s, alt: "投稿された釣果画像(単枚)" %>
+            <% end %>
+          <% else %>
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <% catch.images.each do |image| %>
+                  <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
+                <% end %>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          <% end %>
+          <div class="posts-index-right">
+            <%= link_to("👉釣果詳細", "/posts/#{catch.id}", data: { "turbolinks" => false }) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <h3 class="contents-title">今月の最大釣果ランキング</h3>
+  <div class="posts-contents">
     <% @monthly_top_catches.each do |month, catches| %>
       <% catches.each_with_index do |catch, index| %>
         <div class="posts-item">
