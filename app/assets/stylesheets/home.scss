@@ -239,6 +239,24 @@ main {
   }
 }
 
+.contents iframe {
+  width: 1200px;
+  margin: 30px auto;
+  height: 600px;
+}
+
+@media(max-width:1000px) {
+  .contents iframe {
+    width: 100%;
+  }
+}
+
+@media(max-width:670px) {
+  .contents iframe {
+    width: 100%;
+  }
+}
+
 .contents-title {
   text-align: center;
   margin: 20px 0;
