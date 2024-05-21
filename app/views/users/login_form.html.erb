@@ -14,6 +14,7 @@
           <%= form.label "パスワード" %>
           <%= form.password_field :password, value: @password %>
           <%= link_to("☞新規登録はこちらから", "/signup") %>
+          <%= link_to("☞パスワードを忘れた方はこちら", "/password/reset") %>
           <%= form.submit "ログイン" %>
         <% end %>
       </div>

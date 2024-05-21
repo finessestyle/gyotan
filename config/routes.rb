@@ -53,6 +53,11 @@ Rails.application.routes.draw do
   get "contacts/new", to: "contacts#new"
   post "contacts/create", to: "contacts#create"
 
+  get "password/reset", to: "password_resets#new"
+  post "password/reset", to: "password_resets#create"
+  get "password/reset/edit", to: "password_resets#edit"
+  patch "password/reset/edit", to: "password_resets#update"
+
   # ネストさせる
   resources :users, only: [:index, :show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
