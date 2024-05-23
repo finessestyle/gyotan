@@ -74,6 +74,18 @@
         </div>
       <% end %>
 
+      <% if flash[:success] %>
+        <div class="flash">
+          <%= flash[:success] %>
+        </div>
+      <% end %>
+
+      <% if flash[:danger] %>
+        <div class="flash">
+          <%= flash[:danger] %>
+        </div>
+      <% end %>
+
       <%= breadcrumbs separator: " &rsaquo; " %>
       <%= yield %>
     </main>
