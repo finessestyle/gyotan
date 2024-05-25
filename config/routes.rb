@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   get "/", to: "home#top"
   get "about", to: "home#about"
 
+  get "password/reset", to: "password_resets#new", as: 'new_password_reset'
+  post "password/create", to: "password_resets#create"
+  get "password/reset/edit", to: "password_resets#edit"
+  post "password/reset", to: "password_resets#update"
+  patch "password/reset", to: "password_resets#update"
+  post "password/reset/edit", to: "password_resets#update"
+  patch "password/reset/edit", to: "password_resets#update"
+
   post "users/:id/update", to: "users#update"
   patch "users/:id/update", to: "users#update"
   get "users/:id/edit", to: "users#edit"
@@ -52,11 +60,6 @@ Rails.application.routes.draw do
 
   get "contacts/new", to: "contacts#new"
   post "contacts/create", to: "contacts#create"
-
-  get "password/reset", to: "password_resets#new", as: "new_password_reset"
-  post "password/reset", to: "password_resets#create"
-  get "password/reset/edit", to: "password_resets#edit", as: "edit_password_reset"
-  put "password/reset/edit", to: "password_resets#update"
 
   # ネストさせる
   resources :users, only: [:index, :show, :edit, :update] do

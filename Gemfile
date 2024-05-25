@@ -33,6 +33,8 @@ gem 'meta-tags'
 gem 'gretel'
 gem 'gon'
 gem 'font-awesome-sass'
+gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+gem 'letter_opener_web'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
