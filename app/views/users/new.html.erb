@@ -3,6 +3,8 @@
 <h3 class="contents-title">新規登録</h3>
   <div class="form">
     <div class="form-body">
+      <p style='color: red'>※釣果を投稿するには新規ユーザー登録が必要です！！<p>
+      <br>
       <% @user.errors.full_messages.each do |message| %>
         <div class="form-error">
           <%= message %>
