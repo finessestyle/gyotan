@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  琵琶湖バス釣りブログ
+<% end %>
+
 <% breadcrumb :blogs %>
 
 <div class="contents">
@@ -13,7 +17,7 @@
         </div>
         <div class="user-post-datetime">
           <span>投稿日：</span>
-          <%= blog. updated_at.strftime("%Y-%m-%d") %>
+          <%= blog.updated_at.strftime("%Y-%m-%d") %>
         </div>
       </div>
     <% end %>
