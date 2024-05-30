@@ -1,5 +1,5 @@
 # convert_existing_images_to_webp.rb
-require_relative '../config/environment'
+require_relative '../gyotan/config/environment'
 require 'mini_magick'
 
 User.all.each do |user|
