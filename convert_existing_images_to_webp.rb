@@ -1,19 +1,19 @@
 require_relative '../gyotan/config/environment'
 require 'mini_magick'
 
-# User.all.each do |user|
-#   if user.image.present?
-#     image_path = user.image.path
-#     webp_path = image_path.sub(/(\.\w+)$/, '.webp')
+User.all.each do |user|
+  if user.image.present?
+    image_path = user.image.path
+    webp_path = image_path.sub(/(\.\w+)$/, '.webp')
 
-#     image = MiniMagick::Image.open(image_path)
-#     image.format 'webp'
-#     image.write webp_path
+    image = MiniMagick::Image.open(image_path)
+    image.format 'webp'
+    image.write webp_path
 
-#     # Update the user's image attribute to point to the new webp file
-#     user.update(image: File.open(webp_path))
-#   end
-# end
+    # Update the user's image attribute to point to the new webp file
+    user.update(image: File.open(webp_path))
+  end
+end
 
 Post.all.each do |post|
   post.images.each do |image|
