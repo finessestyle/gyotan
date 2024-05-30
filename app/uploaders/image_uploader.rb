@@ -1,7 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
   attr_accessor :latitude, :longitude, :datetime
   include CarrierWave::MiniMagick
-  process :convert_to_webp
 
   if Rails.env.production?
     storage :fog # 本番環境のみ
@@ -57,18 +56,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   end
   # end
 
-  def mimetype
-    IO.popen(["file", "--brief", "--mime-type", path], in: :close, err: :close) { |io| io.read.chomp.sub(/image\//, "") }
-  end
-
-  def custom_optimize
-    case mimetype
-    when "png"
-      pngquant
-    when "jpeg", "gif"
-      optimize(quality: 90)
-    end
-  end
+  process :convert_to_webp
 
   def convert_to_webp
     manipulate! do |img|
