@@ -1,7 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
   attr_accessor :latitude, :longitude, :datetime
   include CarrierWave::MiniMagick
-  process :convert => 'jpg'
+  process :convert_to_webp
 
   if Rails.env.production?
     storage :fog # 本番環境のみ
@@ -24,7 +24,8 @@ class ImageUploader < CarrierWave::Uploader::Base
       @latitude = exif.gps.latitude if exif&.gps
       @longitude = exif.gps.longitude if exif&.gps
       @datetime = exif.date_time if exif&.date_time
-    rescue
+    rescue => e
+      Rails.logger.error "EXIF情報の抽出エラー: #{e.message}"
     end
   end
 
@@ -41,11 +42,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extension_allowlist
-    %w(jpg jpeg gif png heic heif)
+    %w(jpg jpeg gif png heic webp)
   end
 
   def filename
-    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
+    super.chomp(File.extname(super)) + '.webp' if original_filename.present?
   end
 
   # def filename
@@ -62,8 +63,17 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def custom_optimize
     case mimetype
-      when "png" then pngquant
-      when "jpeg", "gif" then optimize(quality: 90)
+    when "png"
+      pngquant
+    when "jpeg", "gif"
+      optimize(quality: 90)
+    end
+  end
+
+  def convert_to_webp
+    manipulate! do |img|
+      img.format 'webp'
+      img
     end
   end
 end
