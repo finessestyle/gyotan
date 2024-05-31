@@ -33,14 +33,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :thumb do
-    process resize_to_fit: [800, 600]
-  end
-
-  version :medium_thumb, from_version: :thumb do
-    process resize_to_fit: [500, 500]
-  end
-
   def extension_allowlist
     %w(jpg jpeg gif png heic webp)
   end
@@ -48,14 +40,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   def filename
     super.chomp(File.extname(super)) + '.webp' if original_filename.present?
   end
-
-  # def filename
-  #   if original_filename.present?
-  #     time = Time.now
-  #     name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
-  #     name.downcase
-  #   end
-  # end
 
   def mimetype
     IO.popen(["file", "--brief", "--mime-type", path], in: :close, err: :close) { |io| io.read.chomp.sub(/image\//, "") }

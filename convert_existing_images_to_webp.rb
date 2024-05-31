@@ -1,4 +1,4 @@
-require_relative '../gyotan/config/environment'
+require_relative '../config/environment'
 require 'mini_magick'
 
 User.all.each do |user|
