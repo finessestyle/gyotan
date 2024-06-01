@@ -1,7 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
   attr_accessor :latitude, :longitude, :datetime
   include CarrierWave::MiniMagick
-  process :convert_to_webp
+  process :convert => 'jpg'
 
   if Rails.env.production?
     storage :fog # 本番環境のみ
@@ -11,21 +11,35 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def get_exif_info
     begin
-      require 'exifr/jpeg'
-      require 'exifr/heic'
+      require 'mini_magick'
+      require 'exiftool'
 
       case file.extension.downcase
       when 'heic', 'heif'
-        exif = EXIFR::HEIC::new(self.file.file)
+        # Convert HEIC to JPEG
+        image = MiniMagick::Image.open(file.path)
+        jpeg_path = file.path.sub(/\.(heic|heif)$/i, '.jpg')
+        image.format 'jpeg'
+        image.write jpeg_path
+
+        # Extract EXIF data from the converted JPEG
+        exif = Exiftool.new(jpeg_path).to_hash
+        File.delete(jpeg_path) if File.exist?(jpeg_path) # Delete the temporary JPEG file
       else
-        exif = EXIFR::JPEG::new(self.file.file)
+        # Extract EXIF data from the original JPEG
+        exif = Exiftool.new(file.path).to_hash
       end
 
-      @latitude = exif.gps.latitude if exif&.gps
-      @longitude = exif.gps.longitude if exif&.gps
-      @datetime = exif.date_time if exif&.date_time
-    rescue => e
-      Rails.logger.error "EXIF情報の抽出エラー: #{e.message}"
+      # Assign extracted EXIF data to instance variables
+      if exif
+        @latitude = exif[:gpslatitude]
+        @longitude = exif[:gpslongitude]
+        @datetime = exif[:datetimeoriginal] || exif[:createdate]
+      end
+    rescue LoadError => e
+      Rails.logger.error "Gemが見つかりません: #{e.message}"
+    rescue StandardError => e
+      Rails.logger.error "EXIF情報の取得中にエラーが発生しました: #{e.message}"
     end
   end
 
@@ -33,12 +47,16 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  version :thumb do
+    process resize_to_fit: [700, 500]
+  end
+
   def extension_allowlist
-    %w(jpg jpeg gif png heic webp)
+    %w(jpg jpeg gif png heic heif)
   end
 
   def filename
-    super.chomp(File.extname(super)) + '.webp' if original_filename.present?
+    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
   end
 
   def mimetype
@@ -47,17 +65,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def custom_optimize
     case mimetype
-    when "png"
-      pngquant
-    when "jpeg", "gif"
-      optimize(quality: 90)
-    end
-  end
-
-  def convert_to_webp
-    manipulate! do |img|
-      img.format 'webp'
-      img
+      when "png" then pngquant
+      when "jpeg", "gif" then optimize(quality: 90)
     end
   end
 end
