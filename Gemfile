@@ -35,12 +35,11 @@ gem 'gon'
 gem 'font-awesome-sass'
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 gem 'letter_opener_web'
-gem 'aws-sdk-s3'
-gem 'exiftool'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do

@@ -11,35 +11,20 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def get_exif_info
     begin
-      require 'mini_magick'
-      require 'exiftool'
+      require 'exifr/jpeg'
+      require 'exifr/heic'
 
       case file.extension.downcase
       when 'heic', 'heif'
-        # Convert HEIC to JPEG
-        image = MiniMagick::Image.open(file.path)
-        jpeg_path = file.path.sub(/\.(heic|heif)$/i, '.jpg')
-        image.format 'jpeg'
-        image.write jpeg_path
-
-        # Extract EXIF data from the converted JPEG
-        exif = Exiftool.new(jpeg_path).to_hash
-        File.delete(jpeg_path) if File.exist?(jpeg_path) # Delete the temporary JPEG file
+        exif = EXIFR::HEIC::new(self.file.file)
       else
-        # Extract EXIF data from the original JPEG
-        exif = Exiftool.new(file.path).to_hash
+        exif = EXIFR::JPEG::new(self.file.file)
       end
 
-      # Assign extracted EXIF data to instance variables
-      if exif
-        @latitude = exif[:gpslatitude]
-        @longitude = exif[:gpslongitude]
-        @datetime = exif[:datetimeoriginal] || exif[:createdate]
-      end
-    rescue LoadError => e
-      Rails.logger.error "Gemが見つかりません: #{e.message}"
-    rescue StandardError => e
-      Rails.logger.error "EXIF情報の取得中にエラーが発生しました: #{e.message}"
+      @latitude = exif.gps.latitude if exif&.gps
+      @longitude = exif.gps.longitude if exif&.gps
+      @datetime = exif.date_time if exif&.date_time
+    rescue
     end
   end
 
@@ -48,7 +33,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fit: [700, 500]
+    process resize_to_fit: [800, 600]
   end
 
   def extension_allowlist
