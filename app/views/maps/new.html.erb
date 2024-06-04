@@ -1,3 +1,6 @@
+<% content_for :title do %>
+  琵琶湖バス釣り場投稿
+<% end %>
 <% breadcrumb :maps_create %>
 <div class="container">
   <h3 class="contents-title">釣り場投稿</h3>
@@ -8,7 +11,7 @@
           <%= message %>
         </div>
       <% end %>
-      
+
       <%= form_with model: @map, url: "/maps/create", local: true do |form| %>
         <%= form.label "タイトル" %>
         <%= form.text_field :title %>
@@ -35,7 +38,7 @@
 
         <%= form.label "地理院地図URL" %>
         <%= form.text_field :url %>
-        
+
         <%= form.label "画像" %>
         <%= form.file_field :image %>
 

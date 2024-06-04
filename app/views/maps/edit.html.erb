@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  琵琶湖バス釣り場編集
+<% end %>
+
 <% breadcrumb :maps_edit %>
 <div class="container">
   <h3 class="contents-title">釣り場編集</h3>
@@ -5,7 +9,7 @@
   <%= form_with model: @map, url: "/maps/#{@map.id}/update", local: true do |form| %>
     <div class="form">
       <div class="form-body">
-      
+
         <% @map.errors.full_messages.each do |message| %>
           <div class="form-error">
             <%= message %>
@@ -14,7 +18,7 @@
 
         <%= form.label "タイトル" %>
         <%= form.text_field :title, value: @map.title %>
-        
+
         <%= form.label "カテゴリー" %>
         <%= form.select :area,
         [
@@ -28,7 +32,7 @@
           ["春"],["夏"],["秋"],["冬"],["通年"]
         ] ,
         prompt: "季節を選択してください", value: @map.season %>
-        
+
         <%= form.label "緯度" %>
         <%= form.text_field :latitude, value: @map.latitude %>
 
@@ -37,13 +41,13 @@
 
         <%= form.label "地理院地図 URL" %>
         <%= form.text_field :url, value: @map.url %>
-        
+
         <%= form.label "画像" %>
         <%= form.file_field :image, value: @map.image %>
-        
+
         <%= form.label "内容" %>
         <%= form.rich_text_area :content, value: @map.content %>
-        
+
         <%= form.submit "投稿" %>
       </div>
     </div>

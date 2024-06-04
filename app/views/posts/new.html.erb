@@ -1,7 +1,11 @@
+<% content_for :title do %>
+  琵琶湖バス釣り釣果投稿
+<% end %>
+
 <% breadcrumb :posts_create %>
 <div class="container">
   <h3 class="contents-title">釣果投稿</h3>
-  
+
   <div class="form">
     <div class="form-body">
       <% @post.errors.full_messages.each do |message| %>
@@ -10,7 +14,7 @@
         </div>
       <% end %>
 
-      <%= form_with model: @post, url: "/posts/create", local: true do |form| %>  
+      <%= form_with model: @post, url: "/posts/create", local: true do |form| %>
         <%= form.label "タイトル" %>
         <%= form.text_field :title, maxlength: 32 %>
 
@@ -58,7 +62,7 @@
             ["ウォーターメロン"],["グリパン"],["スカッパノン"],["スモーク"],["ツートン"],
           ] ,
           prompt: "ルアーカラーを選択してください" %>
-      
+
         <%= form.label "釣果数" %>
         <%= form.number_field :catch_fish, min: 1, max: 20, step: "1" %>
 

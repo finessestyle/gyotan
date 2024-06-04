@@ -1,5 +1,8 @@
 <% content_for :title do %>
-  琵琶湖バス釣りポイント
+  琵琶湖バス釣り場<%= @map.title %>
+<% end %>
+<% content_for :description do %>
+  琵琶湖バス釣り場。<%= @map.title %>
 <% end %>
 
 <% breadcrumb :maps_show %>

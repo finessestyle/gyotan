@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  琵琶湖バス釣り釣果編集
+<% end %>
+
 <% breadcrumb :posts_edit %>
 <div class="container">
   <h3 class="contents-title">釣果編集</h3>
@@ -17,7 +21,7 @@
 
         <%= form.label "釣果画像" %><span> ※３枚以下</span>
         <%= form.file_field :images, multiple: true, value: @post.images %>
-        
+
         <%= form.label "天気" %>
         <%= form.select :weather,
         [
@@ -34,14 +38,14 @@
             ["北湖北エリア"],["北湖東エリア"],["北湖西エリア"],["南湖東エリア"],["南湖西エリア"]
           ] ,
         prompt: "釣果エリアを選択してください", value: @post.fish_area %>
-        
-        
+
+
         <%= form.label "サイズ" %><span> ※30cm以上</span>
         <%= form.number_field :length, min: 30, max: 75, step: "0.5", value: @post.length %>
 
         <%= form.label "重さ" %><span> ※500g以上</span>
         <%= form.number_field :weight, min: 500, max: 10000, step: "5", value: @post.weight %>
-          
+
         <%= form.label "ルアー種類" %>
         <%= form.select :lure,
           [
@@ -51,7 +55,7 @@
           ["ヘビキャロ"],["テキサスリグ"],["スイムベイト"],["シャッドテール"],
           ] ,
           prompt: "ルアーを選択してください", value: @post.lure %>
-        
+
         <%= form.label "ルアーカラー" %>
         <%= form.select :lure_color,
         [
@@ -60,10 +64,10 @@
           ["ウォーターメロン"],["グリパン"],["スカッパノン"],["スモーク"],["ツートン"],
         ] ,
         prompt: "ルアーカラーを選択してください", value: @post.lure_color %>
-        
+
         <%= form.label "釣果数" %>
         <%= form.number_field :catch_fish, min: 1, max: 50, step: "1", value: @post.catch_fish %>
-        
+
         <%= form.submit "投稿" %>
       </div>
     </div>

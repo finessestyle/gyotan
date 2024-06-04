@@ -1,5 +1,8 @@
 <% content_for :title do %>
-  琵琶湖バス釣りブログ
+  琵琶湖バス釣りブログ詳細
+<% end %>
+<% content_for :description do %>
+  琵琶湖バス釣りブログ。<%= @blog.title %>
 <% end %>
 
 <% breadcrumb :blogs_show %>
