@@ -1,7 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
   attr_accessor :latitude, :longitude, :datetime
   include CarrierWave::MiniMagick
-  process :convert => 'jpeg'
+  process :convert => 'jpg'
 
   if Rails.env.production?
     storage :fog # 本番環境のみ
@@ -30,6 +30,14 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  version :thumb do
+    process resize_to_fit: [800, 600]
+  end
+
+  version :medium_thumb, from_version: :thumb do
+    process resize_to_fit: [500, 500]
   end
 
   def extension_allowlist
