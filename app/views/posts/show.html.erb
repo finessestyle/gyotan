@@ -21,13 +21,13 @@
     <div class="post-image">
       <% if @post.images.length < 2 %>
         <% @post.images.each do |image| %>
-          <%= image_tag image.to_s, class: "post-img", alt: "投稿された釣果画像（単枚）" %>
+          <%= image_tag image.url, class: "post-img", alt: "投稿された釣果画像（単枚）" %>
         <% end %>
       <% else %>
         <div class="swiper">
           <div class="swiper-wrapper">
             <% @post.images.each do |image| %>
-              <%= image_tag image.to_s, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
+              <%= image_tag image.url, class: "swiper-slide index-img", alt: "投稿された釣果画像（複数枚）" %>
             <% end %>
           </div>
           <div class="swiper-button-prev"></div>
@@ -38,19 +38,29 @@
     </div>
 
     <div class="post-datetime">
+      <% require 'open-uri' %>
+      <% require 'tempfile' %>
+
       <% begin %>
-        <% if Rails.env.development? %>
-          <% image = EXIFR::JPEG.new(Rails.root.to_s + "/public#{@post.images[0].to_s}") %>
-        <% else %>
-          <% image = EXIFR::JPEG.new(open(@post.images[0].to_s)) %>
-        <% end %>
-        <% if image.date_time.nil? %>
-          <span>投稿日時：</span><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
-        <% else %>
-          <span>釣果日時：</span><%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
-        <% end %>
+        <% image_url = @post.images[0].url %>
+        <% file = Tempfile.new(['image', '.jpg']) %>
+        <% file.binmode %>
+        <% file.write URI.open(image_url).read %>
+        <% file.rewind %>
+        <% exif = EXIFR::JPEG.new(file.path) %>
+        <% file.close %>
+        <% file.unlink %>
+        <% latitude = exif.gps&.latitude %>
+        <% longitude = exif.gps&.longitude %>
+        <% datetime = exif.date_time %>
       <% rescue => e %>
+        <% Rails.logger.error "Failed to read EXIF data: #{e.message}" %>
+      <% end %>
+
+      <% if datetime.nil? %>
         <span>投稿日時：</span><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
+      <% else %>
+        <span>釣果日時：</span><%= datetime.strftime("%Y-%m-%d %H:%M") %>
       <% end %>
     </div>
 
@@ -67,9 +77,9 @@
       let nRadiusHalfKm = 300;
 
       document.addEventListener("turbolinks:load", function initMap() {
-        <% if image&.gps_latitude.nil? %>
+        <% if latitude.nil? || longitude.nil? %>
           map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 35.28537173798231, lng: 136.09664223303773},
+            center: {lat: 35.28537173798231, lng: 136.09664223303773 },
             zoom: 10,
             fullscreenControl: false,
             streetViewControl: true,
@@ -80,7 +90,7 @@
           });
         <% else %>
           map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %>},
+            center: {lat: <%= latitude %>, lng: <%= longitude %> },
             zoom: 15,
             fullscreenControl: false,
             streetViewControl: true,
@@ -98,7 +108,7 @@
             fillOpacity: 0.2,
             map: map,
             draggable: false,
-            center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %>},
+            center: {lat: <%= latitude %>, lng: <%= longitude %> },
             radius: nRadiusHalfKm
           });
         <% end %>
@@ -164,7 +174,7 @@
 </div>
 
 <div class="go-home">
-  <%= link_to("<釣果一覧に戻る>", "/posts/index") %>
+  <%= link_to("<釣果一覧に戻る>","/posts/index") %>
 </div>
 
 <!--Google Maps APIの読み込み-->

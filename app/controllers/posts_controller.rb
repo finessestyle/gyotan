@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   require 'exifr/jpeg'
   require "google_drive"
   require 'mini_magick'
-  require 'open-uri'
 
   def index
     @posts = Post.all.order(created_at: :desc) #or :asc
