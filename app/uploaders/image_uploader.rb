@@ -11,19 +11,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def get_exif_info
     begin
-      require 'exifr/jpeg'
-      require 'exifr/heic'
-
-      case file.extension.downcase
-      when 'heic', 'heif'
-        exif = EXIFR::HEIC::new(self.file.file)
-      else
-        exif = EXIFR::JPEG::new(self.file.file)
-      end
-
-      @latitude = exif.gps.latitude if exif&.gps
-      @longitude = exif.gps.longitude if exif&.gps
-      @datetime = exif.date_time if exif&.date_time
+    require 'exifr/jpeg'
+      exif = EXIFR::JPEG::new(self.file.file)
+      @latitude = exif.gps.latitude
+      @longitude = exif.gps.longitude
+      @datetime = exif.datetime
     rescue
     end
   end
