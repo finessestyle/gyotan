@@ -38,15 +38,29 @@
     </div>
 
     <div class="post-datetime">
-      <% if Rails.env.development? %>
-        <% image = EXIFR::JPEG.new(Rails.root.to_s+"/public#{@post.images[0].to_s}") %>
-      <% else %>
-        <% image = EXIFR::JPEG.new(open(@post.images[0].to_s)) %>
+      <% require 'open-uri' %>
+      <% require 'tempfile' %>
+
+      <% begin %>
+        <% image_url = @post.images[0].url %>
+        <% file = Tempfile.new(['image', '.jpg']) %>
+        <% file.binmode %>
+        <% file.write URI.open(image_url).read %>
+        <% file.rewind %>
+        <% exif = EXIFR::JPEG.new(file.path) %>
+        <% file.close %>
+        <% file.unlink %>
+        <% latitude = exif.gps&.latitude %>
+        <% longitude = exif.gps&.longitude %>
+        <% datetime = exif.date_time %>
+      <% rescue => e %>
+        <% Rails.logger.error "Failed to read EXIF data: #{e.message}" %>
       <% end %>
-      <% if image.date_time == nil %>
+
+      <% if datetime.nil? %>
         <span>投稿日時：</span><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
       <% else %>
-        <span>釣果日時：</span><%= image.date_time.strftime("%Y-%m-%d %H:%M") %>
+        <span>釣果日時：</span><%= datetime.strftime("%Y-%m-%d %H:%M") %>
       <% end %>
     </div>
 
@@ -63,24 +77,24 @@
       let nRadiusHalfKm = 300;
 
       document.addEventListener("turbolinks:load", function initMap() {
-        <% if image.gps_latitude.nil? %>
+        <% if latitude.nil? || longitude.nil? %>
           map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 35.28537173798231, lng: 136.09664223303773 },
             zoom: 10,
             fullscreenControl: false,
-            streetViewControl: true, //ストリートビューに切り替えるボタンを非表示
-            scaleControl: true, //地図のスケールを表示（デフォルトは非表示）
+            streetViewControl: true,
+            scaleControl: true,
             mapTypeControl: false,
             mapTypeId: google.maps.MapTypeId.HYBRID,
             zoomControl: true
           });
         <% else %>
           map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
+            center: {lat: <%= latitude %>, lng: <%= longitude %> },
             zoom: 15,
             fullscreenControl: false,
-            streetViewControl: true, //ストリートビューに切り替えるボタンを非表示
-            scaleControl: true, //地図のスケールを表示（デフォルトは非表示）
+            streetViewControl: true,
+            scaleControl: true,
             mapTypeControl: false,
             mapTypeId: google.maps.MapTypeId.HYBRID,
             zoomControl: true
@@ -94,45 +108,7 @@
             fillOpacity: 0.2,
             map: map,
             draggable: false,
-            center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
-            radius: nRadiusHalfKm
-          });
-        <% end %>
-      });
-
-      window.addEventListener("turbolinks:load", function initMap() {
-        <% if image.gps_latitude.nil? %>
-          map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 35.28537173798231, lng: 136.09664223303773 },
-            zoom: 10,
-            fullscreenControl: false,
-            streetViewControl: true, //ストリートビューに切り替えるボタンを非表示
-            scaleControl: true, //地図のスケールを表示（デフォルトは非表示）
-            mapTypeControl: false,
-            mapTypeId: google.maps.MapTypeId.HYBRID,
-            zoomControl: true
-          });
-        <% else %>
-          map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
-            zoom: 15,
-            fullscreenControl: false,
-            streetViewControl: true, //ストリートビューに切り替えるボタンを非表示
-            scaleControl: true, //地図のスケールを表示（デフォルトは非表示）
-            mapTypeControl: false,
-            mapTypeId: google.maps.MapTypeId.HYBRID,
-            zoomControl: true
-          });
-
-          circleBlue = new google.maps.Circle({
-            strokeColor: "#3333FF",
-            strokeOpacity: 0.2,
-            strokeWeight: 2,
-            fillColor: "#3333FF",
-            fillOpacity: 0.2,
-            map: map,
-            draggable: false,
-            center: {lat: <%= image.gps.latitude %>, lng: <%= image.gps.longitude %> },
+            center: {lat: <%= latitude %>, lng: <%= longitude %> },
             radius: nRadiusHalfKm
           });
         <% end %>
