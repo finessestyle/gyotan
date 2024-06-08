@@ -45,10 +45,6 @@
               <% if @current_user.admin? %>
                 <li class="nav_menu_li"><%= link_to("釣り場投稿", "/maps/new") %></li>
               <% end %>
-              <li class="nav_menu_li"><%= link_to("バス釣りブログ","/blogs/index") %></li>
-              <% if @current_user.admin? %>
-                <li class="nav_menu_li"><%= link_to("ブログ投稿", "/blogs/new") %></li>
-              <% end %>
               <li class="nav_menu_li"><%= link_to("ログアウト", "/logout", {method: "post"}) %></li>
             </ul>
           </nav>
