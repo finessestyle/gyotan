@@ -50,17 +50,6 @@ ActiveRecord::Schema.define(version: 2024_04_28_130708) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "blogs", force: :cascade do |t|
-    t.string "title"
-    t.string "sub_title"
-    t.string "image"
-    t.text "content"
-    t.integer "user_id"
-    t.string "category"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "contacts", force: :cascade do |t|
     t.string "name", null: false
     t.text "content", null: false
